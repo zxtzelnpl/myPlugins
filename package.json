@@ -1,0 +1,11 @@
+{
+  "name": "myplugins",
+  "version": "1.0.0",
+  "description": "myplugins",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Was",
+  "license": "ISC"
+}
