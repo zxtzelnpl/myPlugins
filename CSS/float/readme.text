@@ -9,4 +9,17 @@
     display:none
     position:absolute/fixed/sticky
 6、通过父元素塌陷和当前元素偏移
-
+7、BFC/haslayout通常声明
+    float:left/right
+    position:absolute/fixed
+    overflow:hidden/scroll(IE7+)
+    display:inline-block/table-cell(IE8+)
+    wdith/height/zoom:1/...
+8、层叠上下文
+    层叠上下文background/border
+    负z-index
+    block块状水平盒子
+    float浮动的盒子
+    inline/inline-block水平盒子
+    z-index:auto/z-index:0
+    正z-index
