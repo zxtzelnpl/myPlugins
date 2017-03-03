@@ -13,7 +13,6 @@ var nodemon = require('gulp-nodemon');
 var connect = require('gulp-connect');
 
 
-
 gulp.task('styles', function () {
     return gulp.src(todayLess)
         .pipe(sourcemaps.init())
@@ -28,19 +27,19 @@ gulp.task('styles', function () {
 });
 
 gulp.task('html', function () {
-    gulp.src(todaydir+'*.html')
+    gulp.src(todaydir + '*.html')
         .pipe(connect.reload());
 });
 
-gulp.task('js',function(){
-    gulp.src(todaydir+'js/*.js')
+gulp.task('js', function () {
+    gulp.src(todaydir + 'js/*.js')
         .pipe(connect.reload());
 });
 
-gulp.task('watch',['styles'],function(){
-    gulp.watch([todaydir+'*.html'],['html']);
-    gulp.watch([todaydir+'*.js'],['js']);
-    gulp.watch([todayLess],['styles']);
+gulp.task('watch', ['styles'], function () {
+    gulp.watch([todaydir + '*.html'], ['html']);
+    gulp.watch([todaydir + '*.js'], ['js']);
+    gulp.watch([todayLess], ['styles']);
 });
 
 gulp.task('connect', function () {
@@ -49,4 +48,4 @@ gulp.task('connect', function () {
     });
 });
 
-gulp.task('default', ['connect','watch']);
+gulp.task('default', ['connect', 'watch']);

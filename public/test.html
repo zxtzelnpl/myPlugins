@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var i=0;
+        var mark=['first','second','third'];
+        window.onbeforeunload=function(){
+            console.log('beforeunload');
+            localStorage[i+'beforeunload']=i++;
+        };
+        window.onpagehide=function(){
+            console.log('pagehide');
+            localStorage[i+'pagehide']=i++;
+        };
+        document.addEventListener('visibilitychange',function(){
+            console.log('visibilitychange');
+            localStorage[i+'visibilitychange']=i++;
+        });
+        document.addEventListener('webkitvisibilitychange',function(){
+            console.log('webkitvisibilitychange');
+            localStorage[i+'webkitvisibilitychange']=i++;
+        });
+
+        window.onunload=function(){
+            console.log('unload');
+            localStorage[i+'unload']=i++;
+        };
+
+        document.addEventListener('readystatechange',function(){
+            console.log('readystatechange');
+            localStorage[i+'readystatechange']=i++;
+        });
+
+        document.addEventListener('DOMContentLoaded',function(){
+            console.log('DOMContentLoaded');
+            localStorage[i+'DOMContentLoaded']=i++;
+        });
+        window.onload=function(){
+            console.log('onload');
+            localStorage[i+'onload']=i++;
+        };
+        window.onpageshow=function(){
+            console.log('pageshow');
+            localStorage[i+'pageshow']=i++;
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

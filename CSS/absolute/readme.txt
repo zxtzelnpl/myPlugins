@@ -1,1 +1,7 @@
-1、
+1、absolute的破坏性
+2、absolute的包裹性
+3、absolute的去浮动
+4、absolute的位置跟随
+5、独立的absolute可以摆脱overflow的限制，无论是滚动还是隐藏
+6、chrome浏览器一个元素绝对定位之后改变display之后没有任何渲染。
+7、absolute的无依赖的绝对定位，其实是相对定位
