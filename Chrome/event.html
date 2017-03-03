@@ -41,9 +41,10 @@
             console.log('onload');
             localStorage[i+'onload']=i++;
         };
-        window.onpageshow=function(){
+        window.onpageshow=function(event){
             console.log('pageshow');
             localStorage[i+'pageshow']=i++;
+            alert("该页面是否从浏览器缓存中读取? " + event.persisted);
         };
     </script>
 </head>
