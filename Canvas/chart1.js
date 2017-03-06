@@ -11,7 +11,7 @@ var chartsArray=[
   ,'三日上涨概率'//9
   ,'五日上涨概率'//10
 ];
-var axisX = ['1月3日','1月3日','1月3日','1月3日','1月3日'];
+var axisX = ['1月3日','1月4日','1月5日','1月6日','1月7日'];
 var axisY1 = [8.71,12.43,13.95,10.13,7.61];
 var axisY2 = [7.64,10.11,10.67,9.46,11.92];
 
@@ -60,7 +60,7 @@ function chart1(wrapID,title,axisX,axisY1,axisY2){
     }
   })();
 
-  var splitNumX=axisY1.length+axisY2.length;
+  var splitNumX=axisX.length*2;
   var leftGapX=24*dpr;//左边有2个字符，小于24px
   var rightGapX=6*dpr;//右边无字符，但是需要空下距离
   var chartWidth=canvasW-leftGapX-rightGapX;
