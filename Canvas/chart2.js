@@ -223,20 +223,20 @@ function chart2(wrapID, title, axisX, axisY) {
     }
 
     /*取出值开始画圆点*/
-    function paintCircle(ctx, x, y, r1, c) {
+    function paintCircle(ctx, x, y, r, c) {
         ctx.save();
         ctx.beginPath();
         ctx.fillStyle = c;
-        ctx.arc(x, y, r1, 0, 2 * Math.PI, false);
+        ctx.arc(x, y, r, 0, 2 * Math.PI, false);
         ctx.fill();
     }
 
     /*取出值开始画圆环*/
-    function paintRing(ctx, x, y, r1, c) {
+    function paintRing(ctx, x, y, r, c) {
         ctx.save();
         ctx.beginPath();
         ctx.strokeStyle = c;
-        ctx.arc(x, y, r1, 0, 2 * Math.PI, false);
+        ctx.arc(x, y, r, 0, 2 * Math.PI, false);
         ctx.stroke();
     }
 
