@@ -113,38 +113,29 @@ function chart2(wrapID,title,axisX,axisY){
   });
 
   /*根据值画图表*/
-  // axisY.forEach(function(value,index){
-  //   (function(){
-  //     var x=leftGapX+splitGapX+(splitGapX*2+splitLengthX)*index
-  //         ,y=topGapY+Math.ceil((intervalY*splitNumY-value)/(intervalY*splitNumY)*chartHeight)
-  //         ,w=splitLengthX
-  //         ,h=chartHeight-Math.ceil((intervalY*splitNumY-value)/(intervalY*splitNumY)*chartHeight)
-  //         ,c1='#feb7b6'
-  //         ,c2='#ff7d7b'
-  //         ;
-  //     paintCylinderValue(context,x,y,w,h,c1,c2)
-  //   })();
-  //   (function(){
-  //     var x=leftGapX+splitGapX+Math.floor(splitLengthX/2)+(splitGapX*2+splitLengthX)*index
-  //         ,y=topGapY+Math.ceil((intervalY*splitNumY-value)/(intervalY*splitNumY)*chartHeight)
-  //         ,radius=3*dpr
-  //         ,c='#ff7c7a'
-  //         ;
-  //     paintCircle(context,x,y,radius,c)
-  //   })();
-  //   (function(){
-  //     if(index==0){
-  //       return;
-  //     }
-  //     var x1=leftGapX+splitGapX+Math.floor(splitLengthX/2)+(splitGapX*2+splitLengthX)*(index-1)
-  //         ,y1=topGapY+Math.ceil((intervalY*splitNumY-axisY[index-1])/(intervalY*splitNumY)*chartHeight)
-  //         ,x2=leftGapX+splitGapX+Math.floor(splitLengthX/2)+(splitGapX*2+splitLengthX)*index
-  //         ,y2=topGapY+Math.ceil((intervalY*splitNumY-value)/(intervalY*splitNumY)*chartHeight)
-  //         ,c='#ff7c7a'
-  //         ;
-  //     paintLink(context,x1,y1,x2,y2,c);
-  //   })();
-  // });
+  _axisY.forEach(function(value,index){
+    (function(){
+      var x=leftGapX+splitLengthX*(index+1)
+          ,y=topGapY+Math.ceil((intervalY*splitNumY-value)/(intervalY*splitNumY)*chartHeight)
+          ,r1=2*dpr
+          ,r2=5*dpr
+          ,c='#ff8e8c'
+          ;
+      paintCircle(context,x,y,r1,r2,c)
+    })();
+    // (function(){
+    //   if(index==0){
+    //     return;
+    //   }
+    //   var x1=leftGapX+splitGapX+Math.floor(splitLengthX/2)+(splitGapX*2+splitLengthX)*(index-1)
+    //       ,y1=topGapY+Math.ceil((intervalY*splitNumY-axisY[index-1])/(intervalY*splitNumY)*chartHeight)
+    //       ,x2=leftGapX+splitGapX+Math.floor(splitLengthX/2)+(splitGapX*2+splitLengthX)*index
+    //       ,y2=topGapY+Math.ceil((intervalY*splitNumY-value)/(intervalY*splitNumY)*chartHeight)
+    //       ,c='#ff7c7a'
+    //       ;
+    //   paintLink(context,x1,y1,x2,y2,c);
+    // })();
+  });
 
   /*写Y轴刻度*/
   function writeYTick(ctx,num,fontSize,x,y){
