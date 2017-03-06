@@ -11,13 +11,12 @@ var chartsArray=[
   ,'三日上涨概率'//9
   ,'五日上涨概率'//10
 ];
-var axisX = ['1月3日','1月3日','1月3日','1月3日','1月3日'];
-var axisY1 = [8.71,12.43,13.95,10.13,7.61];
-var axisY2 = [7.64,10.11,10.67,9.46,11.92];
+var axisX = ['1月9日','1月9日','1月10日','1月10日','1月11日','1月11日','1月12日','1月12日','1月13日','1月13日'];
+var axisY = [6.23,4.17,9.66,8.34,7.07,5.69,13.16,9.36,10.10,8.19];
 
-chart1('canvas',6,axisX,axisY1,axisY2);
+chart2('canvas',6,axisX,axisY);
 
-/*格式化*月*日-->**.***/
+/*格式化*月*日-->**-***/
 function format(str){
   var reg=/[月日]/g;
   var arr=str
@@ -30,10 +29,10 @@ function format(str){
           return value
         }
       });
-  return arr.join('.');
+  return arr.join('-');
 }
 /*如何画图表*/
-function chart1(wrapID,title,axisX,axisY1,axisY2){
+function chart2(wrapID,title,axisX,axisY){
   var dpr = Math.max(window.devicePixelRatio || 1, 1);//2
   var wrap=document.getElementById(wrapID);
   var canvas=document.createElement('canvas');
@@ -46,19 +45,23 @@ function chart1(wrapID,title,axisX,axisY1,axisY2){
   var canvasH=canvas.height=height*dpr;
 
   var context=canvas.getContext('2d');
-  /*处理X轴的数据*/
-  axisX.forEach(function(value,index){
-    axisX[index]=format(value)
-  });
-
-  /*处理Y轴的数据*/
-  var axisY=[];
+  /*处理X轴数据*/
+  var _axisX=[];
   (function(){
-    for(var i=0,len=axisX.length;i<len;i++){
-      axisY.push(axisY1[i]);
-      axisY.push(axisY2[i]);
+    for(var i=0,len=axisX.length/2;i<len;i++){
+      _axisX.push(format(axisX[i*2]))
     }
   })();
+  console.log(_axisX);
+  /*处理Y轴数据*/
+  var _axisY=[0];
+  (function(){
+    for(var i=0,len=axisY.length/2;i<len;i++){
+      var num=(axisY[i*2]*100+axisY[i*2+1]*100)/200;
+      _axisY.push(num);
+    }
+  })();
+
 
   var splitNumX=axisY1.length+axisY2.length;
   var leftGapX=24*dpr;//左边有2个字符，小于24px
