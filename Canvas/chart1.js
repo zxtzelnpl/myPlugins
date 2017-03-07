@@ -17,21 +17,6 @@ var axisY2 = [7.64,10.11,10.67,9.46,11.92];
 
 chart1('canvas',6,axisX,axisY1,axisY2);
 
-/*格式化*月*日-->**.***/
-function format(str){
-  var reg=/[月日]/g;
-  var arr=str
-      .split(reg)
-      .slice(0,-1)
-      .map(function(value){
-        if(value.length==1){
-          return '0'+value
-        }else{
-          return value
-        }
-      });
-  return arr.join('.');
-}
 /*如何画图表*/
 function chart1(wrapID,title,axisX,axisY1,axisY2){
   var dpr = Math.max(window.devicePixelRatio || 1, 1);//2
@@ -222,6 +207,21 @@ function chart1(wrapID,title,axisX,axisY1,axisY2){
     ctx.lineTo(x2,y2);
     ctx.stroke();
     ctx.restore();
+  }
+  /*格式化*月*日-->**.***/
+  function format(str){
+    var reg=/[月日]/g;
+    var arr=str
+        .split(reg)
+        .slice(0,-1)
+        .map(function(value){
+          if(value.length==1){
+            return '0'+value
+          }else{
+            return value
+          }
+        });
+    return arr.join('.');
   }
 
   wrap.appendChild(canvas)
