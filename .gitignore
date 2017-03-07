@@ -5,3 +5,5 @@
 # IntelliJ project files
 .idea
 node_modules/
+/public/images/bg.jpg
+/Canvas/chart4.js

@@ -12,10 +12,11 @@ var chartsArray = [
   , '五日上涨概率'//10
 ];
 // var axisX = ['1月3日','1月3日','1月3日','1月3日','1月3日'];
+var srcBg = '../public/images/bg.jpg';
 var axisY = [37, 7];
 chart4('canvas', axisY);
 
-function chart4(wrapID,axisY){
+function chart4(wrapID, axisY) {
   var dpr = Math.max(window.devicePixelRatio || 1, 1);//2
   var wrap = document.getElementById(wrapID);
   var canvas = document.createElement('canvas');
@@ -29,20 +30,109 @@ function chart4(wrapID,axisY){
 
   var context = canvas.getContext('2d');
 
-  var img=new Image();
-  img.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NzU2NTFEMEEwMkRDMTFFNzg3OEVDQTgxQzZFOTA0MjAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NzU2NTFEMEIwMkRDMTFFNzg3OEVDQTgxQzZFOTA0MjAiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3NTY1MUQwODAyREMxMUU3ODc4RUNBODFDNkU5MDQyMCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3NTY1MUQwOTAyREMxMUU3ODc4RUNBODFDNkU5MDQyMCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsKuSroAAAruSURBVHjazFkJVJNX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';
-  img.onload=function(){
-    context.drawImage(img,0,0);
+  paintPicture(context,0,0,canvasW,150*dpr,srcBg,function(){
+    var up=axisY[0];
+    var down=axisY[1];
+    var sum=axisY[0]+axisY[1];
+    var startAngle = 3/4*Math.PI;
+    var endAngle = 9/4*Math.PI;
+    var intervalAngle=(endAngle-startAngle)/sum;
+
+    var x1=canvasW/2+Math.cos(startAngle+intervalAngle*down)*50*dpr
+        ,y1=75*dpr+Math.sin(startAngle+intervalAngle*down)*50*dpr
+        ,x2=canvasW/2+Math.cos(startAngle+intervalAngle*down)*10*dpr
+        ,y2=75*dpr+Math.sin(startAngle+intervalAngle*down)*10*dpr
+        ;
+    console.log(x1,y1,x2,y2);
+
+    paintSectorRing(context,canvasW/2,75*dpr,50*dpr,startAngle,startAngle+intervalAngle*down,'#57e27a');
+    paintSectorRing(context,canvasW/2,75*dpr,50*dpr,startAngle+intervalAngle*down,endAngle,'#f15d53');
+    paintLink(context,x1,y1,x2,y2,'#f15d53');
+    writeText(context,16*dpr,down,24*dpr,160*dpr,'#000','middle','left');
+    writeText(context,10*dpr,'个',40*dpr,160*dpr,'#000','middle','left');
+    writeText(context,10*dpr,'下跌个数',0,160*dpr+24*dpr,'#000','middle','left');
+
+    writeText(context,16*dpr,sum,canvasW/2-6*dpr,160*dpr,'#000','middle','center');
+    writeText(context,10*dpr,'个',canvasW/2+20*dpr,160*dpr,'#000','middle','center');
+    writeText(context,10*dpr,'总个数',canvasW/2,160*dpr+24*dpr,'#000','middle','center');
+
+    writeText(context,16*dpr,up,canvasW-30*dpr,160*dpr,'#000','middle','right');
+    writeText(context,10*dpr,'个',canvasW-12*dpr,160*dpr,'#000','middle','right');
+    writeText(context,10*dpr,'上涨个数',canvasW,160*dpr+24*dpr,'#000','middle','right');
+  });
+
+
+
+  /*画一个圆形*/
+  function paintCircle(ctx, x, y, r, c) {
+    var gradient;
+    ctx.save();
+    ctx.beginPath();
+    if (typeof c === 'string') {
+      ctx.fillStyle = c;
+    } else {
+      gradient = ctx.createLinearGradient(0, 0, r, 0);
+      gradient.addColorStop(0, c[0]);
+      gradient.addColorStop(1, c[1]);
+      ctx.fillStyle = gradient;
+    }
+
+    ctx.arc(x, y, r, 0, 2 * Math.PI, false);
+    ctx.fill();
   };
 
+  /*画扇形*/
+  function paintSectorRing(ctx, x, y, r, startAngle, endAngle, c) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.lineWidth = 10 * dpr;
+    ctx.strokeStyle = c;
+    ctx.arc(x, y, r, startAngle, endAngle, false);
+    ctx.stroke();
+  }
 
+  /*画图片*/
+  function paintPicture(ctx, dx, dy, dwidth, dheight, src,next) {
+    var img = new Image();
+    ctx.beginPath();
+    img.src = src;
+    img.onload = function () {
+      ctx.drawImage(img, dx, dy, dwidth, dheight);
+      next();
+    }
+  }
 
+  /*画矩形*/
+  function paintReact(ctx, x, y, w, h, c) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.fillStyle = c;
+    ctx.fillRect(x, y, w, h);
+  }
 
+  /*画之间的连线*/
+  function paintLink(ctx,x1,y1,x2,y2,c){
+    ctx.save();
+    ctx.beginPath();
+    ctx.lineWidth = 2 * dpr;
+    ctx.strokeStyle=c;
+    ctx.moveTo(x1,y1);
+    ctx.lineTo(x2,y2);
+    ctx.stroke();
+    ctx.restore();
+  }
 
-
-
-
-
+  /*描大字*/
+  function writeText(ctx, fontSize, text, x, y,c,base,align) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.font = 'normal normal bold ' + (fontSize * dpr) + "px serif";
+    ctx.textBaseline = base;
+    ctx.textAlign = align;
+    ctx.fillStyle = c;
+    ctx.fillText(text, x, y);
+    ctx.restore();
+  }
 
   wrap.appendChild(canvas)
 }
