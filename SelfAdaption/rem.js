@@ -1,3 +1,5 @@
+//通篇代码还有些问题
+
 var DESIGN_W = 320;
 var DESIGN_H = 1136;
 var remFont = 16;
