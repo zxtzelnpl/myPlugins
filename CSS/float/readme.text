@@ -12,7 +12,7 @@
 7、BFC/haslayout通常声明
     float:left/right
     position:absolute/fixed
-    overflow:hidden/scroll(IE7+)
+    overflow:auto/hidden/scroll(IE7+)
     display:inline-block/table-cell(IE8+)
     wdith/height/zoom:1/...
 8、层叠上下文
