@@ -184,9 +184,8 @@ var myPencil = {
         dx=x/X*dR;
         dy=y/Y*dR;
 
-        console.log(mx);
-        console.log(x);
-        console.log(X);
+        console.log(mx,bob.eye.original.left.x);
+
 
       } else if (mx < WIDTH / 2) {
 
