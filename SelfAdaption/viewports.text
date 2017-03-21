@@ -1,0 +1,14 @@
+A tale of two viewports — part two
+
+In this mini-series I will explain how viewports and the widths of various important elements work, such as the <html> element, as well as the window and the screen.
+
+On this page we’re going to talk about the mobile browsers.
+
+If you’re totally new to mobile I advise you to read part one about the desktop browsers first, in order to set the stage in a familiar environment.
+
+The problem of mobile browsers
+
+When we compare the mobile browsers to the desktop ones, the most obvious difference is screen size.
+
+Mobile browsers display significantly less of a desktop-optimised website than desktop browsers; either by zooming out until the text is unreadably small, or by showing only the small part of the site that fits in the screen.
+                        显著地                           最佳                                                缩小                           不能阅读
