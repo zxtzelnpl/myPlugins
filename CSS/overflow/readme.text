@@ -1,0 +1,23 @@
+可以触发BFC：
+overflow:auto
+overflow:scroll
+overflow:hidden
+
+内部浮动无影响：
+overflow:auto
+overflow:scroll
+overflow:hidden
+
+IE6浏览器不支持
+IE7+支持
+.clearfix{overflow:hidden;_zoom:1} 副作用，会让容器之外的可见元素不可见
+
+.clearfix{*zoom:1}
+.clearfix:after{content:'';display:table;clear:both;}
+
+清除margin穿透：
+overflow:auto
+overflow:scroll
+overflow:hidden
+(边框，padding,BFC)
+
