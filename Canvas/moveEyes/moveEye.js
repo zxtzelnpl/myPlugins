@@ -53,7 +53,6 @@ var myPencil = {
             , bottom: 100
             , left: 0.5
             , color: '#dac82c'
-            // , color: '#fff'
         }
         , mouth: {
             radius: 100
@@ -62,7 +61,6 @@ var myPencil = {
             , s: 0
             , e: Math.PI
             , color: '#e55b30'
-            // , color: '#fff'
         }
         , eye: {
             top: 20
@@ -113,13 +111,17 @@ var myPencil = {
     };
     var animate = {
         throttle: null
-        ,count:10
-        ,i:0
+        , count: 30
+        , i: 0
+        , fix:5
     };
 
     /**init*/
-    function init(){
-
+    function init() {
+        bob.eye.original.left.x = bob.eye.now.left.x = (WIDTH - bob.face.width) / 2 + bob.face.width / 2 / 2;
+        bob.eye.original.left.y = bob.eye.now.left.y = HEIGHT - bob.face.height - bob.face.bottom + bob.eye.top + bob.eye.radius;
+        bob.eye.original.right.x = bob.eye.now.right.x = WIDTH / 2 + bob.face.width / 2 / 2;
+        bob.eye.original.right.y = bob.eye.now.right.y = HEIGHT - bob.face.height - bob.face.bottom + bob.eye.top + bob.eye.radius;
     }
 
     /**paintFace*/
@@ -147,27 +149,23 @@ var myPencil = {
 
     /**paintLeftEye*/
     function paintLeftEye() {
-        bob.eye.original.left.x = bob.eye.now.left.x = (WIDTH - bob.face.width) / 2 + bob.face.width / 2 / 2;
-        bob.eye.original.left.y = bob.eye.now.left.y = HEIGHT - bob.face.height - bob.face.bottom + bob.eye.top + bob.eye.radius;
         myPencil.circle(context, bob.eye.original.left.x, bob.eye.original.left.y, bob.eye.radius, '#fff');
         myPencil.ring(context, bob.eye.original.left.x, bob.eye.original.left.y, bob.eye.radius, bob.eye.socket, '#000');
     }
 
     /**paintRightEye*/
     function paintRightEye() {
-        bob.eye.original.right.x = bob.eye.now.right.x = WIDTH / 2 + bob.face.width / 2 / 2;
-        bob.eye.original.right.y = bob.eye.now.right.y = HEIGHT - bob.face.height - bob.face.bottom + bob.eye.top + bob.eye.radius;
         myPencil.circle(context, bob.eye.original.right.x, bob.eye.original.right.y, bob.eye.radius, '#fff');
         myPencil.ring(context, bob.eye.original.right.x, bob.eye.original.right.y, bob.eye.radius, bob.eye.socket, '#000');
     }
 
     /**animate*/
-    function loop(){
+    function loop() {
         animate.i++;
-        bob.eye.now.left.x+=bob.eye.step.left.x;
-        bob.eye.now.left.y+=bob.eye.step.left.y;
-        bob.eye.now.right.x+=bob.eye.step.right.x;
-        bob.eye.now.right.y+=bob.eye.step.right.y;
+        bob.eye.now.left.x += bob.eye.step.left.x;
+        bob.eye.now.left.y += bob.eye.step.left.y;
+        bob.eye.now.right.x += bob.eye.step.right.x;
+        bob.eye.now.right.y += bob.eye.step.right.y;
         context.clearRect(0, 0, WIDTH, HEIGHT);
         paintFace();
         paintMouth();
@@ -175,8 +173,7 @@ var myPencil = {
         paintLeftEye();
         paintEyeBall(bob.eye.now.left);
         paintEyeBall(bob.eye.now.right);
-        console.log(bob.eye.now.left.x,bob.eye.to.left.x);
-        if(animate.i<animate.count){
+        if (animate.i < animate.count) {
             requestAnimationFrame(loop)
         }
     }
@@ -195,12 +192,12 @@ var myPencil = {
                 , Y
                 , dx
                 , dy
-                , dR = bob.eye.radius - bob.eye.ballRadius - bob.eye.socket
-                ;
+                , dR = bob.eye.radius - bob.eye.ballRadius - bob.eye.socket - 10;
+            ;
             e.stopPropagation();
             mx = e.clientX;
             my = e.clientY;
-            animate.i=0;
+            animate.i = 0;
 
             if (mx < bob.eye.original.left.x) {
                 x = mx - bob.eye.original.left.x;
@@ -216,9 +213,9 @@ var myPencil = {
             } else if (mx < WIDTH / 2) {
                 x = mx - bob.eye.original.left.x;
                 y = my - bob.eye.original.left.y;
-                X = 0 - bob.eye.original.left.x;
+                X = bob.eye.original.left.x - WIDTH / 2;
                 Y = 0 - bob.eye.original.left.y;
-                dx = x / X * dR;
+                dx = x / X * dR/2;//修正除以2
                 dy = y / Y * dR;
                 bob.eye.to.left.x = bob.eye.original.left.x - dx;
                 bob.eye.to.left.y = bob.eye.original.left.y - dy;
@@ -227,9 +224,9 @@ var myPencil = {
             } else if (mx < bob.eye.original.right.x) {
                 x = mx - bob.eye.original.right.x;
                 y = my - bob.eye.original.right.y;
-                X = 0 - bob.eye.original.right.x;
+                X = WIDTH / 2 - bob.eye.original.right.x;
                 Y = 0 - bob.eye.original.right.y;
-                dx = x / X * dR;
+                dx = x / X * dR /2;//修正除以2
                 dy = y / Y * dR;
                 bob.eye.to.left.x = bob.eye.original.left.x + dx;
                 bob.eye.to.left.y = bob.eye.original.left.y - dy;
@@ -248,11 +245,10 @@ var myPencil = {
                 bob.eye.to.right.y = bob.eye.original.right.y - dy;
             }
 
-            bob.eye.step.left.x=(bob.eye.to.left.x-bob.eye.now.left.x)/animate.count;
-            bob.eye.step.left.y=(bob.eye.to.left.y-bob.eye.now.left.y)/animate.count;
-            bob.eye.step.right.x =(bob.eye.to.right.x-bob.eye.now.right.x)/animate.count;
-            bob.eye.step.right.y =(bob.eye.to.right.y-bob.eye.now.right.y)/animate.count;
-
+            bob.eye.step.left.x = Number(((bob.eye.to.left.x - bob.eye.now.left.x) / animate.count).toFixed(animate.fix));
+            bob.eye.step.left.y = Number(((bob.eye.to.left.y - bob.eye.now.left.y) / animate.count).toFixed(animate.fix));
+            bob.eye.step.right.x = Number(((bob.eye.to.right.x - bob.eye.now.right.x) / animate.count).toFixed(animate.fix));
+            bob.eye.step.right.y = Number(((bob.eye.to.right.y - bob.eye.now.right.y) / animate.count).toFixed(animate.fix));
 
             loop();
 
@@ -260,13 +256,13 @@ var myPencil = {
     }
 
 
+    init();
     paintFace();
     paintMouth();
     paintRightEye();
     paintLeftEye();
     paintEyeBall(bob.eye.now.left);
     paintEyeBall(bob.eye.now.right);
-
 
     canvas.addEventListener('mousemove', mouseMove, false)
 }());
