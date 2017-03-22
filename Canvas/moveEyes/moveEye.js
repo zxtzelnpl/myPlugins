@@ -117,6 +117,11 @@ var myPencil = {
         ,i:0
     };
 
+    /**init*/
+    function init(){
+
+    }
+
     /**paintFace*/
     function paintFace() {
         var x, y;
@@ -159,23 +164,17 @@ var myPencil = {
     /**animate*/
     function loop(){
         animate.i++;
-        bob.eye.now.left.x-=bob.eye.step.left.x;
-        bob.eye.now.left.y-=bob.eye.step.left.y;
-        bob.eye.now.right.x-=bob.eye.step.right.x;
-        bob.eye.now.right.y-=bob.eye.step.right.y;
+        bob.eye.now.left.x+=bob.eye.step.left.x;
+        bob.eye.now.left.y+=bob.eye.step.left.y;
+        bob.eye.now.right.x+=bob.eye.step.right.x;
+        bob.eye.now.right.y+=bob.eye.step.right.y;
         context.clearRect(0, 0, WIDTH, HEIGHT);
         paintFace();
         paintMouth();
         paintRightEye();
         paintLeftEye();
-        paintEyeBall({
-            x:(bob.eye.now.left.x+bob.eye.step.left.x*animate.i)
-            ,y:(bob.eye.now.left.y+bob.eye.step.left.y*animate.i)
-        });
-        paintEyeBall({
-            x:(bob.eye.now.right.x+bob.eye.step.right.x*animate.i)
-            ,y:(bob.eye.now.right.y+bob.eye.step.right.y*animate.i)
-        });
+        paintEyeBall(bob.eye.now.left);
+        paintEyeBall(bob.eye.now.right);
         console.log(bob.eye.now.left.x,bob.eye.to.left.x);
         if(animate.i<animate.count){
             requestAnimationFrame(loop)
