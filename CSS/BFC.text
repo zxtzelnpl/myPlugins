@@ -69,3 +69,6 @@ unless the box establishes a new block formatting context (in which case the box
         两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值。
         两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值。
         两个外边距一正一负时，折叠结果是两者的相加的和。
+
+
+overflow:hidden创建的BFC还是会发生重叠
