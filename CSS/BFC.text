@@ -69,6 +69,9 @@ unless the box establishes a new block formatting context (in which case the box
         两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值。
         两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值。
         两个外边距一正一负时，折叠结果是两者的相加的和。
+四、block-level box: display属性为block, list-item, table的元素
 
 
-overflow:hidden创建的BFC还是会发生重叠
+overflow:hidden创建的BFC还是会发生折叠
+float创建的BFC不会发生margin折叠
+display:inline-block创建的BFC不会发生margin折叠
