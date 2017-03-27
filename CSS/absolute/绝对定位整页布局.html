@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绝对定位整页布局</title>
+    <style>
+        /* wechat.css */
+        body {
+            margin: 0;
+            -webkit-user-select: none;
+            user-select: none;
+            -ms-touch-action: none;
+        }
+        /* construction */
+        html, body, .page {
+            height: 100%; width: 100%;
+            overflow: hidden;
+        }
+        .page {
+            position: absolute; left: 0; top: 0;
+        }
+        body { background-color: #ebebeb; font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; }
+        a { text-decoration: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+        h1,h2,h3,h4,h5,h6{ margin: 0; font-weight: 400; }
+        ul,ol{ margin: 0; list-style-type: none; }
+
+        .header, .footer, .content { position: absolute; left: 0; right: 0; }
+        .header { height: 48px; padding: 0 5px; background-color: #21292B; color: #fff; top: 0; z-index: 1; }
+        .footer { height: 52px; border-top: 1px solid #dfdfdf; background-color: #fcfcfc; bottom: 0; z-index: 1; }
+        .content { top: 48px; bottom: 53px; overflow: auto; }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="header">头部</div>
+    <div class="content">
+        内容主体
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid beatae nam praesentium. Autem
+            beatae cumque dicta ducimus eveniet iste laborum nihil numquam porro praesentium, quibusdam ratione
+            reprehenderit tempora vitae?
+        </div>
+        <div>A doloribus, ducimus, ea eius fuga, in inventore molestias nihil non nulla ratione repudiandae sed?
+            Assumenda blanditiis commodi debitis dolores eius fugiat ipsa iste, nesciunt obcaecati perferendis
+            provident, reiciendis totam.
+        </div>
+        <div>Consectetur cumque cupiditate dolores eius, excepturi, harum ipsum iste maxime non odit, quae quia
+            repudiandae sit veniam voluptatum! Adipisci commodi deleniti dignissimos dolorem error eum illo molestias
+            rem rerum saepe!
+        </div>
+        <div>Architecto asperiores atque beatae dolorem doloremque dolores et iste mollitia reprehenderit rerum.
+            Accusamus ad amet consectetur delectus dicta doloribus, et exercitationem ipsam laboriosam nam odio quia,
+            saepe, soluta tempora tempore?
+        </div>
+        <div>Commodi dignissimos iusto placeat veniam. Accusamus animi cumque dolore dolorem doloremque eveniet illo
+            incidunt iusto modi neque, nostrum placeat possimus quaerat recusandae sequi sunt veniam. Deleniti modi
+            molestiae vel voluptates.
+        </div>
+        <div>Adipisci beatae consectetur ducimus earum eligendi, est fugit in incidunt magnam mollitia neque placeat
+            possimus quae quasi quidem ratione repellat, veniam voluptatum? Dolorem in magnam minus modi! Minima modi,
+            perspiciatis!
+        </div>
+        <div>Aliquid, aspernatur assumenda blanditiis, dolores eaque iste libero maiores modi neque nobis porro
+            reprehenderit unde vero. Adipisci animi architecto cupiditate ipsam maxime, molestias natus nihil, nisi
+            nobis quidem quisquam vel.
+        </div>
+        <div>Accusantium aliquam beatae dignissimos hic impedit ipsa laboriosam quae totam velit voluptates. Aliquid
+            amet architecto aspernatur aut cumque cupiditate dolorum illo molestiae nesciunt nisi obcaecati omnis quia
+            quis, rerum sequi.
+        </div>
+        <div>Aperiam cumque deserunt dicta ducimus impedit officiis qui quibusdam. Commodi consectetur debitis deleniti
+            dignissimos expedita fuga nemo odio quaerat voluptatibus. At dolores magni modi necessitatibus porro
+            repudiandae, ullam vel voluptas?
+        </div>
+        <div>Dignissimos illum ipsum magni necessitatibus nihil non provident quibusdam ratione! Beatae commodi deserunt
+            eligendi esse excepturi explicabo facilis ipsam iusto laboriosam laudantium nam officiis quaerat, quia,
+            tempora ullam velit voluptates?
+        </div>
+    </div>
+    <div class="footer">脚部</div>
+</div>
+</body>
+</html>
