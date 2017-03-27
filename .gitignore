@@ -6,3 +6,8 @@
 .idea
 node_modules/
 /public/*.*
+/public/images/*.*
+!/public/images/1.jpg
+
+
+/public/css/*.*
