@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>overflow与两栏自适应布局</title>
+    <style>
+        div>img{
+            float:left
+            margin-right:20px;
+        }
+        div>div{
+            background:lightblue;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <div>
-        <img
-                style="
-                    float:left;
-                    margin-right:20px;
-                        "
-                src="../../public/images/1.jpg" alt="">
-        <div
-                style="
-                    background:lightblue;
-                    overflow: hidden;
-                "
-        >
-
+        <img src="../../public/images/1.jpg" alt="">
+        <div>
             <img src="../../public/images/1.jpg" alt="">
         </div>
     </div>
