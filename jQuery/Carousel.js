@@ -254,4 +254,4 @@
         },
         duration: 500
     });
-})(jQuery)
+})(jQuery);

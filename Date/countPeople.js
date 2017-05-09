@@ -3,11 +3,15 @@
  * @param id {string}
  * @param str {string}
  * @param num {number}
+ * @param start {number}
  */
-function countPeople(id, str,num) {
+
+// countPeople('peoNum','2017-05-04 01:10:10',500,805185);
+function countPeople(id, str,num,start) {
   var arr = str.split(/[- :.\/]/),
-      date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]);//兼容IOS
-  var count = parseInt((new Date() - date) / (24 * 60 * 60 * 1000/num));
+      date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5])//兼容IOS
+      start=start===undefined?0:start;
+  var count = parseInt((new Date() - date) / (24 * 60 * 60 * 1000/num))+start;
   document.getElementById(id).innerHTML = ('' + count);
 }
 
