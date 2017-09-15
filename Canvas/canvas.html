@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Title</title>
+    <style>
+        #main{
+            margin:0 auto;
+            width:6rem;
+            height:5rem;
+            border:1px dashed red;
+        }
+        .zxt{
+            font-style:normal;
+            font-weight: normal;
+            font-variant:normal;
+        }
+    </style>
+    <script>
+        (function(){
+            var deviceWidth = document.documentElement.clientWidth < 640 ? document.documentElement.clientWidth : 640;
+            document.documentElement.style.fontSize = deviceWidth / 6.4 + 'px';//640的设计稿
+        })();
+    </script>
 </head>
 <body>
-    <div id="canvas" style="margin:0 auto;width:300px;height:250px;">
-    </div>
-    <div id="canvas3" style="margin:0 auto;width:300px;height:280px;">
-    </div>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="chart3.js"></script>
+    <div id="main"></div>
     <script src="chart4.js"></script>
 </body>
 </html>
