@@ -1,18 +1,18 @@
 var record = {
-    title: '五日最大涨幅',
-    date: ['8.18', '8.21', '8.22', '8.23', '8.24'],
-    data1: ['6.61', '10.43', '7.41', '13.13', '4.61'],
-    data2: ['5.64', '11.11', '8.46', '20.06', '7.43']
+    title: '五日平均涨幅',
+    date: ['12.1', '12.1', '12.1', '12.1', '12.1', '12.1', '12.1', '12.1', '12.1', '12.1'],
+    data: ['7.71', '15.64', '12.66', '9.12', '14.05', '19.67', '7.73', '5.41', '10.61', '14.16']
 };
 
-function chart4() {
-    var distinguish = '最大涨幅',
-        title_en_end = 'MAXIMUM',
+function chart5() {
+    var distinguish = '平均涨幅',
+        title_en_end = 'AVERAGE',
         remark = '注：推出当时价格为核算的基准价',
         dpr = Math.max(window.devicePixelRatio || 1, 1),
         delta,
+        PI = Math.PI,
         box = {
-            top: 62.5,
+            top: 65,
             left: 30,
             width: 250
         },
@@ -21,28 +21,31 @@ function chart4() {
                 color: '#eeeff1',
                 width: 1,
                 space: 35,
-                num: 5
+                num: 4
             },
             label: {
-                top: 62.5,
-                left: 17.5,
+                top: 65,
+                left: 18,
                 space: 35,
-                fontSize: 8,
+                fontSize: 7,
                 color: '#c3c8ce'
             }
 
         },
         xAxis = {
-            bar: {
-                left: 5,
-                color1: '#f18f68',
-                color2: '#b7e4ee',
-                width: 15,
-                space: 10
+            line: {
+                color: '#65d3e3',
+                width: 3
+            },
+            point: {
+                relative_left: 10,
+                color: '#f18f68',
+                radius: 3,
+                space: 25
             },
             label: {
                 relative_top: 6,
-                fontSize: 8,
+                fontSize: 7,
                 color: '#c3c8ce'
             }
         }
@@ -64,15 +67,23 @@ function chart4() {
 
     /*tool-格式化数据*/
     function format_data(record, box, xAxis, yAxis) {
-        var data = record.data1.concat(record.data2);
+        var data = record.data;
         var max = Math.max.apply(null, data);
         yAxis.label.increase = Math.ceil(max / (yAxis.line.num - 1));
         yAxis.label.max = yAxis.label.increase * (yAxis.line.num - 1);
-        xAxis.bar.totalH = yAxis.line.space * (yAxis.line.num - 1);
-        xAxis.bar.bottom = box.top + xAxis.bar.totalH;
-        xAxis.label.left = box.left + xAxis.bar.left + xAxis.bar.width + xAxis.bar.space / 2;
-        xAxis.label.space = (xAxis.bar.width + xAxis.bar.space) * 2;
-        xAxis.label.top = xAxis.label.relative_top + xAxis.bar.bottom;
+        xAxis.point.totalH = yAxis.line.space * (yAxis.line.num - 1);
+        xAxis.point.bottom = box.top + xAxis.point.totalH;
+        xAxis.point.left = box.left + xAxis.point.relative_left;
+        xAxis.label.left = xAxis.point.left;
+        xAxis.label.space = xAxis.point.space;
+        xAxis.label.top = xAxis.label.relative_top + xAxis.point.bottom;
+
+        xAxis.point.array = [];
+        data.forEach(function (_data, _index) {
+            var x = xAxis.point.left + xAxis.point.space * _index,
+                y = xAxis.point.bottom - (1 - _data / yAxis.label.max ) * xAxis.point.totalH;
+            xAxis.point.array.push(Point(x, y))
+        })
     }
 
     /*toll-Point*/
@@ -158,31 +169,46 @@ function chart4() {
         ctx.restore();
     }
 
-    /*paint-bar*/
-    function paintBar(ctx, obj) {
-        var x = adapt(obj.x, delta);
-        var y = adapt(obj.y, delta);
-        var w = adapt(obj.w, delta);
-        var h = adapt(obj.h, delta);
-        var c = obj.c;
-        var r = 6;
-        var ptA = Point(x + r, y);
-        var ptB = Point(x + w, y);
-        var ptC = Point(x + w, y + h);
-        var ptD = Point(x, y + h);
-        var ptE = Point(x, y);
-
+    /*paint-折线*/
+    function paintLine(ctx, obj) {
         ctx.save();
         ctx.beginPath();
-        ctx.moveTo(ptA.x, ptA.y);
-        ctx.arcTo(ptB.x, ptB.y, ptC.x, ptC.y, r);
-        ctx.arcTo(ptC.x, ptC.y, ptD.x, ptD.y, r);
-        ctx.arcTo(ptD.x, ptD.y, ptE.x, ptE.y, r);
-        ctx.arcTo(ptE.x, ptE.y, ptA.x, ptA.y, r);
-        ctx.shadowColor = c;
-        ctx.shadowBlur = 10;
-        ctx.fillStyle = c;
+
+        var points = obj.points.map((function(_point){
+            var x = adapt(_point.x,delta);
+            var y = adapt(_point.y,delta);
+            return Point(x,y)
+        }));
+        var width = adapt(obj.width,delta);
+        var color = obj.color;
+
+        ctx.moveTo(points[0].x,points[0].y);
+        points.forEach(function(_point,index){
+            if(index===0){return}
+            ctx.lineTo(_point.x,_point.y)
+        });
+        ctx.lineWidth = width;
+        ctx.strokeStyle = color;
+        ctx.stroke();
+
+        ctx.restore();
+    }
+
+    /*paint-画点*/
+    function paintPoint(ctx,obj){
+        ctx.save();
+        ctx.beginPath();
+
+        var x = adapt(obj.x,delta);
+        var y = adapt(obj.y,delta);
+        var radius = adapt(obj.radius,delta);
+        var color = obj.color||'#000000';
+
+        ctx.arc(x,y,radius,0,2*PI,true);
+        ctx.fillStyle = color;
+
         ctx.fill();
+
         ctx.restore();
     }
 
@@ -192,7 +218,7 @@ function chart4() {
         var main_width = main.clientWidth;
         var main_height = main.clientHeight;
         var base_width = 300;//设计稿宽度为600
-        var base_height = 250;//设计稿高度为500
+        var base_height = 200;//设计稿高度为400
         var title = record.title;
         var title_en = cn_to_en(title.slice(0, 2)) + ' ' + title_en_end;
         delta = dpr * main_width / base_width;
@@ -203,6 +229,7 @@ function chart4() {
         var CONTEXT = CANVAS.getContext('2d');
         var center = Point(base_width / 2, base_height / 2);
 
+        /*图表标题*/
         paintReact(CONTEXT, {
             x: 90,
             y: 20,
@@ -237,6 +264,8 @@ function chart4() {
             fontSize: 8,
             fill: true
         });
+
+        /*画Y坐标轴*/
         for (var i = 0; i < yAxis.line.num; i++) {
             paintYLine(CONTEXT, {
                 x: box.left,
@@ -258,6 +287,26 @@ function chart4() {
 
         }
 
+        /*画折现*/
+        paintLine(CONTEXT,
+            {
+                points: xAxis.point.array,
+                width: xAxis.line.width,
+                color: xAxis.line.color
+            }
+        );
+
+        xAxis.point.array.forEach(function(_point){
+            var obj = {
+                x:_point.x,
+                y:_point.y,
+                color:xAxis.point.color,
+                radius:xAxis.point.radius
+            };
+            paintPoint(CONTEXT,obj)
+        });
+
+        /*写坐标*/
         record.date.forEach(function (_date, index) {
             writeText(CONTEXT, {
                 x: xAxis.label.left + index * xAxis.label.space,
@@ -269,31 +318,6 @@ function chart4() {
                 text: _date,
                 fill: true
             });
-            paintBar(CONTEXT, {
-                x: box.left + xAxis.bar.left + index * xAxis.label.space,
-                y: xAxis.bar.bottom - xAxis.bar.totalH * (1 - parseInt(record.data1[index]) / yAxis.label.max),
-                w: xAxis.bar.width,
-                h: xAxis.bar.totalH * (1 - parseInt(record.data1[index]) / yAxis.label.max),
-                c: xAxis.bar.color1
-            });
-            paintBar(CONTEXT, {
-                x: box.left + xAxis.bar.left + xAxis.bar.width + xAxis.bar.space + index * xAxis.label.space,
-                y: xAxis.bar.bottom - xAxis.bar.totalH * (1 - parseInt(record.data2[index]) / yAxis.label.max),
-                w: xAxis.bar.width,
-                h: xAxis.bar.totalH * (1 - parseInt(record.data2[index]) / yAxis.label.max),
-                c: xAxis.bar.color2
-            })
-        });
-
-        writeText(CONTEXT, {
-            x: center.x,
-            y: 230,
-            base: 'top',
-            align: 'center',
-            weight: 'bold',
-            text: remark,
-            fontSize: 7,
-            fill: true
         });
 
         main.appendChild(CANVAS);
@@ -301,6 +325,6 @@ function chart4() {
     }
 }
 
-var main = document.getElementById('main4');
-var chart = chart4();
+var main = document.getElementById('main5');
+var chart = chart5();
 chart(main, record);
