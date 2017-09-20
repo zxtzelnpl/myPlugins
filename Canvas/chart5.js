@@ -81,7 +81,7 @@ function chart5() {
         xAxis.point.array = [];
         data.forEach(function (_data, _index) {
             var x = xAxis.point.left + xAxis.point.space * _index,
-                y = xAxis.point.bottom - (1 - _data / yAxis.label.max ) * xAxis.point.totalH;
+                y = xAxis.point.bottom - (_data / yAxis.label.max ) * xAxis.point.totalH;
             xAxis.point.array.push(Point(x, y))
         })
     }

@@ -271,16 +271,16 @@ function chart4() {
             });
             paintBar(CONTEXT, {
                 x: box.left + xAxis.bar.left + index * xAxis.label.space,
-                y: xAxis.bar.bottom - xAxis.bar.totalH * (1 - parseInt(record.data1[index]) / yAxis.label.max),
+                y: xAxis.bar.bottom - xAxis.bar.totalH * (parseInt(record.data1[index]) / yAxis.label.max),
                 w: xAxis.bar.width,
-                h: xAxis.bar.totalH * (1 - parseInt(record.data1[index]) / yAxis.label.max),
+                h: xAxis.bar.totalH * (parseInt(record.data1[index]) / yAxis.label.max),
                 c: xAxis.bar.color1
             });
             paintBar(CONTEXT, {
                 x: box.left + xAxis.bar.left + xAxis.bar.width + xAxis.bar.space + index * xAxis.label.space,
-                y: xAxis.bar.bottom - xAxis.bar.totalH * (1 - parseInt(record.data2[index]) / yAxis.label.max),
+                y: xAxis.bar.bottom - xAxis.bar.totalH * (parseInt(record.data2[index]) / yAxis.label.max),
                 w: xAxis.bar.width,
-                h: xAxis.bar.totalH * (1 - parseInt(record.data2[index]) / yAxis.label.max),
+                h: xAxis.bar.totalH * (parseInt(record.data2[index]) / yAxis.label.max),
                 c: xAxis.bar.color2
             })
         });
