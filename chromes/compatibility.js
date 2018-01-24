@@ -12,20 +12,20 @@ function compatibility (fun) {
       , result = {}
       , num;
   result.edge = reg.edge.exec(str);
-  if (result.edge) {
+  if (result.edge) {  //Edge 所有的版本
     return true
   }
   result.firefox = reg.firefox.exec(str);
   if (result.firefox) {
     num = parseInt(result.firefox[1].split('.')[0]);
-    if (num > 55) {
+    if (num >= 57) {  //FireFox 大于57的版本
       return true
     }
   }
 
   result.safari = reg.safari.exec(str);
   result.version = reg.version.exec(str);
-  if (result.safari && result.version) {
+  if (result.safari && result.version) {  //Safari 大于7的版本
     num = parseInt(result.version[1].split('.')[0]);
     if (num >= 7) {
       return true
@@ -34,7 +34,7 @@ function compatibility (fun) {
   }
 
   result.chrome = reg.chrome.exec(str);
-  if (result.chrome) {
+  if (result.chrome) {  //Chrome 大于49的版本
     num = parseInt(result.chrome[1].split('.')[0]);
     if (num >= 49) {
       return true
