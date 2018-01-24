@@ -27,7 +27,7 @@ function compatibility (fun) {
   result.version = reg.version.exec(str);
   if (result.safari && result.version) {
     num = parseInt(result.version[1].split('.')[0]);
-    if (num > 5) {
+    if (num >= 7) {
       return true
     }
 
