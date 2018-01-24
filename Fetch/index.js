@@ -7,7 +7,9 @@ let init={
   method:'GET',
   mode: 'no-cors', //是否跨域
   headers:myHeaders,
+  credentials:'include',  //默认是omit，改成include则会带cookie
   cache: 'default', //缓存
+
   body:body
 }
 let myHeaders={
