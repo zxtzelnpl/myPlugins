@@ -54,6 +54,4 @@ function compatibility(fun){
     }
   }
 
-  console.warn('不兼容');
-  console.log(result)
 }

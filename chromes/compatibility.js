@@ -7,7 +7,8 @@ function compatibility (fun) {
           firefox: /Firefox\/([0-9.]*)/gi,
           safari: /Safari\/([0-9.]*)/gi,
           version: /Version\/([0-9.]*)/gi,
-          chrome: /Chrome\/([0-9.]*)/gi
+          chrome: /Chrome\/([0-9.]*)/gi,
+          ie11:/Trident\/([0-9.]*)/gi
         }
       , result = {}
       , num;
@@ -30,7 +31,6 @@ function compatibility (fun) {
     if (num >= 7) {
       return true
     }
-
   }
 
   result.chrome = reg.chrome.exec(str);
@@ -41,6 +41,14 @@ function compatibility (fun) {
     }
   }
 
-  console.warn('不兼容');
+  result.ie11 = reg.ie11.exec(str);
+  if(result.ie11){  //IE 大于IE11的版本
+    num = parseInt(result.ie11[1].split('.')[0]);
+    if(num>=7){
+      return true
+    }
+  }
+
+  /**如果都不满足则进入函数**/
   fun()
 }

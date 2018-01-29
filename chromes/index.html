@@ -9,9 +9,9 @@
     <div id="check"></div>
 </body>
 <script src="./navigators.js"></script>
-<script src="./checkCompatibility.js"></script>
+<script src="./compatibility.js"></script>
 <script>
-  compatibility();
+  compatibility(function(){console.log('zxt')});
     document.getElementById('show').innerHTML=navigator.userAgent
 </script>
 
