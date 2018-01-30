@@ -1,0 +1,91 @@
+html {
+  background: #f2f2f2;
+}
+input {
+  outline: none;
+  border: none;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+a.btn {
+  display: block;
+}
+.blank-h-10 {
+  height: 10px;
+}
+.blank-h-15 {
+  height: 15px;
+}
+.blank-h-18 {
+  height: 18px;
+}
+.blank-h-20 {
+  height: 20px;
+}
+.blank-h-30 {
+  height: 30px;
+}
+.blank-h-40 {
+  height: 40px;
+}
+.blank-h-50 {
+  height: 50px;
+}
+.container {
+  width: 100%;
+  font-size: 14px;
+}
+input,
+select,
+textarea {
+  padding: 0;
+}
+/*toast修复一些bug*/
+.jq-toast-single {
+  box-sizing: border-box;
+}
+/*toast修复一些bug*/
+/**公用代码MIX**/
+input {
+  width: 200px;
+  height: 50px;
+}
+div {
+  color: #ff515d;
+  font-size: 24px;
+}
+.strange {
+  width: 100%;
+  height: 360px;
+  background: #f2f2f2;
+}
+.strange .card {
+  position: relative;
+  margin: 0 auto;
+  width: 240px;
+  height: 280px;
+  background: #fff;
+  box-shadow: 0 0 32px 2px #e1e1e1;
+}
+.strange .card .half-cricle-left {
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: -12px;
+  border: 12px solid #f2f2f2;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotate(45deg);
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 32px 2px #e1e1e1;
+}
+
+/*# sourceMappingURL=test.css.map */

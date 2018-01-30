@@ -1,0 +1,130 @@
+html {
+  background: #f2f2f2;
+}
+input {
+  outline: none;
+  border: none;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+a.btn {
+  display: block;
+}
+.blank-h-10 {
+  height: 10px;
+}
+.blank-h-15 {
+  height: 15px;
+}
+.blank-h-18 {
+  height: 18px;
+}
+.blank-h-20 {
+  height: 20px;
+}
+.blank-h-30 {
+  height: 30px;
+}
+.blank-h-40 {
+  height: 40px;
+}
+.blank-h-50 {
+  height: 50px;
+}
+.container {
+  width: 100%;
+  font-size: 14px;
+}
+input,
+select,
+textarea {
+  padding: 0;
+}
+/*toast修复一些bug*/
+.jq-toast-single {
+  box-sizing: border-box;
+}
+/*toast修复一些bug*/
+/**公用代码MIX**/
+.info {
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #fff;
+}
+.info .box {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+      align-items: flex-start;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  margin: 0 27px 0 10px;
+}
+.info .box .label {
+  display: block;
+  padding-right: 8px;
+  width: 72px;
+  text-align: right;
+  line-height: 36px;
+  font-size: 12px;
+  color: #999;
+}
+.info .box .label p {
+  line-height: 18px;
+}
+.info .box .ipt {
+  display: block;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  box-sizing: border-box;
+  padding-left: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+}
+.info .box input.ipt {
+  height: 36px;
+  line-height: 36px;
+}
+.info .box select.ipt {
+  outline: none;
+  height: 36px;
+  line-height: 36px;
+}
+.info .box select.ipt.placeholder {
+  color: #c5c5c5;
+}
+.info .box textarea.ipt {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 2px;
+  height: 78px;
+  line-height: 24px;
+}
+.bad-record {
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-left: 12px;
+  padding-bottom: 20px;
+  background: #fff;
+}
+.btn {
+  margin: 0 auto;
+  width: 240px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  color: #fff;
+  background: #ccc;
+}
+.btn .active {
+  background: #ff515d;
+}
+
+/*# sourceMappingURL=personalinfo.css.map */

@@ -1,0 +1,96 @@
+@maxWidth:640px;
+
+@red:#ff515d;
+
+@buttonW:240px;
+@buttonH:44px;
+
+@fontGray:#999;
+@lineGray:#e6e6e6;
+@bgGray:#f2f2f2;
+@componentGray:#ccc;
+@radius:5px;
+
+@fontSmall:12px;
+@fontNormal:14px;
+@fontBig:15px;
+@fontLarge:16px;
+
+html{
+  background:@bgGray;
+}
+
+input{
+  outline:none;
+  border:none;
+}
+
+p{
+  margin:0;
+  padding:0;
+}
+
+a{
+  color:#000;
+  text-decoration: none;
+}
+
+a.btn{
+  display:block;
+}
+
+.blank-h-10{
+  height:10px;
+}
+
+.blank-h-15{
+  height:15px;
+}
+
+.blank-h-18{
+  height:18px;
+}
+
+.blank-h-20{
+  height:20px;
+}
+
+.blank-h-30{
+  height:30px;
+}
+
+.blank-h-40{
+  height:40px;
+}
+
+.blank-h-50{
+  height:50px;
+}
+
+.container{
+  width:100%;
+  font-size:@fontNormal;
+}
+
+input,select,textarea{
+  padding:0;
+}
+
+/*toast修复一些bug*/
+.jq-toast-single{
+  box-sizing: border-box;
+}
+/*toast修复一些bug*/
+
+
+/**公用代码MIX**/
+
+.button(){
+  margin:0 auto;
+  width:@buttonW;
+  height:@buttonH;
+  line-height:@buttonH;
+
+  text-align: center;
+  color:#fff;
+}

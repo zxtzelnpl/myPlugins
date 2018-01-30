@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" href="/mobile/css/personalinfo.css">
+    <script src="/mobile/javascript/compatibility.js"></script>
+</head>
+<body>
+<form>
+    <div class="container personal-info">
+
+        <div class="blank-h-10"></div>
+
+        <div class="info">
+            <div class="box">
+                <label for="certificate" class="label">
+                    身份证：
+                </label>
+                <input class="ipt" id="certificate" type="text" placeholder="请填写" />
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="name" class="label">
+                    姓名：
+                </label>
+                <input class="ipt" id="name" type="text" placeholder="请填写" />
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="phone" class="label">
+                    手机号：
+                </label>
+                <input class="ipt" id="phone" type="number" placeholder="请填写" />
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="sex" class="label">
+                    性别：
+                </label>
+                <select class="ipt placeholder" name="sex" id="sex">
+                    <option selected value="">请选择</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="validDate" class="label">
+                    证件有效期：
+                </label>
+                <input class="ipt" name="validDate" id="validDate" type="date"/>
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="naturePerson" class="label">
+                    <p>实际控制投资</p>
+                    <p>者的自然人：</p>
+                </label>
+                <input class="ipt" id="naturePerson" type="text" placeholder="请填写" />
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="benifitPerson" class="label">
+                    交易受益人：
+                </label>
+                <input class="ipt" id="benifitPerson" type="text" placeholder="请填写" />
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="job" class="label">
+                    职业：
+                </label>
+                <select class="ipt placeholder" name="job" id="job">
+                    <option value="" selected>请选择</option>
+                    <option value="职员">职员</option>
+                    <option value="老师">老师</option>
+                    <option value="公务员">公务员</option>
+                    <option value="律师">律师</option>
+                    <option value="工人">工人</option>
+                    <option value="医生">医生</option>
+                    <option value="警察">警察</option>
+                    <option value="企业主">企业主</option>
+                    <option value="个体户">个体户</option>
+                    <option value="记者">记者</option>
+                    <option value="自由职业">自由职业</option>
+                    <option value="其他">其他</option>
+                </select>
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="salary" class="label">
+                    收入区间：
+                </label>
+                <select class="ipt placeholder" name="salary" id="salary">
+                    <option value="" selected>请选择</option>
+                    <option Value="4000以下">4000以下</option>
+                    <option Value="4000-6000">4000-6000</option>
+                    <option Value="6000-8000">6000-8000</option>
+                    <option value="8000-10000">8000-10000</option>
+                    <option value="10000-12000">10000-12000</option>
+                    <option value="12000-15000">12000-15000</option>
+                    <option value="15000以上">15000以上</option>
+                </select>
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="address" class="label">
+                    联系地址：
+                </label>
+                <textarea class="ipt" id="address" type="text" placeholder="请填写"></textarea>
+            </div>
+        </div>
+
+        <div class="blank-h-10"></div>
+
+        <div class="bad-record">
+            <p class="title"></p>
+        </div>
+
+        <div class="blank-h-30"></div>
+
+        <div class="btn">
+            下一步
+        </div>
+
+        <div class="blank-h-40"></div>
+    </div>
+</form>
+</body>
+<script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
+<script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<script>
+    var sex = $('#sex')
+
+    $(function(){
+      /**select值改变的时候改变颜色**/
+      $('select').change(function(){
+        var $this = $(this)
+        if($this.val()!==''){
+          $this.removeClass('placeholder')
+        }
+        else{
+          $this.addClass('placeholder')
+        }
+
+      })
+
+    })
+
+</script>
+</html>

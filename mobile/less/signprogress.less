@@ -1,0 +1,139 @@
+@import "consts/index.less";
+@mainColor:#e15d4f;
+html,body,form{
+  height:100%;
+}
+.sign-progress{
+  height:100%;
+  background:@bgGray;
+}
+
+h4.title{
+  position:relative;
+
+  margin:0 auto;
+  width:106px;
+  height:45px;
+
+  line-height:45px;
+  text-align: center;
+  font-size:@fontBig;
+  .line{
+    position:absolute;
+    top:22px;
+
+    display:block;
+    width:18px;
+    height:1px;
+
+    background:#000;
+    &.before{
+      left:-24px;
+    }
+    &.after{
+      right:-24px;
+    }
+  }
+  .circle{
+    position:absolute;
+    top:20px;
+
+    display:block;
+    width:5px;
+    height:5px;
+    border-radius: 50%;
+
+    background:#000;
+    &.before{
+      left:-6px;
+    }
+    &.after{
+      right:-6px;
+    }
+  }
+}
+
+.steps{
+  box-sizing: border-box;
+  padding-bottom:15px;
+  height:200px;
+  background:#fff;
+
+  p{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin:0 27px;
+
+    height:28px;
+    line-height:28px;
+
+    .circle{
+      margin-right:8px;
+      width:15px;
+      height:15px;
+      border-radius: 50%;
+
+      font-size:8px;
+      line-height:15px;
+      text-align: center;
+      color:#fff;
+
+      background:@red;
+    }
+  }
+}
+
+.prepares{
+  box-sizing: border-box;
+  padding-bottom: 25px;
+  height:250px;
+
+  background:#fff;
+}
+
+.box{
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  margin:10px auto 0;
+  box-sizing: border-box;
+  padding-left:10px;
+  width:320px;
+  height:80px;
+  border:1px solid @lineGray;
+  border-radius: @radius;
+  img{
+    display:block;
+    width:50px;
+    height:50px;
+  }
+  .text{
+    padding-left:10px;
+
+    line-height:1.5;
+    .up{
+      font-weight:bold;
+    }
+    .down{
+      font-size:@fontSmall;
+      color:@fontGray;
+    }
+  }
+}
+
+
+
+.btn{
+  margin:0 auto;
+  width:@buttonW;
+  height:@buttonH;
+  line-height:@buttonH;
+  text-align: center;
+  font-size:@fontBig;
+  border-radius: @radius;
+  color:#fff;
+  background:@red;
+}

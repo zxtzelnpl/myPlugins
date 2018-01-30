@@ -1,0 +1,88 @@
+@import "consts/index.less";
+.personal-info{
+
+}
+
+.info{
+  box-sizing: border-box;
+  padding-top:20px;
+  padding-bottom:20px;
+  //height:525px;
+
+  background:#fff;
+
+  .box{
+    display:flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin:0 27px 0 10px;
+
+    .label{
+      display:block;
+      padding-right:8px;
+      width:72px;
+
+      text-align:right;
+      line-height:36px;
+      font-size:@fontSmall;
+      color:@fontGray;
+      p{
+        line-height:18px;
+      }
+    }
+
+    .ipt{
+      display:block;
+      flex-grow: 1;
+
+      box-sizing: border-box;
+      padding-left:10px;
+      border:1px solid @lineGray;
+      border-radius:@radius;
+
+
+    }
+    input.ipt{
+      height:36px;
+
+      line-height:36px;
+    }
+    select.ipt{
+      outline: none;
+
+      height:36px;
+
+      line-height:36px;
+      &.placeholder{
+        color:#c5c5c5;
+      }
+    }
+    textarea.ipt{
+      padding-top:2px;
+      padding-bottom:2px;
+      padding-right:2px;
+      height:72px + 4px + 2px;
+      line-height:24px;
+    }
+  }
+}
+
+.bad-record{
+  box-sizing: border-box;
+  padding-top:20px;
+  padding-left:12px;
+  padding-bottom:20px;
+  //height:600px;
+
+  background:#fff;
+}
+
+.btn{
+  .button();
+
+  background:@componentGray;
+  .active{
+    background:@red;
+  }
+}

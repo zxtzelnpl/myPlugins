@@ -1,0 +1,168 @@
+html {
+  background: #f2f2f2;
+}
+input {
+  outline: none;
+  border: none;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+a.btn {
+  display: block;
+}
+.blank-h-10 {
+  height: 10px;
+}
+.blank-h-15 {
+  height: 15px;
+}
+.blank-h-18 {
+  height: 18px;
+}
+.blank-h-20 {
+  height: 20px;
+}
+.blank-h-30 {
+  height: 30px;
+}
+.blank-h-40 {
+  height: 40px;
+}
+.blank-h-50 {
+  height: 50px;
+}
+.container {
+  width: 100%;
+  font-size: 14px;
+}
+input,
+select,
+textarea {
+  padding: 0;
+}
+/*toast修复一些bug*/
+.jq-toast-single {
+  box-sizing: border-box;
+}
+/*toast修复一些bug*/
+/**公用代码MIX**/
+.input-box {
+  margin: 0 auto;
+  max-width: 640px;
+}
+.input-box input {
+  box-sizing: border-box;
+  display: block;
+  padding-left: 45px;
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  line-height: 50px;
+}
+.input-box .phone {
+  border-bottom: 1px solid #e6e6e6;
+}
+.input-box .phone input {
+  background: #fff url(/mobile/img/icon_register_phone.png) 12px center no-repeat;
+  background-size: 24px 24px;
+}
+.input-box .code {
+  position: relative;
+}
+.input-box .code input {
+  background: #fff url(/mobile/img/icon_register_yzm.png) 12px center no-repeat;
+  background-size: 24px 24px;
+}
+.input-box .code .get-code {
+  position: absolute;
+  top: 9px;
+  right: 12px;
+  display: block;
+  width: 90px;
+  height: 32px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  line-height: 32px;
+  background: #ccc;
+}
+.input-box .code .get-code.active {
+  background: #ff515d;
+}
+.service-agreement {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 18px;
+  font-size: 12px;
+}
+.service-agreement input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.service-agreement label {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.service-agreement label > .box {
+  display: block;
+  margin-right: 10px;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  color: #fff;
+  border-radius: 5px;
+}
+.service-agreement input + label > .box {
+  border: 1px solid #e6e6e6;
+  background: #fff;
+}
+.service-agreement input:checked + label > .box {
+  border: 1px solid #ff515d;
+  background: #ff515d url(/mobile/img/icon_right_s.png) center center no-repeat;
+  background-size: 100% 100%;
+}
+.service-agreement span {
+  line-height: 18px;
+}
+.service-agreement .i-agree {
+  margin-right: 8px;
+}
+.service-agreement .agreement {
+  color: #ff515d;
+}
+.bind {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  margin: 0 auto;
+  width: 240px;
+  height: 44px;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 5px;
+  background: #ccc;
+}
+.bind.active {
+  background: #ff515d;
+}
+
+/*# sourceMappingURL=bindweixin.css.map */
