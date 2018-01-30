@@ -12,11 +12,18 @@
   background:#fff;
 
   .box{
+    position:relative;
+
     display:flex;
     align-items: flex-start;
     justify-content: flex-start;
 
     margin:0 27px 0 10px;
+
+    input, select, textarea {
+      -webkit-appearance: none;
+      background: #fff;
+    }
 
     .label{
       display:block;
@@ -40,9 +47,24 @@
       padding-left:10px;
       border:1px solid @lineGray;
       border-radius:@radius;
-
-
     }
+
+    .cover{
+      position:absolute;
+      top:1px;
+      bottom:1px;
+      right:1px;
+      left:81px;
+
+      border-radius: @radius;
+
+      padding-left:10px;
+
+      line-height:34px;
+
+      background:#fff;
+    }
+
     input.ipt{
       height:36px;
 

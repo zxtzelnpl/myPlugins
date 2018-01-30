@@ -49,12 +49,13 @@
                 </select>
             </div>
             <div class="blank-h-10"></div>
-            <div class="box">
-                <label for="validDate" class="label">
+            <label class="box">
+                <span class="label">
                     证件有效期：
-                </label>
+                </span>
                 <input class="ipt placeholder" name="validDate" id="validDate" type="date"/>
-            </div>
+                <span class="cover">请填写</span>
+            </label>
             <div class="blank-h-10"></div>
             <div class="box">
                 <label for="naturePerson" class="label">
@@ -148,6 +149,11 @@
           $this.addClass('placeholder')
         }
 
+      })
+
+      /**cover**/
+      $('#validDate').focus(function() {
+        $('.cover').remove()
       })
 
     })
