@@ -8,5 +8,5 @@
 out
 gen
 node_modules
-libs
-css
+mobile/libs
+mobile/css
