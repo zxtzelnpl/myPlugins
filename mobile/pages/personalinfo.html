@@ -210,23 +210,15 @@
 <script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
 <script>
   var inputs = $('.ipt'),
-      certificate = $('#certificate'),
-      name = $('#name'),
-      phone = $('#phone'),
-      sex = $('#sex'),
-      validDate = $('#validDate'),
-      naturePerson = $('#naturePerson'),
-      benifitPerson = $('#benifitPerson'),
-      job = $('#job'),
-      salary = $('#salary'),
-      address = $('#address'),
 
       /**checkbox*/
       nobadrecords = $('#nobadrecords'),
       ihavebadrecord = $('#ihavebadrecord'),
       other_bad_record = $('#other_bad_record'),
 
+      /**input[type=data]的遮罩层**/
       cover = $('.cover'),
+      /**提交按钮*/
       sub = $('#sub');
 
 
@@ -312,7 +304,7 @@
         badrecords.push(input.value)
       })
 
-
+      /**do something**/
 
     })
 

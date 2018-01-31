@@ -1,0 +1,144 @@
+@import "consts/index.less";
+
+.test-page {
+
+}
+
+.content {
+
+}
+
+.part{
+  background:#fff;
+}
+h4.title{
+  position:relative;
+
+  margin:0 auto;
+  width:106px;
+  height:45px;
+
+  line-height:45px;
+  text-align: center;
+  font-size:@fontBig;
+  .line{
+    position:absolute;
+    top:22px;
+
+    display:block;
+    width:18px;
+    height:1px;
+
+    background:#000;
+    &.before{
+      left:-24px;
+    }
+    &.after{
+      right:-24px;
+    }
+  }
+  .circle{
+    position:absolute;
+    top:20px;
+
+    display:block;
+    width:5px;
+    height:5px;
+    border-radius: 50%;
+
+    background:#000;
+    &.before{
+      left:-6px;
+    }
+    &.after{
+      right:-6px;
+    }
+  }
+}
+.question{
+  padding-top:32px;
+  &:first-of-type{
+    padding-top:0;
+  }
+  .title{
+    display:flex;
+    .mark{
+      width:60px;
+      flex-shrink: 0;
+      span:first-child{
+        padding-left:14px;
+        color:@red;
+        font-weight:bold;
+      }
+      span:last-child{
+        color:@fontGray;
+        font-size:@fontSmall;
+      }
+    }
+    .mark+p{
+      padding-right:10px;
+      text-align: justify;
+    }
+  }
+  .select{
+    padding-top:15px;
+    padding-left:60px;
+    padding-right:10px;
+    padding-bottom:10px;
+    border-bottom:1px solid @lineGray;
+    label {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      margin-bottom:20px;
+      input {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+      }
+
+      input[type="radio"] + .radio {
+        display: block;
+        flex-shrink: 0;
+        margin-right: 10px;
+        box-sizing: border-box;
+        width: 18px;
+        height: 18px;
+        border: 1px solid @red;
+        border-radius: @radius;
+      }
+      input[type="radio"]:checked + .radio {
+        background: @red url(/mobile/img/icon_right_s.png) center center no-repeat;
+        background-size: 100% 100%;
+      }
+      .word{
+        font-size:@fontSmall;
+        line-height: 18px;
+      }
+
+      input[type="checkbox"] + .checkbox {
+        display: block;
+        flex-shrink: 0;
+        margin-right: 10px;
+        box-sizing: border-box;
+        width: 18px;
+        height: 18px;
+        border: 1px solid @red;
+        border-radius: @radius;
+      }
+      input[type="checkbox"]:checked + .checkbox {
+        background: @red url(/mobile/img/icon_right_s.png) center center no-repeat;
+        background-size: 100% 100%;
+      }
+      .word{
+        font-size:@fontSmall;
+        line-height: 18px;
+      }
+    }
+  }
+}
+.btn {
+  .button();
+  background: @red;
+}
