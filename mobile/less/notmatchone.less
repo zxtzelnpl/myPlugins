@@ -1,50 +1,7 @@
 @import "consts/index.less";
-.agreement-signature{
-  padding-top:50px;
+.not-match-one{
+
 }
-
-.tabs{
-  position:fixed;
-  top:0;
-  width:100%;
-
-  display:flex;
-  align-items: center;
-  justify-content: space-around;
-
-  height:50px;
-
-  font-size:@fontSmall;
-
-  background:#fff;
-
-  .tab{
-    box-sizing: border-box;
-
-    width:70px;
-    height:50px;
-
-    line-height:48px;
-    text-align: center;
-    &.on:after{
-      content:'';
-      display:block;
-      width:70px;
-      height:2px;
-      background:@red;
-      box-shadow: 0 1px 1px 0 @red;
-    }
-  }
-}
-.contents{
-  .content{
-    display:none;
-    &.on{
-      display:block;
-    }
-  }
-}
-
 .result{
   display:flex;
   align-items: center;
@@ -52,7 +9,7 @@
   margin:0 auto;
 
   width:320px;
-  height:313px;
+  height:360px;
 
   background:url(/mobile/img/icon_jg_bg.png) center center no-repeat;
   background-size:100% 360px;
@@ -169,72 +126,7 @@
     text-align: justify;
     line-height:1.2rem;
   }
-  .sign{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin-top:10px;
-
-    height:50px;
-    line-height:50px;
-    img{
-      width:50px;
-      height:50px;
-      vertical-align: middle;
-    }
-  }
 }
-
-.risk-disclosure{
-  padding:0 20px;
-  background:#fff;
-  h4{
-    padding:10px 0;
-    line-height:2;
-    text-align: center;
-    color:@red;
-  }
-  p{
-    font-size:@fontSmall;
-  }
-  h4+p{
-    padding:10px 0;
-    line-height:1.5;
-  }
-  h4+p+h5{
-    padding-top:20px;
-    font-size:@fontSmall;
-  }
-  h5~p{
-    margin:20px 0;
-    text-align: justify;
-  }
-  h5.i-read{
-    padding-bottom:20px;
-  }
-  .sign{
-    display:flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    height:64px;
-    line-height:32px;
-  }
-}
-
-.agreement{
-  background:#fff;
-  h4{
-    padding:10px 0;
-    line-height:2;
-    text-align: center;
-    color:@red;
-    span{
-      font-weight:normal
-    }
-  }
-}
-
 .btnbox{
   display:flex;
   align-items: center;
@@ -249,4 +141,3 @@
     background:@red;
   }
 }
-
