@@ -1,108 +1,172 @@
 @import "consts/index.less";
-.personal-info{
+
+.personal-info {
 
 }
 
-.info{
+.info {
   box-sizing: border-box;
-  padding-top:20px;
-  padding-bottom:20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   //height:525px;
 
-  background:#fff;
+  background: #fff;
 
-  .box{
-    position:relative;
+  .box {
+    position: relative;
 
-    display:flex;
+    display: flex;
     align-items: flex-start;
     justify-content: flex-start;
 
-    margin:0 27px 0 10px;
+    margin: 0 27px 0 10px;
 
     input, select, textarea {
       -webkit-appearance: none;
       background: #fff;
     }
 
-    .label{
-      display:block;
-      padding-right:8px;
-      width:72px;
+    .label {
+      display: block;
+      padding-right: 8px;
+      width: 72px;
 
-      text-align:right;
-      line-height:36px;
-      font-size:@fontSmall;
-      color:@fontGray;
-      p{
-        line-height:18px;
+      text-align: right;
+      line-height: 36px;
+      font-size: @fontSmall;
+      color: @fontGray;
+      p {
+        line-height: 18px;
       }
     }
 
-    .ipt{
-      display:block;
+    .ipt {
+      display: block;
       flex-grow: 1;
 
       box-sizing: border-box;
-      padding-left:10px;
-      border:1px solid @lineGray;
-      border-radius:@radius;
+      padding-left: 10px;
+      border: 1px solid @lineGray;
+      border-radius: @radius;
     }
 
-    .cover{
-      position:absolute;
-      top:1px;
-      bottom:1px;
-      right:1px;
-      left:81px;
+    .cover {
+      position: absolute;
+      top: 1px;
+      bottom: 1px;
+      right: 1px;
+      left: 81px;
 
       border-radius: @radius;
 
-      padding-left:10px;
+      padding-left: 10px;
 
-      line-height:34px;
+      line-height: 34px;
 
-      background:#fff;
+      background: #fff;
     }
 
-    input.ipt{
-      height:36px;
+    input.ipt {
+      height: 36px;
 
-      line-height:36px;
+      line-height: 36px;
     }
-    select.ipt{
+    select.ipt {
       outline: none;
 
-      height:36px;
+      height: 36px;
 
-      line-height:36px;
+      line-height: 36px;
 
     }
-    textarea.ipt{
-      padding-top:2px;
-      padding-bottom:2px;
-      padding-right:2px;
-      height:72px + 4px + 2px;
-      line-height:24px;
+    textarea.ipt {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-right: 2px;
+      height: 72px + 4px + 2px;
+      line-height: 24px;
     }
   }
 }
 
-.bad-record{
+.bad-record {
   box-sizing: border-box;
-  padding-top:20px;
-  padding-left:12px;
-  padding-bottom:20px;
+  padding-top: 20px;
+  padding-left: 12px;
+  padding-right:27px;
+  padding-bottom: 20px;
   //height:600px;
 
-  background:#fff;
+  font-size: @fontSmall;
+
+  background: #fff;
+
+  .title {
+    font-weight: bold;
+  }
+  .box {
+
+  }
+  label {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    input {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+    input[type="checkbox"] + .checkbox {
+      display: block;
+      margin-right: 10px;
+      box-sizing: border-box;
+      width: 18px;
+      height: 18px;
+      border: 1px solid @red;
+      border-radius: @radius;
+    }
+    input[type="checkbox"]:disabled + .checkbox {
+      border-color:@lineGray;
+    }
+    input[type="checkbox"]:checked + .checkbox {
+      background: @red url(/mobile/img/icon_right_s.png) center center no-repeat;
+      background-size: 100% 100%;
+    }
+
+    &.oneline{
+      height: 18px;
+      line-height: 18px;
+
+      .text {
+        line-height: 18px;
+      }
+    }
+  }
+
+  .box.others {
+    display: flex;
+    textarea{
+      box-sizing:border-box;
+      flex-grow: 1;
+      margin-left:20px;
+      padding-left:10px;
+      padding-right:2px;
+      padding-top:2px;
+      padding-bottom:2px;
+      height:78px;
+      border:1px solid @lineGray;
+      border-radius:@radius;
+      font-size:@fontNormal;
+    }
+  }
 }
 
-.btn{
+.btn {
   .button();
 
-  background:@componentGray;
-  .active{
-    background:@red;
+  background: @componentGray;
+  &.active {
+    background: @red;
   }
 }
