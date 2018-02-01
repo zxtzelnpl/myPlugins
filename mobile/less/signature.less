@@ -1,0 +1,46 @@
+@import "consts/index.less";
+.signature{
+  height:45px;
+  line-height:45px;
+  h5{
+    margin:0 auto;
+    width:320px;
+  }
+  .js-signature{
+    box-sizing: border-box;
+    display:block;
+    margin:0 auto;
+    width:320px;
+    height:320px;
+    border:1px solid @lineGray;
+    background:#fff;
+  }
+  .btn-box{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin:0 auto;
+    width:320px;
+    height:44px;
+    .btn{
+      box-sizing: border-box;
+      width:155px;
+      height:44px;
+      border-radius: @radius;
+      text-align: center;
+      line-height:44px;
+      &.clear{
+        background:#fff;
+      }
+      &.save{
+        color:#fff;
+        background:@componentGray;
+        &.active{
+          background:@red;
+        }
+      }
+
+    }
+  }
+}

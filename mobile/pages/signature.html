@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>确认签名</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" href="/mobile/css/signature.css">
+</head>
+<body>
+<form>
+    <div class="container signature">
+        <h5>
+            在下框中手写签名
+        </h5>
+        <div class="js-signature">
+
+        </div>
+        <div class="blank-h-20"></div>
+        <div class="btn-box">
+            <div id="clear" class="btn clear">清楚姓名</div>
+            <div id="save" class="btn save">保存签名</div>
+        </div>
+    </div>
+</form>
+</body>
+<script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
+<script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<script src="/mobile/libs/jq-signature/jq-signature.min.js"></script>
+<script>
+    $(function(){
+      $('.js-signature').jqSignature({
+        width:319,
+        height:319,
+        border:'none',
+        background:'#fff'
+      })
+
+      $('.js-signature').on('jq.signature.changed', function () {
+        $('#save').addClass('active');
+      });
+
+      $('#clear').click(function(){
+        $('.js-signature').jqSignature('clearCanvas')
+        $('#save').removeClass('active');
+      })
+
+      $('#save').click(function(){
+        if($(this).hasClass('active')){
+          var data=$('.js-signature').jqSignature('getDataURL')
+          console.log(data)
+        }else{
+          $.toast({
+            text: '请再中间白色框中手写签名',
+            allowToastClose: false,
+            showHideTransition: 'slide',
+            position: 'bottom-center',
+            hideAfter: 1500,
+            stack: false,
+            textAlign: 'center',
+            loader: false
+          })
+        }
+
+      })
+    })
+</script>
+</html>
