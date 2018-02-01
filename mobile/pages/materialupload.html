@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资料上传</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" href="/mobile/css/materialupload.css">
+    <script src="/mobile/javascript/weixin-1.2.0.js"></script>
+</head>
+<body>
+<form>
+    <div class="container material-upload">
+        <div class="prompt">
+            <h4>用户上传身份证正反面照片</h4>
+            <div>
+                <p>1、证件的全部信息必须清晰无阻挡</p>
+                <p>2、仅支持jpg、gif、png、jpeg图片格式</p>
+                <p>3、图片大小不超过3M</p>
+            </div>
+        </div>
+        <div class="blank-h-20"></div>
+        <div class="card">
+            <div class="front">
+                <h5 class="title">
+                    <span class="line before"></span>
+                    <span class="circle before"></span>
+                    身份证正面拍照上传
+                    <span class="line after"></span>
+                    <span class="circle after"></span>
+                </h5>
+                <div class="img">
+                    <img src="/mobile/img/icon_sc_sfz_z.png">
+                </div>
+            </div>
+            <div class="blank-h-20"></div>
+            <div class="back">
+                <h5 class="title">
+                    <span class="line before"></span>
+                    <span class="circle before"></span>
+                    身份证反面拍照上传
+                    <span class="line after"></span>
+                    <span class="circle after"></span>
+                </h5>
+                <div class="img">
+                    <img src="/mobile/img/icon_sc_sfz_b.png">
+                </div>
+            </div>
+        </div>
+        <div class="blank-h-30"></div>
+        <div class="btn">
+            下一步
+        </div>
+        <div class="blank-h-40"></div>
+    </div>
+</form>
+</body>
+<script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
+<script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<script>
+    $(function(){
+      var images={
+        front:'',
+        back:''
+      }
+
+      wx.config({
+        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: '', // 必填，企业号的唯一标识，此处填写企业号corpid
+        timestamp: , // 必填，生成签名的时间戳
+        nonceStr: '', // 必填，生成签名的随机串
+        signature: '',// 必填，签名，见附录1
+        jsApiList: [
+          'chooseImage',
+          'uploadImage'
+        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+      });
+
+      wx.ready(function () {
+        /**关闭右上角分享菜单**/
+        wx.hideOptionMenu()
+      });
+
+
+
+
+    })
+
+
+  /**选择图片-微信接口**/
+  wx.chooseImage({
+    count: 1, // 默认9
+    sizeType: ['original', 'compressed'],   // 可以指定是原图还是压缩图，默认二者都有
+    sourceType: ['album', 'camera'],        // 可以指定来源是相册还是相机，默认二者都有
+    success: function (res) {
+      var localIds = res.localIds;          // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+    }
+  });
+
+  /**上传图片-微信接口**/
+  wx.uploadImage({
+    localId: '',                        // 需要上传的图片的本地ID，由chooseImage接口获得
+    isShowProgressTips: 1,              // 默认为1，显示进度提示
+    success: function (res) {
+      var serverId = res.serverId;      // 返回图片的服务器端ID
+    }
+  });
+
+</script>
+</html>

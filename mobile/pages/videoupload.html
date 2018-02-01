@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资料上传</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" href="/mobile/css/videoupload.css">
+</head>
+<body>
+<form>
+    <div class="container material-upload">
+        <div class="prompt">
+            <h4>视频录音文字</h4>
+            <p>本人<span>田雨橙</span>，身份证号码：<span>311111111111111111</span>，在<span class="red">君银投顾</span>对其投资顾问已作充分说明及风险揭示后，清楚投资顾问服务大的定位，对协议上的所有条款均确认无误并资源签订协议。</p>
+        </div>
+
+        <div class="video">
+            <video id="videoShow" src=""></video>
+            <label class="upload-video">
+                <input id="videoFile" type="file" accept="video/*">
+                <img src="/mobile/img/icon_sc_video.png" alt="">
+                <span>视频</span>
+            </label>
+        </div>
+
+        <div class="blank-h-30"></div>
+
+        <div class="btn">提交</div>
+    </div>
+</form>
+</body>
+<script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
+<script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<script>
+    $(function(){
+      $('#videoFile').change(function(e){
+        var sizeLimit = 1024*1024*60
+        var file = e.target.files[0]
+        console.log(file)
+        $('#videoShow').src=file.path
+      })
+    })
+</script>
+</html>
