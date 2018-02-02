@@ -15,10 +15,10 @@
     <div class="container bind-weixin">
         <div class="input-box">
             <div class="phone">
-                <input type="number" id="phone" placeholder="请输入手机号" max=11 />
+                <input type="text" id="phone" placeholder="请输入手机号" maxlength="11"/>
             </div>
             <div class="code">
-                <input type="number" id="code" placeholder="请输入验证码"/>
+                <input type="text" id="code" placeholder="请输入验证码" maxlength="4"/>
                 <p class="get-code active" id="getCode">
                     获取验证码
                 </p>
@@ -28,14 +28,17 @@
         <div class="blank-h-20"></div>
 
         <div class="service-agreement">
-            <input id="agree" name="agree" type="checkbox" checked="checked"/>
-            <label for="agree"><span class="box"></span><span class="i-agree">我同意</span></label>
-            <span class="agreement">《深圳君银证券投资咨询顾问有限公司服务协议》</span>
+            <label>
+                <input id="agree" name="agree" type="checkbox" checked="checked"/>
+                <span class="box"></span>
+                <span class="i-agree">我同意</span>
+                <span class="agreement">《深圳君银证券投资咨询顾问有限公司服务协议》</span>
+            </label>
         </div>
 
         <div class="blank-h-40"></div>
 
-        <div class="bind active" id="bind">
+        <div class="bind" id="bind">
             确认绑定
         </div>
     </div>
@@ -45,23 +48,74 @@
 <script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
 <script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
 <script>
-  /**手机验证函数**/
-  function phoneCheck (phone) {
-    const mobile = /^[1][3,4,5,7,8][0-9]{9}$/
-    return mobile.test(phone)
-  }
-
   $(function () {
     var bindBtn = $('#bind')            //提交绑定按钮
-        , agreeCheck = $('#agree')      //复选框按钮
+        , agree = $('#agree')      //复选框按钮
         , phoneInput = $('#phone')      //手机号输入
         , codeInput = $('#code')        //验证码输入
         , getCodeBtn = $('#getCode')    //获取验证码按钮
         , getCodeControl = null
         , count = 60
 
+    /**自定义的提示框**/
+    function toast (message) {
+      $.toast({
+        text: message,
+        allowToastClose: false,
+        showHideTransition: 'slide',
+        position: 'bottom-center',
+        hideAfter: 1500,
+        stack: false,
+        textAlign: 'center',
+        loader: false
+      })
+    }
+
+    /**手机验证函数**/
+    function phoneCheck () {
+      var phone = $.trim(phoneInput.val())
+      var mobile = /^[1][3,4,5,7,8][0-9]{9}$/
+      return mobile.test(phone)
+    }
+
+    /**验证码验证**/
+    function codeCheck () {
+      var code = codeInput.val()
+      return $.trim(code).length === 4
+    }
+
+    /**协议是否改变**/
+    function agreeCheck () {
+      return agree[0].checked
+    }
+
+    /**用户输入手机号**/
+    phoneInput.change(activeChange)
+    /**用户输入验证码**/
+    codeInput.change(activeChange)
+    /**用户点击协议**/
+    agree.change(activeChange)
+
+    /**按钮颜色改变**/
+    function activeChange () {
+      if (!phoneCheck()) {
+        return bindBtn.removeClass('active')
+      }
+      if (!codeCheck()) {
+        return bindBtn.removeClass('active')
+      }
+      if (!agreeCheck()) {
+        return bindBtn.removeClass('active')
+      }
+      bindBtn.addClass('active')
+    }
+
+
     /**获取验证码**/
     getCodeBtn.click(function () {
+      if (!phoneCheck()) {
+        return toast('手机号码有误，请重新填写');
+      }
       if (!getCodeControl) {
         $.ajax({
           url: 'http://public.jyzqsh.com/success.json',
@@ -75,7 +129,7 @@
               getCodeControl = setInterval(function () {
                 if (count < 0) {
                   clearInterval(getCodeControl)
-                  getCodeControl=null
+                  getCodeControl = null
                   count = 60
                   getCodeBtn.html('获取验证码')
                   getCodeBtn.addClass('active')
@@ -88,96 +142,35 @@
             }
             else {
               var message = data.message || '服务器连接错误，请稍后再试'
-              $.toast({
-                text: message,
-                allowToastClose: false,
-                showHideTransition: 'slide',
-                position: 'bottom-center',
-                hideAfter: 1500,
-                stack: false,
-                textAlign: 'center',
-                loader: false
-              })
+              toast(message)
             }
 
           },
           error: function () {
-            $.toast({
-              text: '网络连接错误，请稍后重试',
-              allowToastClose: false,
-              showHideTransition: 'slide',
-              position: 'bottom-center',
-              hideAfter: 1500,
-              stack: false,
-              textAlign: 'center',
-              loader: false
-            })
+            toast('网络连接错误，请稍后重试')
           }
         })
       }
     })
 
-    /**用户点击协议**/
-    agreeCheck.change(function (e) {
-      var checked = e.target.checked
-      if (checked) {
-        bindBtn.addClass('active')
-      } else {
-        bindBtn.removeClass('active')
-      }
-    })
 
     /**开始提交**/
     bindBtn.click(function () {
-      var phone = $.trim(phoneInput.val())
-          , code = $.trim(codeInput.val())
+
 
       /**如果没有勾选协议**/
       if (!agreeCheck[0].checked) {
-
-        return $.toast({
-          text: '请先认真阅读协议并确认',
-          allowToastClose: false,
-          showHideTransition: 'slide',
-          position: 'bottom-center',
-          hideAfter: 1500,
-          stack: false,
-          textAlign: 'center',
-          loader: false
-        })
-
+        return toast('请先认真阅读协议并确认');
       }
 
       /**如果手机号码验证没通过**/
-      if (!phoneCheck(phone)) {
-
-        return $.toast({
-          text: '手机号码有误请重新填写',
-          allowToastClose: false,
-          showHideTransition: 'slide',
-          position: 'bottom-center',
-          hideAfter: 1500,
-          stack: false,
-          textAlign: 'center',
-          loader: false
-        })
-
+      if (!phoneCheck()) {
+        return toast('手机号码有误请重新填写');
       }
 
       /**如果验证码为空**/
-      if (code === '') {
-
-        return $.toast({
-          text: '请填写验证码',
-          allowToastClose: false,
-          showHideTransition: 'slide',
-          position: 'bottom-center',
-          hideAfter: 1500,
-          stack: false,
-          textAlign: 'center',
-          loader: false
-        })
-
+      if (!codeCheck()) {
+        return toast('请填写验证码');
       }
 
       /**通过所有验证则开始ajax**/
@@ -190,7 +183,6 @@
         },
         success: function (data) {
           if (data.state === 'success') {
-
             $.toast({
               text: '登录成功',
               allowToastClose: false,
@@ -202,37 +194,15 @@
               loader: false,
               bgColor: '#ff515d'
             })
-
           }
           else {
             var message = data.message || '服务器连接错误，请稍后再试'
 
-            $.toast({
-              text: message,
-              allowToastClose: false,
-              showHideTransition: 'slide',
-              position: 'bottom-center',
-              hideAfter: 1500,
-              stack: false,
-              textAlign: 'center',
-              loader: false
-            })
-
+            toast(message)
           }
         },
         error: function () {
-
-          $.toast({
-            text: '服务器连接错误，请稍后再试',
-            allowToastClose: false,
-            showHideTransition: 'slide',
-            position: 'bottom-center',
-            hideAfter: 1500,
-            stack: false,
-            textAlign: 'center',
-            loader: false
-          })
-
+          toast('服务器连接错误，请稍后再试')
         }
       })
     })

@@ -1,104 +1,162 @@
-@maxWidth:750px;
+@maxWidth: 640px;
 
-@red:#ff515d;
+@red: #ff515d;
 
-@buttonW:240px;
-@buttonH:44px;
+@buttonW: 480;
+@buttonH: 90;
 
-@fontGray:#999;
-@fontGrayM:#666;
-@fontGrayDeep:#333;
-@lineGray:#e5e5e5;
-@bgGray:#f2f2f2;
-@componentGray:#ccc;
-@radius:4px;
+@fontGray: #999;
+@fontGrayM: #666;
+@fontGrayDeep: #333;
+@lineGray: #e5e5e5;
+@bgGray: #f2f2f2;
+@componentGray: #ccc;
+@radius: 4px;
 
-@fontSmall:12px;
-@fontNormal:14px;
-@fontBig:15px;
-@fontLarge:16px;
-@fontH3:17px;
+@fontSmall: 12px;
+@fontNormal: 14px;
+@fontBig: 15px;
+@fontH3: 17px;
 
-html{
-  background:@bgGray;
+.fontSmall {
+  font-size: 13px;
+  @media (max-width: 375px) {
+    font-size: 12px;
+  }
 }
 
-input{
-  outline:none;
-  border:none;
+.fontNormal {
+  font-size: 16px;
+  @media (max-width: 375px) {
+    font-size: 15px;
+  }
 }
 
-p,h2,h3,h4,h5{
-  margin:0;
-  padding:0;
+.fontBig {
+  font-size: 19px;
+  @media (max-width: 375px) {
+    font-size: 18px;
+  }
 }
 
-a{
-  color:#000;
+.calc_margin(@top,@right,@bottom,@left) {
+  margin: floor(( @top / 750 ) * 100vw) floor(( @right / 750 ) * 100vw) floor(( @bottom / 750 ) * 100vw) floor(( @left / 750 ) * 100vw);
+};
+
+.calc_padding(@top,@right,@bottom,@left) {
+  padding: floor(( @top / 750 ) * 100vw) floor(( @right / 750 ) * 100vw) floor(( @bottom / 750 ) * 100vw) floor(( @left / 750 ) * 100vw);
+};
+
+.calc_width(@num) {
+  width: floor(( @num / 750 ) * 100vw);
+};
+
+.calc_height(@num) {
+  height: floor(( @num / 750 ) * 100vw);
+};
+
+.calc_border(@num,@style,@color) {
+  border: floor(( @num / 750 ) * 100vw) @style @color;
+};
+
+.calc_lineheight(@num) {
+  line-height: floor(( @num / 750 ) * 100vw);
+};
+
+.calc_bg_ps(@num){
+  background-position:floor(( @num / 750 ) * 100vw) center;
+}
+
+.calc_bg_size(@width,@height){
+  background-size:floor(( @width / 750 ) * 100vw),floor(( @height / 750 ) * 100vw);
+}
+
+html {
+  background: @bgGray;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+p, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #000;
   text-decoration: none;
 }
 
-a.btn{
-  display:block;
+a.btn {
+  display: block;
 }
 
-.blank-h-10{
-  height:10px;
+.blank-h-10 {
+  .calc_height(20);
 }
 
-.blank-h-15{
-  height:15px;
+.blank-h-12 {
+  .calc_height(12);
 }
 
-.blank-h-18{
-  height:18px;
+.blank-h-15 {
+  .calc_height(30);
 }
 
-.blank-h-20{
-  height:20px;
+.blank-h-18 {
+  .calc_height(36);
 }
 
-.blank-h-27{
-  height:27px;
+.blank-h-20 {
+  .calc_height(40);
 }
 
-.blank-h-30{
-  height:30px;
+.blank-h-27 {
+  .calc_height(54);
 }
 
-.blank-h-40{
-  height:40px;
+.blank-h-30 {
+  .calc_height(60);
 }
 
-.blank-h-50{
-  height:50px;
+.blank-h-40 {
+  .calc_height(80);
 }
 
-.container{
-  width:100%;
-  font-size:@fontNormal;
+.blank-h-50 {
+  .calc_height(100);
 }
 
-input,select,textarea{
-  padding:0;
+.container {
+  width: 100%;
+  font-size: @fontNormal;
+}
+
+input, select, textarea {
+  padding: 0;
 }
 
 /*toast修复一些bug*/
-.jq-toast-single{
+.jq-toast-single {
   box-sizing: border-box;
 }
-/*toast修复一些bug*/
 
+/*toast修复一些bug*/
 
 /**公用代码MIX**/
 
 .button(){
-  margin:0 auto;
-  width:@buttonW;
-  height:@buttonH;
-  border-radius:@radius;
-  line-height:@buttonH;
+  margin: 0 auto;
+  .calc_width(@buttonW);
+  .calc_height(@buttonH);
+  border-radius: @radius;
+  .calc_lineheight(@buttonH);
+
+  .fontNormal;
 
   text-align: center;
-  color:#fff;
+  color: #fff;
 }

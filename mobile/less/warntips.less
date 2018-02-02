@@ -1,16 +1,21 @@
+/**使用flex弹性布局**/
 @import "consts/index.less";
 @mainColor:#e15d4f;
+
 html,body,form{
   height:100%;
 }
 .warn-tips{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height:100%;
   background:#ff5460 url(/mobile/img/icon_wx_bg.png) center top no-repeat;
   background-size:100% auto;
 }
 .logo{
   margin:0 auto;
-  padding-top:30px;
   width:120px;
   height:120px;
   img{
@@ -20,9 +25,14 @@ html,body,form{
   }
 }
 .title{
-  height:24px;
-  line-height:24px;
-  font-size:@fontLarge;
+  height:26px;
+  line-height:26px;
+  font-size:17px;
+  @media(max-width:375px){
+    height:24px;
+    line-height:24px;
+    font-size:16px;
+  }
   text-align: center;
   color:#fff;
 }
@@ -48,19 +58,20 @@ html,body,form{
     height:32px;
     line-height:32px;
     text-align:center;
-    font-size:@fontNormal;
+    .fontNormal;
     color:@mainColor;
     border-bottom:1px dashed @mainColor;
   }
   p{
     margin:12px 16px;
     color:@mainColor;
-    font-size:@fontSmall;
+    .fontSmall;
   }
   .warning{
     margin:12px 16px;
     text-align: center;
     font-weight:normal;
+    .fontSmall;
   }
 }
 .decorate-bottom{

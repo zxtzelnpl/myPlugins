@@ -1,3 +1,4 @@
+/*按钮做了调整*/
 @import "consts/index.less";
 .agreement-signature{
   padding-top:50px;
@@ -14,7 +15,7 @@
 
   height:50px;
 
-  font-size:@fontSmall;
+  .fontSmall;
 
   background:#fff;
 
@@ -75,7 +76,7 @@
         }
       }
       .user-name{
-        font-size:@fontH3;
+        .fontBig;
         text-align: center;
       }
       .line{
@@ -85,7 +86,7 @@
         background:@lineGray;
       }
       .certificate{
-        font-size:@fontSmall;
+        .fontSmall;
         text-align: center;
       }
     }
@@ -100,7 +101,7 @@
 
         line-height:25px;
         text-align: center;
-        font-size:@fontLarge;
+        .fontBig;
         color:@red;
         .line{
           position:absolute;
@@ -143,7 +144,7 @@
       height:90px;
       p{
         line-height:1.5rem;
-        font-size:@fontSmall;
+        .fontSmall;
         text-align: center;
       }
     }
@@ -165,9 +166,9 @@
     border-bottom-color: #fff;
   }
   p{
-    font-size:@fontSmall;
+    .fontSmall;
     text-align: justify;
-    line-height:1.2rem;
+    line-height:1.2;
   }
   .sign{
     display:flex;
@@ -194,10 +195,11 @@
     padding:10px 0;
     line-height:2;
     text-align: center;
+    .fontNormal;
     color:@red;
   }
   p{
-    font-size:@fontSmall;
+    .fontSmall;
   }
   h4+p{
     padding:10px 0;
@@ -226,14 +228,14 @@
 .agreement{
   padding:0 12px;
   background:#fff;
-  font-size:@fontSmall;
+  .fontSmall;
   .head{
     padding:10px 0;
     line-height:2;
     text-align: center;
     color:@red;
     p{
-      font-size:@fontNormal;
+      .fontNormal;
       font-weight:bold;
     }
     span{
@@ -253,6 +255,7 @@
   h5{
     margin:20px 0;
     line-height:1.5;
+    .fontSmall;
   }
   .text>p {
     margin: 20px 0;
@@ -283,7 +286,7 @@
   align-items: center;
   justify-content: center;
 
-  height:60px;
+  .calc_height(160);
   border-top:1px solid @lineGray;
 
   background:#fff;

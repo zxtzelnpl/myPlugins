@@ -1,51 +1,61 @@
 @import "consts/index.less";
-.bind-weixin{
+
+.bind-weixin {
 
 }
 
-.input-box{
-  margin:0 auto;
-  max-width:@maxWidth;
-  input{
+.input-box {
+  margin: 0 auto;
+  max-width: @maxWidth;
+  .phone, .code {
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
     box-sizing: border-box;
-    display:block;
-    padding-left:45px;
-    width:100%;
-    height:50px;
-    font-size: @fontNormal;
-    line-height:50px;
+    width: 100%;
+    .calc_padding(0, 0, 0, 90);
+    .calc_height(100);
   }
   .phone{
-    border-bottom:1px solid @lineGray;
+    border-bottom: 1px solid @lineGray;
+    background-color:#fff;
+    background-image: url(/mobile/img/icon_register_phone.png);
+    background-repeat: no-repeat;
+    .calc_bg_ps(24);
+    .calc_bg_size(48,48);
     input{
-      background:#fff url(/mobile/img/icon_register_phone.png) 12px center no-repeat;
-      background-size:24px 24px;
+      flex-grow: 1;
     }
   }
-  .code{
-    position:relative;
-    input{
-      background:#fff url(/mobile/img/icon_register_yzm.png) 12px center no-repeat;
-      background-size:24px 24px;
-    }
-    .get-code{
-      position:absolute;
-      top:9px;
-      right:12px;
+  input {
+    display: block;
+    .calc_height(64);
+    .calc_lineheight(64);
+    .fontNormal;
+  }
+  .code {
+    justify-content: space-between;
+    background-color:#fff;
+    background-image: url(/mobile/img/icon_register_yzm.png);
+    background-repeat: no-repeat;
+    .calc_bg_ps(24);
+    .calc_bg_size(48,48);
+    .get-code {
+      display: block;
+      margin-right:12px;
+      .calc_width(180);
+      .calc_height(64);
+      .calc_lineheight(64);
 
-      display:block;
-      width:90px;
-      height:32px;
-      border-radius:@radius;
+      border-radius: @radius;
 
-      color:#fff;
-      font-size:@fontSmall;
+      .fontSmall;
+      color: #fff;
       text-align: center;
-      line-height:32px;
 
-      background:@componentGray;
-      &.active{
-        background:@red;
+      background: @componentGray;
+      &.active {
+        background: @red;
       }
 
     }
@@ -53,65 +63,66 @@
 
 }
 
-.service-agreement{
-  display:flex;
+.service-agreement {
+  display: flex;
   justify-content: center;
   align-items: center;
 
-  height:18px;
+  .calc_height(36);
 
-  font-size:@fontSmall;
-  input{
-    visibility: hidden;
-    width:0;
-    height:0;
-  }
-  label{
+  .fontSmall;
+  label {
+
+    @width:20px;
+    @height:20px;
+    @media(max-width:375px){
+      @width:18px;
+      @height:18px;
+    }
+
     display:flex;
     align-items: center;
     justify-content: center;
+
+    input {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+    .box {
+      display: block;
+      margin-right: 10px;
+      box-sizing: border-box;
+      width: @width;
+      height: @height;
+      color: #fff;
+      border-radius: @radius;
+    }
+    .i-agree {
+      margin-right: @width / 2;
+    }
+    .agreement {
+      color: @red;
+    }
   }
-  label>.box{
-    display:block;
-    margin-right:10px;
-    box-sizing: border-box;
-    width:18px;
-    height:18px;
-    color:#fff;
-    border-radius:@radius;
+  input + .box {
+    border: 1px solid @lineGray;
+    background: #fff;
   }
-  input+label>.box{
-    border:1px solid @lineGray;
-    background:#fff;
-  }
-  input:checked+label>.box{
-    border:1px solid @red;
+  input:checked + .box {
+    border: 1px solid @red;
     background: @red url(/mobile/img/icon_right_s.png) center center no-repeat;
-    background-size:100% 100%;
-  }
-  span{
-    line-height: 18px;
-  }
-  .i-agree{
-    margin-right:8px;
-  }
-  .agreement{
-    color:@red;
+    background-size: 100% 100%;
   }
 }
 
-.bind{
-  display:flex;
+.bind {
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin:0 auto;
-  width:@buttonW;
-  height:@buttonH;
-  color:#fff;
-  font-size: @fontBig;
-  border-radius: @radius;
-  background:@componentGray;
-  &.active{
-    background:@red;
+  .button();
+  background: @componentGray;
+  &.active {
+    background: @red;
   }
 }

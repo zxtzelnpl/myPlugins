@@ -1,3 +1,4 @@
+/**card底图**/
 @import "consts/index.less";
 .not-match-one{
 
@@ -14,8 +15,10 @@
   background:url(/mobile/img/icon_jg_bg.png) center center no-repeat;
   background-size:100% 360px;
   .card{
-    width:240px;
-    height:280px;
+    @media(max-width: 375px){
+      width:240px;
+      height:280px;
+    }
     .one{
       height:165px;
       .user-img{
@@ -32,7 +35,7 @@
         }
       }
       .user-name{
-        font-size:@fontH3;
+        .fontBig;
         text-align: center;
       }
       .line{
@@ -42,7 +45,7 @@
         background:@lineGray;
       }
       .certificate{
-        font-size:10px;
+        .fontSmall;
         text-align: center;
       }
     }
@@ -57,7 +60,7 @@
 
         line-height:25px;
         text-align: center;
-        font-size:@fontLarge;
+        .fontBig;
         color:@red;
         .line{
           position:absolute;
@@ -100,7 +103,7 @@
       height:90px;
       p{
         line-height:1.5rem;
-        font-size:@fontSmall;
+        .fontSmall;
         text-align: center;
       }
     }
@@ -126,7 +129,7 @@
     border-bottom-color: #fff;
   }
   p{
-    font-size:@fontSmall;
+    .fontSmall;
     text-align: justify;
     line-height:1.2rem;
   }
