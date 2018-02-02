@@ -25,10 +25,21 @@
   }
 }
 .video{
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+
   box-sizing: border-box;
   padding:20px 27.5px;
   height:140px;
   background:#fff;
+  .show-video{
+    margin-right:10px;
+    display:none;
+    width:100px;
+    height:100px;
+    background:#000;
+  }
   .upload-video{
     display:flex;
     flex-direction: column;
@@ -58,4 +69,7 @@
 .btn{
   .button();
   background:@componentGray;
+  &.active{
+    background:@red;
+  }
 }

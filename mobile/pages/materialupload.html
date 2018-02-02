@@ -32,7 +32,7 @@
                     <span class="circle after"></span>
                 </h5>
                 <div class="img">
-                    <img src="/mobile/img/icon_sc_sfz_z.png">
+                    <img src="/mobile/img/icon_sc_sfz_z.png" id="front">
                 </div>
             </div>
             <div class="blank-h-20"></div>
@@ -45,7 +45,7 @@
                     <span class="circle after"></span>
                 </h5>
                 <div class="img">
-                    <img src="/mobile/img/icon_sc_sfz_b.png">
+                    <img src="/mobile/img/icon_sc_sfz_b.png" id="back">
                 </div>
             </div>
         </div>
@@ -60,44 +60,73 @@
 <script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
 <script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
 <script>
-    $(function(){
-      var images={
-        front:'',
-        back:''
+  $(function () {
+    wx.config({
+      debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+      appId: '', // 必填，企业号的唯一标识，此处填写企业号corpid
+      timestamp:'', // 必填，生成签名的时间戳
+      nonceStr: '', // 必填，生成签名的随机串
+      signature: '',// 必填，签名，见附录1
+      jsApiList: [
+        'hideOptionMenu',
+        'chooseImage',
+        'uploadImage'
+      ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    wx.ready(function () {
+
+      /**关闭右上角分享菜单**/
+      wx.hideOptionMenu()
+
+      function OpenWeiXinImageUpload(imageId){
+        /**微信：拍照或从手机相册中选图接口**/
+        wx.chooseImage({
+          count: 1, // 默认9
+          sizeType: ['original', 'compressed'],   // 可以指定是原图还是压缩图，默认二者都有
+          sourceType: ['album', 'camera'],        // 可以指定来源是相册还是相机，默认二者都有
+          success: function (res) {
+            var localIds = res.localIds[0];       // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+            document.getElementById(imageId).src = localIds
+            /**微信：上传图片接口**/
+            wx.uploadImage({
+              localId: localIds,
+              isShowProgressTips: 1, // 默认为1，显示进度提示
+              success: function (res) {
+                var serverId = res.serverId; // 返回图片的服务器端ID
+                /**
+                 * do something
+                 * **/
+              },
+              fail:function(res){
+                alert("图片大小不能超过1M")
+              }
+            })
+          }
+        });
       }
 
-      wx.config({
-        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: '', // 必填，企业号的唯一标识，此处填写企业号corpid
-        timestamp: , // 必填，生成签名的时间戳
-        nonceStr: '', // 必填，生成签名的随机串
-        signature: '',// 必填，签名，见附录1
-        jsApiList: [
-          'chooseImage',
-          'uploadImage'
-        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-      });
+      $('#front').click(function(e){
+        var id = e.target.id
+        OpenWeiXinImageUpload(id)
+      })
 
-      wx.ready(function () {
-        /**关闭右上角分享菜单**/
-        wx.hideOptionMenu()
-      });
+      $('#back').click(function(e){
+        var id = e.target.id
+        OpenWeiXinImageUpload(id)
+      })
 
+    });
+
+    wx.error(function (res) {
+        console.log(res)
+    });
 
 
+  })
 
-    })
 
 
-  /**选择图片-微信接口**/
-  wx.chooseImage({
-    count: 1, // 默认9
-    sizeType: ['original', 'compressed'],   // 可以指定是原图还是压缩图，默认二者都有
-    sourceType: ['album', 'camera'],        // 可以指定来源是相册还是相机，默认二者都有
-    success: function (res) {
-      var localIds = res.localIds;          // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
-    }
-  });
 
   /**上传图片-微信接口**/
   wx.uploadImage({
