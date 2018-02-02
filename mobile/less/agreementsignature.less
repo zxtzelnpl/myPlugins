@@ -224,14 +224,56 @@
 }
 
 .agreement{
+  padding:0 12px;
   background:#fff;
-  h4{
+  font-size:@fontSmall;
+  .head{
     padding:10px 0;
     line-height:2;
     text-align: center;
     color:@red;
+    p{
+      font-size:@fontNormal;
+      font-weight:bold;
+    }
     span{
       font-weight:normal
+    }
+  }
+  .partyA,.partyB-personal,.partyB-orgnize{
+    line-height:2;
+  }
+  .top-warning,.warning{
+    text-align: justify;
+    line-height:1.5;
+  }
+  .warning{
+    font-weight:bold;
+  }
+  h5{
+    margin:20px 0;
+    line-height:1.5;
+  }
+  .text>p {
+    margin: 20px 0;
+    text-align: justify;
+    word-break: break-all;
+    line-height: 1.5;
+  }
+  .red.text>p{
+    margin:10px 0;
+    color:@red;
+  }
+  .sign{
+    line-height: 2;
+    .bold{
+      font-weight:bold;
+    }
+    img{
+      padding:5px 0;
+      width:50px;
+      height:50px;
+      vertical-align: middle;
     }
   }
 }
