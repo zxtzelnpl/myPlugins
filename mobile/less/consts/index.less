@@ -40,38 +40,6 @@
   }
 }
 
-.calc_margin(@top,@right,@bottom,@left) {
-  margin: floor(( @top / 750 ) * 100vw) floor(( @right / 750 ) * 100vw) floor(( @bottom / 750 ) * 100vw) floor(( @left / 750 ) * 100vw);
-};
-
-.calc_padding(@top,@right,@bottom,@left) {
-  padding: floor(( @top / 750 ) * 100vw) floor(( @right / 750 ) * 100vw) floor(( @bottom / 750 ) * 100vw) floor(( @left / 750 ) * 100vw);
-};
-
-.calc_width(@num) {
-  width: floor(( @num / 750 ) * 100vw);
-};
-
-.calc_height(@num) {
-  height: floor(( @num / 750 ) * 100vw);
-};
-
-.calc_border(@num,@style,@color) {
-  border: floor(( @num / 750 ) * 100vw) @style @color;
-};
-
-.calc_lineheight(@num) {
-  line-height: floor(( @num / 750 ) * 100vw);
-};
-
-.calc_bg_ps(@num){
-  background-position:floor(( @num / 750 ) * 100vw) center;
-}
-
-.calc_bg_size(@width,@height){
-  background-size:floor(( @width / 750 ) * 100vw),floor(( @height / 750 ) * 100vw);
-}
-
 html {
   background: @bgGray;
 }
