@@ -9,24 +9,22 @@
   justify-content: center;
   margin:0 auto;
 
-  width:320px;
-  height:360px;
+  width:640*@one;
+  height:720*@one;
 
   background:url(/mobile/img/icon_jg_bg.png) center center no-repeat;
-  background-size:100% 360px;
+  background-size:100% 720*@one;
   .card{
-    @media(max-width: 375px){
-      width:240px;
-      height:280px;
-    }
+    width:480*@one;
+    height:560*@one;
     .one{
-      height:165px;
+      height:330 *@one;
       .user-img{
         display:block;
         margin:0 auto;
-        padding:20px 0 15px;
-        width:50px;
-        height:50px;
+        padding:40*@one 0 30*@one;
+        width:100*@one;
+        height:100*@one;
         img{
           display:block;
 
@@ -39,8 +37,8 @@
         text-align: center;
       }
       .line{
-        margin:6px auto;
-        width:24px;
+        margin:12*@one auto;
+        width:48*@one;
         height:1px;
         background:@lineGray;
       }
@@ -50,15 +48,15 @@
       }
     }
     .two{
-      height:25px;
+      height:50*@one;
       h4{
         position:relative;
 
         margin:0 auto;
-        width:105px;
-        height:25px;
+        width:210*@one;
+        height:50*@one;
 
-        line-height:25px;
+        line-height:50*@one;
         text-align: center;
         .fontBig;
         color:@red;
@@ -99,8 +97,8 @@
     }
     .three{
       box-sizing: border-box;
-      padding-top:20px;
-      height:90px;
+      padding-top:40*@one;
+      height:180*@one;
       p{
         line-height:1.5rem;
         .fontSmall;
@@ -115,8 +113,8 @@
   justify-content: center;
 
   position:relative;
-  padding:14px;
-  height:180px;
+  padding:25*@one;
+  height:360*@one;
   background:#fff;
   &:before {
     position: absolute;
@@ -139,12 +137,19 @@
   align-items: center;
   justify-content: center;
 
-  height:60px;
+  height:120*@one;
   border-top:1px solid @lineGray;
 
   background:#fff;
   .btn{
-    .button();
+    margin: 0 auto;
+    width:480 * @one;
+    height:72 * @one;
+    border-radius: @radius;
+    line-height:72 * @one;
+    .fontNormal;
+    text-align: center;
+    color: #fff;
     background:@red;
   }
 }

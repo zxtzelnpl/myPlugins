@@ -16,23 +16,18 @@ html,body,form{
 }
 .logo{
   margin:0 auto;
-  width:120px;
-  height:120px;
+  width:240*@one;
+  height:240*@one;
   img{
     display:block;
-    width:120px;
-    height:120px;
+    width:240*@one;
+    height:240*@one;
   }
 }
 .title{
-  height:26px;
-  line-height:26px;
-  font-size:17px;
-  @media(max-width:375px){
-    height:24px;
-    line-height:24px;
-    font-size:16px;
-  }
+  height:48*@one;
+  line-height:48*@one;
+  .fontBig;
   text-align: center;
   color:#fff;
 }
@@ -84,9 +79,9 @@ html,body,form{
 }
 .btn{
   margin:0 auto;
-  width:170px;
-  height:50px;
-  line-height:50px;
+  width:340*@one;
+  height:100*@one;
+  line-height:100*@one;
   font-size:@fontBig;
   text-align: center;
   font-weight:bold;

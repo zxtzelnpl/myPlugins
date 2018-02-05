@@ -11,16 +11,22 @@
 .part{
   background:#fff;
 }
+.head{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:90*@one;
+  background:#fff;
+}
 h4.title{
   position:relative;
 
   margin:0 auto;
   width:106px;
   height:45px;
-
   line-height:45px;
   text-align: center;
-  font-size:@fontBig;
+  .fontBig;
   .line{
     position:absolute;
     top:22px;
@@ -72,7 +78,7 @@ h4.title{
       }
       span:last-child{
         color:@fontGray;
-        font-size:@fontSmall;
+        .fontSmall;
       }
     }
     .mark+p{
@@ -81,10 +87,7 @@ h4.title{
     }
   }
   .select{
-    padding-top:15px;
-    padding-left:60px;
-    padding-right:10px;
-    padding-bottom:10px;
+    padding: 15px 10px 10px 60px;
     border-bottom:1px solid @lineGray;
     label {
       display: flex;
@@ -113,7 +116,7 @@ h4.title{
         background-size: 100% 100%;
       }
       .word{
-        font-size:@fontSmall;
+        .fontSmall;
         line-height: 18px;
       }
 
@@ -132,8 +135,66 @@ h4.title{
         background-size: 100% 100%;
       }
       .word{
-        font-size:@fontSmall;
+        .fontSmall;
         line-height: 18px;
+      }
+    }
+  }
+  @media(min-width:376px){
+    .select{
+      @width:20px;
+      @height:20px;
+      padding: 15px 10px 10px 60px;
+      border-bottom:1px solid @lineGray;
+      label {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        margin-bottom:20px;
+        input {
+          visibility: hidden;
+          width: 0;
+          height: 0;
+        }
+
+        input[type="radio"] + .radio {
+          display: block;
+          flex-shrink: 0;
+          margin-right: 10px;
+          box-sizing: border-box;
+          width: @width;
+          height: @height;
+          border: 1px solid @red;
+          border-radius: @radius;
+        }
+        input[type="radio"]:checked + .radio {
+          background: @red url(/mobile/img/icon_right_s.png) center center no-repeat;
+          background-size: 100% 100%;
+        }
+        .word{
+          .fontSmall;
+          line-height: @height;
+        }
+
+        input[type="checkbox"] + .checkbox {
+          display: block;
+          flex-shrink: 0;
+          margin-right: 10px;
+          box-sizing: border-box;
+          width: @width;
+          height: @height;
+          border: 1px solid @red;
+          border-radius: @radius;
+        }
+        input[type="checkbox"]:checked + .checkbox {
+          background: @red url(/mobile/img/icon_right_s.png) center center no-repeat;
+          background-size: 100% 100%;
+        }
+        .word{
+          .fontSmall;
+          line-height: @height;
+        }
       }
     }
   }

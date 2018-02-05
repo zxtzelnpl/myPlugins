@@ -12,12 +12,12 @@ h4.title{
   position:relative;
 
   margin:0 auto;
-  width:106px;
-  height:45px;
+  width:212*@one;
+  height:90*@one;
 
-  line-height:45px;
+  line-height:90*@one;
   text-align: center;
-  font-size:@fontBig;
+  .fontNormal;
   .line{
     position:absolute;
     top:22px;
@@ -55,8 +55,8 @@ h4.title{
 
 .steps{
   box-sizing: border-box;
-  padding-bottom:15px;
-  height:200px;
+  padding-bottom:30*@one;
+  height:400*@one;
   background:#fff;
 
   p{
@@ -64,10 +64,10 @@ h4.title{
     justify-content: flex-start;
     align-items: center;
 
-    margin:0 27px;
+    margin:0 54*@one;
 
-    height:28px;
-    line-height:28px;
+    height:56*@one;
+    line-height:56*@one;
 
     .circle{
       margin-right:8px;
@@ -87,8 +87,8 @@ h4.title{
 
 .prepares{
   box-sizing: border-box;
-  padding-bottom: 25px;
-  height:250px;
+  padding-bottom: 50*@one;
+  height:500*@one;
 
   background:#fff;
 }
@@ -98,20 +98,20 @@ h4.title{
   align-items: center;
   justify-content: flex-start;
 
-  margin:10px auto 0;
+  margin:20*@one auto 0;
   box-sizing: border-box;
-  padding-left:10px;
-  width:320px;
-  height:80px;
+  padding-left:20*@one;
+  width:640*@one;
+  height:160*@one;
   border:1px solid @lineGray;
   border-radius: @radius;
   img{
     display:block;
-    width:50px;
-    height:50px;
+    width:100*@one;
+    height:100*@one;
   }
   .text{
-    padding-left:10px;
+    padding-left:20*@one;
 
     line-height:1.5;
     .up{
@@ -127,13 +127,6 @@ h4.title{
 
 
 .btn{
-  margin:0 auto;
-  width:@buttonW;
-  height:@buttonH;
-  line-height:@buttonH;
-  text-align: center;
-  font-size:@fontBig;
-  border-radius: @radius;
-  color:#fff;
+  .button();
   background:@red;
 }

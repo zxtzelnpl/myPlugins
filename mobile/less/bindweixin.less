@@ -13,40 +13,33 @@
     justify-content: flex-start;
     box-sizing: border-box;
     width: 100%;
-    .calc_padding(0, 0, 0, 90);
-    .calc_height(100);
+    height:100 * @one;
+    padding-left:90*@one;
   }
   .phone{
     border-bottom: 1px solid @lineGray;
-    background-color:#fff;
-    background-image: url(/mobile/img/icon_register_phone.png);
-    background-repeat: no-repeat;
-    .calc_bg_ps(24);
-    .calc_bg_size(48,48);
+    background:#fff url(/mobile/img/icon_register_phone.png) 24*@one 24*@one no-repeat;
+    background-size:48*@one 48*@one;
     input{
       flex-grow: 1;
     }
   }
   input {
     display: block;
-    .calc_height(64);
-    .calc_lineheight(64);
+    height:64*@one;
+    line-height:64*@one;
     .fontNormal;
   }
   .code {
     justify-content: space-between;
-    background-color:#fff;
-    background-image: url(/mobile/img/icon_register_yzm.png);
-    background-repeat: no-repeat;
-    .calc_bg_ps(24);
-    .calc_bg_size(48,48);
+    background:#fff url(/mobile/img/icon_register_yzm.png) 24*@one 24*@one no-repeat;
+    background-size:48*@one 48*@one;
     .get-code {
       display: block;
-      margin-right:12px;
-      .calc_width(180);
-      .calc_height(64);
-      .calc_lineheight(64);
-
+      margin-right:24 *@one;
+      width:180*@one;
+      height:64*@one;
+      line-height:64*@one;
       border-radius: @radius;
 
       .fontSmall;
@@ -57,10 +50,8 @@
       &.active {
         background: @red;
       }
-
     }
   }
-
 }
 
 .service-agreement {
@@ -68,18 +59,10 @@
   justify-content: center;
   align-items: center;
 
-  .calc_height(36);
+  height:36*@one;
 
   .fontSmall;
   label {
-
-    @width:20px;
-    @height:20px;
-    @media(max-width:375px){
-      @width:18px;
-      @height:18px;
-    }
-
     display:flex;
     align-items: center;
     justify-content: center;
@@ -93,13 +76,13 @@
       display: block;
       margin-right: 10px;
       box-sizing: border-box;
-      width: @width;
-      height: @height;
+      width: 36*@one;
+      height: 36*@one;
       color: #fff;
       border-radius: @radius;
     }
     .i-agree {
-      margin-right: @width / 2;
+      margin-right: 18px;
     }
     .agreement {
       color: @red;

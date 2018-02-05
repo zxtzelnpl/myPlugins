@@ -1,7 +1,7 @@
 /*按钮做了调整*/
 @import "consts/index.less";
 .agreement-signature{
-  padding-top:50px;
+  padding-top:100 * @one;
 }
 
 .tabs{
@@ -13,30 +13,32 @@
   align-items: center;
   justify-content: space-around;
 
-  height:50px;
+  height:100 * @one;
 
   .fontSmall;
 
   background:#fff;
 
   .tab{
+
     box-sizing: border-box;
 
-    width:70px;
-    height:50px;
+    width:140 * @one;
+    height:100 * @one;
 
-    line-height:48px;
+    line-height:96 * @one;
     text-align: center;
     &.on:after{
       content:'';
       display:block;
-      width:70px;
-      height:2px;
+      width:140 * @one;
+      height:4 * @one;
       background:@red;
       box-shadow: 0 1px 1px 0 @red;
     }
   }
 }
+
 .contents{
   .content{
     display:none;
@@ -52,22 +54,22 @@
   justify-content: center;
   margin:0 auto;
 
-  width:320px;
-  height:313px;
+  width:640* @one;
+  height:626* @one;
 
   background:url(/mobile/img/icon_jg_bg.png) center center no-repeat;
-  background-size:100% 360px;
+  background-size:100% 720 * @one;
   .card{
-    width:240px;
-    height:280px;
+    width:480 * @one;
+    height:560 * @one;
     .one{
-      height:165px;
+      height:330 * @one;
       .user-img{
         display:block;
         margin:0 auto;
-        padding:20px 0 15px;
-        width:50px;
-        height:50px;
+        padding:40 * @one 0 30 * @one;
+        width:100 * @one;
+        height:100 * @one;
         img{
           display:block;
 
@@ -153,11 +155,11 @@
 .prompt{
   position:relative;
   padding:14px;
-  height:180px;
+  height:360*@one;
   background:#fff;
   &:before {
     position: absolute;
-    top: -24px;
+    top: -48*@one;
     left: 50%;
     display: block;
     margin-left:-12px;
@@ -286,12 +288,19 @@
   align-items: center;
   justify-content: center;
 
-  .calc_height(160);
+  height:120 * @one;
   border-top:1px solid @lineGray;
 
   background:#fff;
   .btn{
-    .button();
+    margin: 0 auto;
+    border-radius: @radius;
+    width:480 * @one;
+    height:72 * @one;
+    line-height:72 * @one;
+    .fontNormal;
+    text-align: center;
+    color: #fff;
     background:@red;
   }
 }
