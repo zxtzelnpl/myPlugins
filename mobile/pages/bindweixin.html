@@ -42,7 +42,9 @@
             确认绑定
         </div>
     </div>
+    <div id="show">
 
+    </div>
 </form>
 </body>
 <script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
@@ -90,9 +92,9 @@
     }
 
     /**用户输入手机号**/
-    phoneInput.change(activeChange)
+    codeInput.keyup(activeChange)
     /**用户输入验证码**/
-    codeInput.change(activeChange)
+    codeInput.keyup(activeChange)
     /**用户点击协议**/
     agree.change(activeChange)
 
@@ -206,6 +208,8 @@
         }
       })
     })
+
+
   })
 </script>
 </html>
