@@ -30,41 +30,47 @@
 <script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
 <script src="/mobile/libs/jq-signature/jq-signature.min.js"></script>
 <script>
-    $(function(){
-      $('.js-signature').jqSignature({
-        width:320,
-        height:320,
-        border:'none',
-        background:'#fff'
-      })
+  $(function(){
+    /**2018-02-05修改**/
+    var mySignNature = $('.js-signature')
+    var btnSave = $('#save')
+    var width = mySignNature.width()
+    var height = mySignNature.height()
 
-      $('.js-signature').on('jq.signature.changed', function () {
-        $('#save').addClass('active');
-      });
-
-      $('#clear').click(function(){
-        $('.js-signature').jqSignature('clearCanvas')
-        $('#save').removeClass('active');
-      })
-
-      $('#save').click(function(){
-        if($(this).hasClass('active')){
-          var data=$('.js-signature').jqSignature('getDataURL')
-          console.log(data)
-        }else{
-          $.toast({
-            text: '请再中间白色框中手写签名',
-            allowToastClose: false,
-            showHideTransition: 'slide',
-            position: 'bottom-center',
-            hideAfter: 1500,
-            stack: false,
-            textAlign: 'center',
-            loader: false
-          })
-        }
-
-      })
+    mySignNature.jqSignature({
+      width:width,
+      height:height,
+      border:'none',
+      background:'#fff'
     })
+
+    mySignNature.on('jq.signature.changed', function () {
+      btnSave.addClass('active');
+    });
+
+    $('#clear').click(function(){
+      mySignNature.jqSignature('clearCanvas')
+      btnSave.removeClass('active');
+    })
+
+    btnSave.click(function(){
+      if($(this).hasClass('active')){
+        var data=mySignNature.jqSignature('getDataURL')
+        console.log(data)
+      }else{
+        $.toast({
+          text: '请再中间白色框中手写签名',
+          allowToastClose: false,
+          showHideTransition: 'slide',
+          position: 'bottom-center',
+          hideAfter: 1500,
+          stack: false,
+          textAlign: 'center',
+          loader: false
+        })
+      }
+
+    })
+  })
 </script>
 </html>

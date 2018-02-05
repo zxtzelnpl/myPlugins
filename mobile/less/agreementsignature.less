@@ -24,6 +24,7 @@
     box-sizing: border-box;
 
     width:140 * @one;
+    min-width:60px;
     height:100 * @one;
 
     line-height:96 * @one;
@@ -93,21 +94,21 @@
       }
     }
     .two{
-      height:25px;
+      height:50*@one;
       h4{
         position:relative;
 
         margin:0 auto;
-        width:105px;
-        height:25px;
+        width:210*@one;
+        height:50*@one;
 
-        line-height:25px;
+        line-height:50*@one;
         text-align: center;
         .fontBig;
         color:@red;
         .line{
           position:absolute;
-          top:12px;
+          top:24*@one;
 
           display:block;
           width:18px;
@@ -123,7 +124,7 @@
         }
         .circle{
           position:absolute;
-          top:10px;
+          top:20*@one;
 
           display:block;
           width:5px;
@@ -142,12 +143,13 @@
     }
     .three{
       box-sizing: border-box;
-      padding-top:20px;
-      height:90px;
+      padding-top:40*@one;
+      height:180*@one;
       p{
         line-height:1.5rem;
         .fontSmall;
         text-align: center;
+        white-space:nowrap;
       }
     }
   }
@@ -159,7 +161,7 @@
   background:#fff;
   &:before {
     position: absolute;
-    top: -48*@one;
+    top: -24px;
     left: 50%;
     display: block;
     margin-left:-12px;
@@ -302,6 +304,46 @@
     text-align: center;
     color: #fff;
     background:@red;
+  }
+}
+
+
+/**此处代码兼容小屏幕手机**/
+@media screen and (max-width: 320px){
+  .result{
+    width:320px;
+    height:313px;
+    background-size:100% 360px;
+    .card{
+      width:240px;
+      height:280px;
+      .one{
+        height:165px;
+        .user-img{
+          padding:20px 0 15px;
+          width:50px;
+          height:50px;
+        }
+      }
+      .two{
+        height:25px;
+        h4{
+          width:105px;
+          height:25px;
+          line-height:25px;
+          .line{
+            top:12px;
+          }
+          .circle{
+            top:10px;
+          }
+        }
+      }
+      .three{
+        padding-top:20px;
+        height:90px;
+      }
+    }
   }
 }
 

@@ -62,7 +62,7 @@
         color:@red;
         .line{
           position:absolute;
-          top:12px;
+          top:24*@one;
 
           display:block;
           width:18px;
@@ -78,7 +78,7 @@
         }
         .circle{
           position:absolute;
-          top:10px;
+          top:20*@one;
 
           display:block;
           width:5px;
@@ -103,6 +103,7 @@
         line-height:1.5rem;
         .fontSmall;
         text-align: center;
+        white-space:nowrap;
       }
     }
   }
@@ -151,5 +152,44 @@
     text-align: center;
     color: #fff;
     background:@red;
+  }
+}
+
+/**此处代码兼容小屏幕手机**/
+@media screen and (max-width: 320px){
+  .result{
+    width:320px;
+    height:313px;
+    background-size:100% 360px;
+    .card{
+      width:240px;
+      height:280px;
+      .one{
+        height:165px;
+        .user-img{
+          padding:20px 0 15px;
+          width:50px;
+          height:50px;
+        }
+      }
+      .two{
+        height:25px;
+        h4{
+          width:105px;
+          height:25px;
+          line-height:25px;
+          .line{
+            top:12px;
+          }
+          .circle{
+            top:10px;
+          }
+        }
+      }
+      .three{
+        padding-top:20px;
+        height:90px;
+      }
+    }
   }
 }

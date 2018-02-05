@@ -226,25 +226,31 @@
 <script src="/mobile/libs/jq-signature/jq-signature.min.js"></script>
 <script>
   $(function(){
-    $('.js-signature').jqSignature({
-      width:320,
-      height:320,
+    /**2018-02-05修改**/
+    var mySignNature = $('.js-signature')
+    var btnSave = $('#save')
+    var width = mySignNature.width()
+    var height = mySignNature.height()
+
+    mySignNature.jqSignature({
+      width:width,
+      height:height,
       border:'none',
       background:'#f2f2f2'
     })
 
-    $('.js-signature').on('jq.signature.changed', function () {
-      $('#save').addClass('active');
+    mySignNature.on('jq.signature.changed', function () {
+      btnSave.addClass('active');
     });
 
     $('#clear').click(function(){
-      $('.js-signature').jqSignature('clearCanvas')
-      $('#save').removeClass('active');
+      mySignNature.jqSignature('clearCanvas')
+      btnSave.removeClass('active');
     })
 
-    $('#save').click(function(){
+    btnSave.click(function(){
       if($(this).hasClass('active')){
-        var data=$('.js-signature').jqSignature('getDataURL')
+        var data=mySignNature.jqSignature('getDataURL')
         console.log(data)
       }else{
         $.toast({
