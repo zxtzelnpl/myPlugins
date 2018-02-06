@@ -5,28 +5,38 @@
     <title>测试页面</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="/libs/normalize-css/normalize.css">
-    <link rel="stylesheet" href="/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
-    <link rel="stylesheet" href="/css/test.css">
+    <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" href="/mobile/css/test.css">
 </head>
 <body>
-<form action="">
-    <input type="file" accept="video/*">
-    <div>我加了一个</div>
-    <div class="strange">
-        <div class="card">
-            <span class="half-cricle-left"></span>
-            <span class="half-circle-right"></span>
-        </div>
-    </div>
     <div>
-        <embed src="http://localhost:8080/assets/home/file/强势优选周评2018年1月19日.ppt" type="">
+        userAgent:<span id="userangent" class="red"></span>
+        <hr>
+        screenWidth:<span id="screenWidth" class="red"></span>
+        <hr>
+        document.documentElement.clientWidth:<span id="layoutW" class="red"></span>
+        <hr>
+        document.documentElement.clientHeight :<span id="layoutH" class="red"></span>
+        <hr>
+        window.innerWidth:<span id="visualW" class="red"></span>
+        <hr>
+        window.innerHeight :<span id="visualH" class="red"></span>
     </div>
-</form>
 </body>
 <script src="../libs/jquery/dist/jquery.min.js"></script>
 <script src="../libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
 <script>
+    $('#userangent').html(navigator.userAgent)
+    $('#screenWidth').html(window.screen.width)
+    $('#screenHeight').html(window.screen.height)
+
+    $('#layoutW').html(document.documentElement.clientWidth)
+    $('#layoutH').html(document.documentElement.clientHeight)
+
+    $('#visualW').html(window.innerWidth)
+    $('#visualH').html(window.innerHeight)
+
 
 </script>
 </html>
