@@ -1,0 +1,148 @@
+@import "./consts/index";
+.report-page{
+  padding-top:1px;//修复margin
+  padding-bottom:1px;//修复margin
+  background:#fff;
+  >h3.title{
+    margin:30*@one 30*@one 20*@one;
+    .fontBig;
+  }
+  .subtitle{
+    margin:30*@one 30*@one 20*@one;
+    .fontSmall;
+
+    span{
+      margin-right:30*@one;
+      color:@fontGray;
+    }
+    a{
+      color:#799acd;
+    }
+  }
+  .banner-top{
+    margin:0 30*@one;
+    img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+  }
+  .line1{
+    margin:0 30*@one;
+    height:1px;
+    background:#333;
+  }
+  .line2{
+    margin:0 30*@one;
+    height:2px;
+    background:#fff;
+  }
+  .line3{
+    margin:0 30*@one;
+    height:2px;
+    background:#333;
+  }
+}
+
+
+.report-page-qsyx{
+  .part{
+    position:relative;
+    margin:0 auto 60*@one;
+
+    box-sizing:border-box;
+    width:690*@one;
+    min-height:480*@one;
+    border:1px dashed #999999;
+    .head{
+      position:absolute;
+      top:-45*@one;
+      left:95*@one;
+
+      display:flex;
+      justify-content: space-around;
+      align-items: center;
+
+      width:500*@one;
+      height:90*@one;
+      background:#fff;
+
+      img{
+        width:36px;
+        height:12px;
+      }
+      span{
+        .fontNormal;
+        color:@red;
+      }
+    }
+    .line{
+      position:absolute;
+      top:45*@one;
+      left:255*@one;
+      width:180*@one;
+      height:1px;
+      background:#e5e5e5;
+
+    }
+
+  }
+  .content{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    box-sizing: border-box;
+    padding:60*@one 30*@one;
+    width:690*@one;
+    min-height:480*@one;
+
+    line-height:2;
+    .fontNormal;
+    img{
+      margin-bottom:10px;
+      width:630*@one;
+      height:auto;
+    }
+    div{
+      width:630*@one;
+    }
+  }
+  .sugestion{
+    font-weight:bold;
+    color:@red;
+  }
+  .sugestion-stocks{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .stock{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    span{
+      padding:8px;
+      display:block;
+      border:1px solid @red;
+      .fontSmall;
+    }
+    span:nth-child(1){
+      border-right:none;
+      color:#fff;
+      background:@red;
+    }
+    span:nth-child(2){
+      border-left:none;
+      color:@red;
+      background:#fff;
+    }
+  }
+  .box{
+    padding-bottom:10px;
+    &:last-child{
+      padding-bottom: 0;
+    }
+  }
+}
