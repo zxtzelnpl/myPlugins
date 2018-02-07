@@ -232,13 +232,11 @@
   }
   $(function () {
     var inputs = $('.ipt'),
-
         /**checkbox*/
         nobadrecords = $('#nobadrecords'),
         ihavebadrecord = $('#ihavebadrecord'),
         other_bad_record = $('#other_bad_record'),
         iswear = $('#iswear'),
-
         /**input[type=data]的遮罩层**/
         cover = $('.cover'),
         /**提交按钮*/
@@ -254,10 +252,8 @@
       var flag = Array.prototype.every.call(inputs, function (input, index) {
         return input.value !== ''
       })
-
       return flag
     }
-
 
     /**个人信息检查及本人同意检查**/
     function activeCheck (e) {
@@ -276,7 +272,6 @@
         sub.removeClass('active')
       }
     }
-
 
     /**select值改变的时候改变颜色**/
     $('select').change(function () {
@@ -352,9 +347,7 @@
 
       /**do something**/
 
-    })
-
-
+    });
   })
 
 </script>
