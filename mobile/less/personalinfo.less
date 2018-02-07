@@ -120,12 +120,15 @@
     align-items: flex-start;
     justify-content: flex-start;
 
+    line-height: 18px;
     input {
       visibility: hidden;
       width: 0;
       height: 0;
     }
     input[type="checkbox"] + .checkbox {
+      flex-shrink: 0;
+
       display: block;
       margin-right: 10px;
       box-sizing: border-box;
@@ -144,7 +147,6 @@
 
     &.oneline{
       height: 18px;
-      line-height: 18px;
 
       .text {
         line-height: 18px;

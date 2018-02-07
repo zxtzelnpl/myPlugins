@@ -194,6 +194,14 @@
                 </label>
                 <textarea name="other_bad_record" id="other_bad_record" disabled></textarea>
             </div>
+            <div class="blank-h-20"></div>
+            <div class="box">
+                <label class="">
+                    <input type="checkbox" id="iswear">
+                    <span class="checkbox"></span>
+                    <span class="text">本人在此郑重承诺以上填写的内容真实、准确、完整，贵公司有权查并要求本人提供相关证明材料或通过合法途径获取本人相关信息综合评定本人最终的风险承受能力测评等级。若本人提供的信息发生任何重大变化，本人将及时书面通知贵公司，以上信息确认无误。</span>
+                </label>
+            </div>
         </div>
 
         <div class="blank-h-30"></div>
@@ -209,20 +217,67 @@
 <script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
 <script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
 <script>
-  var inputs = $('.ipt'),
-
-      /**checkbox*/
-      nobadrecords = $('#nobadrecords'),
-      ihavebadrecord = $('#ihavebadrecord'),
-      other_bad_record = $('#other_bad_record'),
-
-      /**input[type=data]的遮罩层**/
-      cover = $('.cover'),
-      /**提交按钮*/
-      sub = $('#sub');
-
-
+  /**自定义的提示框**/
+  function toast (message) {
+    $.toast({
+      text: message,
+      allowToastClose: false,
+      showHideTransition: 'slide',
+      position: 'bottom-center',
+      hideAfter: 1500,
+      stack: false,
+      textAlign: 'center',
+      loader: false
+    })
+  }
   $(function () {
+    var inputs = $('.ipt'),
+
+        /**checkbox*/
+        nobadrecords = $('#nobadrecords'),
+        ihavebadrecord = $('#ihavebadrecord'),
+        other_bad_record = $('#other_bad_record'),
+        iswear = $('#iswear'),
+
+        /**input[type=data]的遮罩层**/
+        cover = $('.cover'),
+        /**提交按钮*/
+        sub = $('#sub');
+
+    /**本人同意选择框**/
+    function swearCheck () {
+      return iswear[0].checked
+    }
+
+    /**所有用户信息检查**/
+    function allInfoCheck () {
+      var flag = Array.prototype.every.call(inputs, function (input, index) {
+        return input.value !== ''
+      })
+
+      return flag
+    }
+
+
+    /**个人信息检查及本人同意检查**/
+    function activeCheck (e) {
+      var sub = $('#sub');
+      if (e.target.nodeName === 'INPUT'||e.target.nodeName === 'SELECT') {
+        if (e.target.value !== '') {
+          this.style = '';
+        }
+      }
+      var swear_check = swearCheck();
+      var info_check = allInfoCheck()
+
+      if (info_check && swear_check) {
+        sub.addClass('active')
+      } else {
+        sub.removeClass('active')
+      }
+    }
+
+
     /**select值改变的时候改变颜色**/
     $('select').change(function () {
       var $this = $(this)
@@ -240,22 +295,9 @@
     })
 
     /**个人信息**/
-
-    inputs.change(function () {
-      if(this.value!==''){
-        this.style='';
-      }
-      var flag = Array.prototype.every.call(inputs,function(input,index){
-        console.log(input)
-        return input.value!==''
-      })
-      console.log(flag)
-      if(flag){
-        sub.addClass('active')
-      }else{
-        sub.removeClass('active')
-      }
-    })
+    inputs.change(activeCheck)
+    /**本人同意确认保证事实**/
+    iswear.click(activeCheck)
 
     /**有其他不良信用记录**/
     ihavebadrecord.change(function () {
@@ -272,14 +314,14 @@
 
     /**无不良信用记录**/
     nobadrecords.change(function () {
-      if(this.checked){
-        $('input[id!="nobadrecords"]').map(function(index,input){
-          input.checked=false
+      if (this.checked) {
+        $('input[id!="nobadrecords"][id!="iswear"]').map(function (index, input) {
+          input.checked = false
           input.setAttribute('disabled', 'disabled')
         })
         other_bad_record.attr('disabled', 'disabled')
       }
-      else{
+      else {
         $('input[id!="nobadrecords"]').removeAttr('disabled')
       }
     });
@@ -287,16 +329,20 @@
     /**提交按钮**/
     sub.click(function () {
       var badrecords = [],
-          info={},
-          len=inputs.length
-          ;
+          info = {},
+          len = inputs.length
+      ;
 
       /**验证所有的记录信息**/
-      for(var i=0;i<len;i++){
+      for (var i = 0; i < len; i++) {
         var input = inputs.eq(i)
-        if(input.val()===''){
-          return input.css({'borderColor':'red'}).focus()
+        if (input.val() === '') {
+          return input.css({'borderColor': 'red'}).focus()
         }
+      }
+
+      if(!swearCheck()){
+        return toast('请确认您填的信息真实可靠，并勾选最后的选择框');
       }
 
       /**获取所有的不良记录**/
@@ -307,7 +353,6 @@
       /**do something**/
 
     })
-
 
 
   })
