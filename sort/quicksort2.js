@@ -39,7 +39,7 @@ function quickSort (array) {
         }
       }
     }
-    console.log(i,j)
+    // console.log(i,j)
     array[i] = k;
 
     if(temp.j - i >1){
@@ -60,9 +60,12 @@ function quickSort (array) {
 
 }
 
-let array = makeArray(100);
-let _array = [...array]
-console.log(_array)
+let array = makeArray(5000000);
+// let _array = [...array]
+// console.log(_array)
 // let array = [5, 7, 3, 1, 9, 8, 2, 4, 6];
+let time1 = new Date()
 quickSort(array)
+let time2 = new Date()
 console.log(array)
+console.info(Math.ceil((time2-time1)))
