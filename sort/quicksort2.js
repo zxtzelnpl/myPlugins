@@ -25,7 +25,6 @@ function quickSort (array) {
     j = temp.j
     k = array[i]
     while (i < j) {
-      console.log(i, j)
       for (; i < j; j--) {
         if (array[j] < k) {
           array[i++] = array[j]
@@ -35,21 +34,22 @@ function quickSort (array) {
 
       for (; i < j; i++) {
         if (array[i] > k) {
-          array[j] = array[i]
+          array[j--] = array[i]
           break;
         }
       }
     }
+    console.log(i,j)
     array[i] = k;
 
-    if(temp.j - i >2){
+    if(temp.j - i >1){
       stack.unshift({
         i:i+1,
         j:temp.j
       })
     }
 
-    if(i-temp.i>2){
+    if(i-temp.i>1){
       stack.unshift({
         i:temp.i,
         j:i-1
@@ -61,6 +61,8 @@ function quickSort (array) {
 }
 
 let array = makeArray(100);
+let _array = [...array]
+console.log(_array)
 // let array = [5, 7, 3, 1, 9, 8, 2, 4, 6];
 quickSort(array)
 console.log(array)
