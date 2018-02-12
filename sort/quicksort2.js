@@ -12,13 +12,6 @@ function makeArray (num) {
   return array
 }
 
-
-function swap (array, a, b) {
-  let c = array[a]
-  array[a] = array[b]
-  array[b] = c;
-}
-
 function quickSort (array) {
   let i, j, k, stack = [{
         i: 0,
