@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #input1{
+
+        }
+        #input2{
+
+        }
+    </style>
+</head>
+<body>
+    <input id="input1" type="text">
+    <input id="input2" type="text">
+</body>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    $('#input1').focusout(function(e){
+      alert(e.target.id)
+    });
+    $('#input2').focusout(function(e){
+      alert(e.target.id)
+    })
+</script>
+</html>
