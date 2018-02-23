@@ -3,7 +3,7 @@ const plumber = require('gulp-plumber')
 const browserSync = require('browser-sync').create();
 const less = require('gulp-less');
 const LessAutoprefix = require('less-plugin-autoprefix');
-const autoprefix = new LessAutoprefix({browsers: ['last 2 versions']})
+const autoprefix = new LessAutoprefix({browsers: ['IOS>7','last 4 ChromeAndroid versions']})
 const sourcemaps = require('gulp-sourcemaps');
 
 const config = require('./gulp.config.js');

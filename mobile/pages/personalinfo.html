@@ -21,62 +21,62 @@
                 <label for="certificate" class="label">
                     身份证：
                 </label>
-                <input class="ipt" id="certificate" type="text" placeholder="请填写"/>
+                <input class="ipt" id="certificate" type="text" placeholder="请填写" value="12"/>
             </div>
             <div class="blank-h-10"></div>
             <div class="box">
                 <label for="name" class="label">
                     姓名：
                 </label>
-                <input class="ipt" id="name" type="text" placeholder="请填写"/>
+                <input class="ipt" id="name" type="text" placeholder="请填写" value="12"/>
             </div>
             <div class="blank-h-10"></div>
             <div class="box">
                 <label for="phone" class="label">
                     手机号：
                 </label>
-                <input class="ipt" id="phone" type="number" placeholder="请填写"/>
+                <input class="ipt" id="phone" type="number" placeholder="请填写" value="12"/>
             </div>
             <div class="blank-h-10"></div>
             <div class="box">
                 <label for="sex" class="label">
                     性别：
                 </label>
-                <select class="ipt placeholder" name="sex" id="sex">
-                    <option selected value="">请选择</option>
+                <select class="ipt" name="sex" id="sex">
                     <option value="男">男</option>
                     <option value="女">女</option>
                 </select>
             </div>
             <div class="blank-h-10"></div>
-            <label class="box">
+            <!--<label class="box">
                 <span class="label">
                     证件有效期：
                 </span>
                 <input class="ipt" name="validDate" id="validDate" type="date"/>
                 <span class="cover">请填写</span>
-            </label>
+            </label>-->
             <div class="blank-h-10"></div>
             <div class="box">
                 <label for="naturePerson" class="label">
                     <p>实际控制投资</p>
                     <p>者的自然人：</p>
                 </label>
-                <input class="ipt" id="naturePerson" type="text" placeholder="请填写"/>
+                <input class="ipt" id="naturePerson" type="text" placeholder="请填写" value="12"/>
             </div>
             <div class="blank-h-10"></div>
             <div class="box">
                 <label for="benifitPerson" class="label">
                     交易受益人：
                 </label>
-                <input class="ipt" id="benifitPerson" type="text" placeholder="请填写"/>
+                <input class="ipt" id="benifitPerson" type="text" placeholder="请填写" value="12"/>
             </div>
             <div class="blank-h-10"></div>
             <div class="box">
                 <label for="job" class="label">
                     职业：
                 </label>
-                <select class="ipt placeholder" name="job" id="job">
+                <input class="ipt" id="job" type="text" placeholder="请填写" value="12"/>
+                <!--<select class="ipt placeholder" name="job" id="job">
                     <option value="" selected>请选择</option>
                     <option value="职员">职员</option>
                     <option value="老师">老师</option>
@@ -90,14 +90,15 @@
                     <option value="记者">记者</option>
                     <option value="自由职业">自由职业</option>
                     <option value="其他">其他</option>
-                </select>
+                </select>-->
             </div>
             <div class="blank-h-10"></div>
             <div class="box">
                 <label for="salary" class="label">
                     收入区间：
                 </label>
-                <select class="ipt placeholder" name="salary" id="salary">
+                <input class="ipt" id="salary" type="text" placeholder="请填写" value="12"/>
+                <!--<select class="ipt placeholder" name="salary" id="salary">
                     <option value="" selected>请选择</option>
                     <option Value="4000以下">4000以下</option>
                     <option Value="4000-6000">4000-6000</option>
@@ -106,14 +107,14 @@
                     <option value="10000-12000">10000-12000</option>
                     <option value="12000-15000">12000-15000</option>
                     <option value="15000以上">15000以上</option>
-                </select>
+                </select>-->
             </div>
             <div class="blank-h-10"></div>
             <div class="box">
                 <label for="address" class="label">
                     联系地址：
                 </label>
-                <textarea class="ipt" id="address" type="text" placeholder="请填写"></textarea>
+                <textarea class="ipt" id="address" type="text" placeholder="请填写">123</textarea>
             </div>
         </div>
 
@@ -124,7 +125,7 @@
             <div class="blank-h-15"></div>
             <div class="box">
                 <label class="oneline">
-                    <input type="checkbox" id="peopleBank" value="中国人民银行征信中心">
+                    <input type="checkbox" id="peopleBank" value="中国人民银行征信中心" disabled>
                     <span class="checkbox"></span>
                     <span class="text">中国人民银行征信中心</span>
                 </label>
@@ -132,7 +133,7 @@
             <div class="blank-h-20"></div>
             <div class="box">
                 <label class="oneline">
-                    <input type="checkbox" id="peopleCourt" value="最高人民法院失信被执行名单">
+                    <input type="checkbox" id="peopleCourt" value="最高人民法院失信被执行名单" disabled>
                     <span class="checkbox"></span>
                     <span class="text">最高人民法院失信被执行名单</span>
                 </label>
@@ -140,7 +141,7 @@
             <div class="blank-h-20"></div>
             <div class="box">
                 <label class="oneline">
-                    <input type="checkbox" id="commerce" value="工商行政管理机构">
+                    <input type="checkbox" id="commerce" value="工商行政管理机构" disabled>
                     <span class="checkbox"></span>
                     <span class="text">工商行政管理机构</span>
                 </label>
@@ -148,7 +149,7 @@
             <div class="blank-h-20"></div>
             <div class="box">
                 <label class="oneline">
-                    <input type="checkbox" id="taxManagement" value="税务管理机构">
+                    <input type="checkbox" id="taxManagement" value="税务管理机构" disabled>
                     <span class="checkbox"></span>
                     <span class="text">税务管理机构</span>
                 </label>
@@ -156,7 +157,7 @@
             <div class="blank-h-20"></div>
             <div class="box">
                 <label class="oneline">
-                    <input type="checkbox" id="organization" value="监管机构，自律组织">
+                    <input type="checkbox" id="organization" value="监管机构，自律组织" disabled>
                     <span class="checkbox"></span>
                     <span class="text">监管机构，自律组织</span>
                 </label>
@@ -164,7 +165,7 @@
             <div class="blank-h-20"></div>
             <div class="box">
                 <label class="oneline">
-                    <input type="checkbox" id="mechanism" value="投资者在证券经营机构的失信记录">
+                    <input type="checkbox" id="mechanism" value="投资者在证券经营机构的失信记录" disabled>
                     <span class="checkbox"></span>
                     <span class="text">投资者在证券经营机构的失信记录</span>
                 </label>
@@ -172,7 +173,7 @@
             <div class="blank-h-20"></div>
             <div class="box">
                 <label class="oneline">
-                    <input type="checkbox" id="other_org" value="其他组织">
+                    <input type="checkbox" id="other_org" value="其他组织" disabled>
                     <span class="checkbox"></span>
                     <span class="text">其他组织</span>
                 </label>
@@ -180,7 +181,7 @@
             <div class="blank-h-20"></div>
             <div class="box">
                 <label class="oneline">
-                    <input type="checkbox" id="nobadrecords">
+                    <input type="checkbox" id="nobadrecords" checked="checked">
                     <span class="checkbox"></span>
                     <span class="text">无</span>
                 </label>
@@ -188,7 +189,7 @@
             <div class="blank-h-20"></div>
             <div class="box others">
                 <label>
-                    <input type="checkbox" id="ihavebadrecord">
+                    <input type="checkbox" id="ihavebadrecord" disabled>
                     <span class="checkbox"></span>
                     <span class="text">有</span>
                 </label>
@@ -197,7 +198,7 @@
             <div class="blank-h-20"></div>
             <div class="box">
                 <label class="">
-                    <input type="checkbox" id="iswear">
+                    <input type="checkbox" id="iswear" checked="checked">
                     <span class="checkbox"></span>
                     <span class="text">本人在此郑重承诺以上填写的内容真实、准确、完整，贵公司有权查并要求本人提供相关证明材料或通过合法途径获取本人相关信息综合评定本人最终的风险承受能力测评等级。若本人提供的信息发生任何重大变化，本人将及时书面通知贵公司，以上信息确认无误。</span>
                 </label>
@@ -242,39 +243,52 @@
         /**提交按钮*/
         sub = $('#sub');
 
-    /**本人同意选择框**/
-    function swearCheck () {
-      return iswear[0].checked
-    }
 
-    /**所有用户信息检查**/
+    /**检查-所有用户信息**/
     function allInfoCheck () {
       var flag = Array.prototype.every.call(inputs, function (input, index) {
         return input.value !== ''
       })
       return flag
     }
+    /**检查-无不良信用记录**/
+    function hasNoBadRecord(){
+      return nobadrecords[0].checked
+    }
+    /**检查-本人同意选择框**/
+    function swearCheck () {
+      return iswear[0].checked
+    }
 
     /**个人信息检查及本人同意检查**/
     function activeCheck (e) {
       var sub = $('#sub');
-      if (e.target.nodeName === 'INPUT'||e.target.nodeName === 'SELECT') {
-        if (e.target.value !== '') {
-          this.style = '';
+
+
+
+      if(typeof e !== 'undefined'){
+        console.log(e.target)
+        if (e.target.nodeName === 'INPUT'||e.target.nodeName === 'SELECT'||e.target.nodeName === 'TEXTAREA') {
+          if (e.target.value !== '') {
+            this.style = '';
+          }
         }
       }
-      var swear_check = swearCheck();
-      var info_check = allInfoCheck()
 
-      if (info_check && swear_check) {
+      var swear_check = swearCheck();
+      var info_check = allInfoCheck();
+      var bad_check = hasNoBadRecord();
+
+      if (info_check && swear_check && bad_check) {
         sub.addClass('active')
       } else {
         sub.removeClass('active')
       }
     }
+    activeCheck()
 
     /**select值改变的时候改变颜色**/
-    $('select').change(function () {
+    /*$('select').change(function () {
       var $this = $(this)
       if ($this.val() !== '') {
         $this.removeClass('placeholder')
@@ -282,17 +296,18 @@
       else {
         $this.addClass('placeholder')
       }
-    })
-
+    })*/
     /**cover**/
-    cover.click(function () {
+    /*cover.click(function () {
       cover.remove()
-    })
+    })*/
 
     /**个人信息**/
-    inputs.change(activeCheck)
+    inputs.keyup(activeCheck)
     /**本人同意确认保证事实**/
     iswear.click(activeCheck)
+    /**点击无不良信用记录**/
+    nobadrecords.click(activeCheck)
 
     /**有其他不良信用记录**/
     ihavebadrecord.change(function () {

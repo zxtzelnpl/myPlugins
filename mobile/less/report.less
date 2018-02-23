@@ -1,148 +1,370 @@
 @import "./consts/index";
-.report-page{
-  padding-top:1px;//修复margin
-  padding-bottom:1px;//修复margin
-  background:#fff;
-  >h3.title{
-    margin:30*@one 30*@one 20*@one;
-    .fontBig;
-  }
-  .subtitle{
-    margin:30*@one 30*@one 20*@one;
-    .fontSmall;
 
-    span{
-      margin-right:30*@one;
-      color:@fontGray;
-    }
-    a{
-      color:#799acd;
-    }
-  }
-  .banner-top{
-    margin:0 30*@one;
-    img{
-      display:block;
-      width:100%;
-      height:auto;
-    }
-  }
-  .line1{
-    margin:0 30*@one;
-    height:1px;
-    background:#333;
-  }
-  .line2{
-    margin:0 30*@one;
-    height:2px;
-    background:#fff;
-  }
-  .line3{
-    margin:0 30*@one;
-    height:2px;
-    background:#333;
-  }
+@darkRed: #a64343;
+
+html,body,form,.container{
+  min-height:100%;
+  background:#fff;
 }
 
+.reportPage {
+  box-sizing: border-box;
+  padding: 0 30*@one;
+  background:#fff;
+  .fontNormal;
+}
 
-.report-page-qsyx{
-  .part{
+.lineTwo{
+  border-top:1px solid #000;
+  border-bottom:2px solid #000;
+  height:2px;
+  background:#fff;
+}
+
+.stock{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding:1em;
+  width:690*@one;
+  height:200*@one;
+  box-sizing: border-box;
+  border:1px solid @darkRed;
+
+  font-weight:bold;
+}
+
+.article{
+  .title{
+    @tap:6*@one;
     position:relative;
-    margin:0 auto 60*@one;
-
-    box-sizing:border-box;
     width:690*@one;
-    min-height:480*@one;
-    border:1px dashed #999999;
-    .head{
-      position:absolute;
-      top:-45*@one;
-      left:95*@one;
+    height:90*@one;
+    .fontBig;
+    .wrap{
 
       display:flex;
-      justify-content: space-around;
       align-items: center;
+      justify-content: space-around;
 
-      width:500*@one;
-      height:90*@one;
-      background:#fff;
-
-      img{
-        width:36px;
-        height:12px;
-      }
-      span{
-        .fontNormal;
-        color:@red;
-      }
-    }
-    .line{
       position:absolute;
-      top:45*@one;
-      left:255*@one;
-      width:180*@one;
-      height:1px;
-      background:#e5e5e5;
+      left:0;
+      top:0;
 
+      padding:0 50*@one; //为了统一布局所以这边取消
+      width:690*@one - @tap*2;
+      height:90*@one - @tap*2;
+      box-sizing: border-box;
+      border:1px solid @darkRed;
+
+
+      color:@darkRed;
+
+      background:#fff;
+      z-index: 3;
+      span.slash{
+        width:48*@one;
+        height:48*@one;
+        background:url(/mobile/img/slash.png) no-repeat center center;
+        background-size:cover;
+      }
+      span:nth-child(2){
+        font-weight:bold;
+      }
     }
-
+    .shadow1{
+      content:"";
+      position:absolute;
+      left:@tap*1;
+      top:@tap*1;
+      width:690*@one - @tap*2;
+      height:90*@one - @tap*2;
+      box-sizing: border-box;
+      border:1px solid @darkRed;
+      background:#fff;
+      z-index:2;
+    }
+    .shadow2{
+      content:"";
+      position:absolute;
+      left:@tap*2;
+      top:@tap*2;
+      width:690*@one - @tap*2;
+      height:90*@one - @tap*2;
+      box-sizing: border-box;
+      border:1px solid @darkRed;
+      background:#fff;
+      z-index:1;
+    }
   }
   .content{
-    display:flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-
-    box-sizing: border-box;
-    padding:60*@one 30*@one;
-    width:690*@one;
-    min-height:480*@one;
-
-    line-height:2;
-    .fontNormal;
-    img{
-      margin-bottom:10px;
-      width:630*@one;
-      height:auto;
-    }
-    div{
-      width:630*@one;
+    line-height:1.8;
+    p{
+      margin-top:80*@one;
+      &:nth-child(1){
+        margin-top:0;
+      }
+      >img{
+        margin-bottom: 10px;
+        display:block;
+        width:100%;
+        height:auto;
+      }
     }
   }
-  .sugestion{
+  .tip{
     font-weight:bold;
-    color:@red;
+    color:@darkRed;
   }
-  .sugestion-stocks{
+  .contentOneline{
+    line-height:1.8;
+  }
+  .contentStockAll{
     display:flex;
     align-items: center;
     justify-content: space-between;
   }
-  .stock{
+  .contentAnalysis{
+    line-height:2;
+    .lineOne{
+      margin:10*@one 0;
+      height:1px;
+      background:@lineGray;
+    }
+    h4{
+      color:@darkRed;
+    }
+    p{
+      margin-top:40*@one;
+      >span:nth-child(1){
+        font-weight:bold;
+      }
+    }
+    h4+p{
+      margin-top:0;
+    }
+  }
+  .contentMarketWeather{
+    line-height:1.8;
+    .choice{
+      color:@darkRed;
+      font-weight:bold;
+    }
+  }
+  .contentEntry{
+    line-height:1.8;
+    >p{
+      >span:nth-child(1){
+        font-weight:bold;
+      }
+    }
+  }
+}
+
+/*组件样式*/
+.head {
+  padding:40*@one 0;
+  h2 {
+    width:100%;
+    font-size: @fontH2;
+    line-height:1.5;
+    font-weight:normal;
+  }
+  .sub{
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .time{
+    padding-right:80*@one;
+    color:@fontGray;
+  }
+  .company{
+    color:@fontBlue;
+  }
+}
+.banner{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  width:690*@one;
+  height:200*@one;
+  font-size:40*@one;
+  color:@darkRed;
+  font-weight:bold;
+  background:url("/mobile/img/common_banner_2.png") center center no-repeat;
+  background-size:cover;
+  .point{
+    padding:0 5px;
+  }
+}
+.logo{
+  margin:0 auto;
+  width:320*@one;
+  height:100*@one;
+  img{
+    display:block;
+    width:100%;
+    height:100%;
+  }
+}
+.stockBox{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  >span{
     display:flex;
     align-items: center;
     justify-content: center;
-    span{
-      padding:8px;
-      display:block;
-      border:1px solid @red;
-      .fontSmall;
-    }
-    span:nth-child(1){
-      border-right:none;
+    box-sizing: border-box;
+    .fontSmall;
+    width:160*@one;
+    height:64*@one;
+    &.name{
       color:#fff;
-      background:@red;
+      border:1px solid transparent;
+      background:@darkRed;
     }
-    span:nth-child(2){
-      border-left:none;
-      color:@red;
-      background:#fff;
-    }
-  }
-  .box{
-    padding-bottom:10px;
-    &:last-child{
-      padding-bottom: 0;
+    &.code{
+      border:1px solid @darkRed;
+      color:@darkRed;
     }
   }
+}
+.teacherBox{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding:.8em 1em;
+  width:690*@one;
+  height:140*@one;
+  box-sizing: border-box;
+  border:1px solid @darkRed;
+  p{
+    span:nth-child(1){
+      font-weight:bold;
+      color:@darkRed;
+    }
+  }
+}
+.teacherWithOutBox{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width:690*@one;
+  height:100*@one;
+  box-sizing: border-box;
+  p{
+    span:nth-child(1){
+      font-weight:bold;
+      color:@darkRed;
+    }
+  }
+}
+.warning{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width:690*@one;
+  height:72*@one;
+  box-sizing: border-box;
+  border:1px solid @darkRed;
+
+  .fontSmall;
+  color:@darkRed;
+}
+.warm{
+  padding:1em;
+  box-sizing: border-box;
+  border:1px solid @darkRed;
+  line-height:1.8;
+  span:nth-child(1){
+    font-weight:bold;
+  }
+}
+
+/*定制样式*/
+.darkRed{
+  color:@darkRed;
+}
+.bold{
+  font-weight:bold;
+}
+
+/*强势操盘*/
+.qscp-jycp{
+
+}
+/*强势操盘-早评*/
+.qscp-jycp-zp{
+  .article{
+    .title{
+      .wrap{
+        padding:0;
+      }
+    }
+  }
+  .lineOne{
+    margin:40*@one 0;
+    height:1px;
+    background:@lineGray;
+  }
+}
+/*强势优选*/
+.qsyx-date{
+
+}
+/*操盘必读*/
+.cpbd{
+
+}
+/*盘面策略*/
+.pmcl{
+
+}
+/*《强势优选》短线宝-早评*/
+.dxb-zp{
+  .contentTimeFocus{
+    line-height:1.8;
+  }
+}
+/*估值聚焦-早评*/
+.gzjj-zp{
+  .lineOne{
+    margin:40*@one 0;
+    height:1px;
+    background:@lineGray;
+  }
+}
+/*单个文章列表*/
+.article-page{
+  .contentWithTitle{
+    line-height:1.8;
+    p{
+      margin-top:80*@one;
+      &:nth-child(1){
+        margin-top:0;
+      }
+    }
+    >h4{
+      margin-bottom:.5em;
+      padding-bottom:.5em;
+      border-bottom:1px solid @lineGray;
+      color:@darkRed;
+    }
+  }
+}
+
+/*牛眼精选收盘总结*/
+.nyjx-spzj{
+
 }
