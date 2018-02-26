@@ -158,14 +158,6 @@ html, body, form, .container {
       font-weight: bold;
     }
   }
-  .contentEntry {
-    line-height: 1.8;
-    > p {
-      > span:nth-child(1) {
-        font-weight: bold;
-      }
-    }
-  }
 }
 
 /*组件样式*/
@@ -349,6 +341,18 @@ html, body, form, .container {
 
 }
 
+/*涨股擒牛套餐-A*/
+.zgqn-a{
+  .contentEntry {
+    line-height: 1.8;
+    > p {
+      > span:nth-child(1) {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
 /*《强势优选》短线宝-早评*/
 .dxb-zp {
   .contentTimeFocus {
@@ -414,6 +418,50 @@ html, body, form, .container {
     > h4 {
       margin:36*@one 0;
       color: @darkRed;
+    }
+  }
+}
+
+/*牛眼早盘策略*/
+.ny-zpcl{
+  .contentWithTitle {
+    line-height: 1.8;
+    p {
+      margin-top: 80*@one;
+      &:first-of-type {
+        margin-top: 0;
+      }
+      > img {
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+    > h4 {
+      margin:36*@one 0;
+      color: @darkRed;
+    }
+  }
+}
+
+/*强势操盘，盘中解盘*/
+.qscp-pzje{
+
+}
+
+/*强势操盘投资者教学课堂*/
+.qscp-tzzjxkt{
+  .contentEntry {
+    line-height: 1.8;
+    > p {
+      > span:nth-child(1) {
+        font-weight: bold;
+      }
+      >a{
+        text-decoration: underline;
+        color:#0058c5;
+      }
     }
   }
 }
