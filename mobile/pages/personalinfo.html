@@ -218,149 +218,155 @@
 <script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
 <script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
 <script>
-  /**自定义的提示框**/
-  function toast (message) {
-    $.toast({
-      text: message,
-      allowToastClose: false,
-      showHideTransition: 'slide',
-      position: 'bottom-center',
-      hideAfter: 1500,
-      stack: false,
-      textAlign: 'center',
-      loader: false
-    })
-  }
-  $(function () {
-    var inputs = $('.ipt'),
-        /**checkbox*/
-        nobadrecords = $('#nobadrecords'),
-        ihavebadrecord = $('#ihavebadrecord'),
-        other_bad_record = $('#other_bad_record'),
-        iswear = $('#iswear'),
-        /**input[type=data]的遮罩层**/
-        cover = $('.cover'),
-        /**提交按钮*/
-        sub = $('#sub');
-
-
-    /**检查-所有用户信息**/
-    function allInfoCheck () {
-      var flag = Array.prototype.every.call(inputs, function (input, index) {
-        return input.value !== ''
-      })
-      return flag
-    }
-    /**检查-无不良信用记录**/
-    function hasNoBadRecord(){
-      return nobadrecords[0].checked
-    }
-    /**检查-本人同意选择框**/
-    function swearCheck () {
-      return iswear[0].checked
-    }
-
-    /**检查所有-确定是否可以点击**/
-    function activeCheck (e) {
-      var sub = $('#sub');
-      if(typeof e !== 'undefined'){
-        console.log(e.target)
-        if (e.target.nodeName === 'INPUT'||e.target.nodeName === 'SELECT'||e.target.nodeName === 'TEXTAREA') {
-          if (e.target.value !== '') {
-            this.style = '';
-          }
-        }
-      }
-
-      var swear_check = swearCheck();
-      var info_check = allInfoCheck();
-      var bad_check = hasNoBadRecord();
-
-      if (info_check && swear_check && bad_check) {
-        sub.addClass('active')
-      } else {
-        sub.removeClass('active')
-      }
-    }
-    activeCheck()
-
-    /**select值改变的时候改变颜色**/
-    /*$('select').change(function () {
-      var $this = $(this)
-      if ($this.val() !== '') {
-        $this.removeClass('placeholder')
-      }
-      else {
-        $this.addClass('placeholder')
-      }
-    })*/
-    /**cover**/
-    /*cover.click(function () {
-      cover.remove()
-    })*/
-
-    /**点击触发检查-所有用户信息**/
-    inputs.keyup(activeCheck)
-    /**点击触发检查-无不良信用记录**/
-    nobadrecords.click(activeCheck)
-    /**点击触发检查-本人同意选择框**/
-    iswear.click(activeCheck)
-
-    /**有其他不良信用记录**/
-    ihavebadrecord.change(function () {
-      if (this.checked) {
-        other_bad_record.removeAttr('disabled')
-      }
-      else {
-        other_bad_record.attr('disabled', 'disabled')
-      }
-    })
-    other_bad_record.change(function () {
-      ihavebadrecord.val(this.value)
-    });
-
-    /**无不良信用记录**/
-    nobadrecords.change(function () {
-      if (this.checked) {
-        $('input[id!="nobadrecords"][id!="iswear"]').map(function (index, input) {
-          input.checked = false
-          input.setAttribute('disabled', 'disabled')
+    /**自定义的提示框**/
+    function toast(message) {
+        $.toast({
+            text: message,
+            allowToastClose: false,
+            showHideTransition: 'slide',
+            position: 'bottom-center',
+            hideAfter: 1500,
+            stack: false,
+            textAlign: 'center',
+            loader: false
         })
-        other_bad_record.attr('disabled', 'disabled')
-      }
-      else {
-        $('input[id!="nobadrecords"]').removeAttr('disabled')
-      }
-    });
+    }
 
-    /**提交按钮**/
-    sub.click(function () {
-      var badrecords = [],
-          info = {},
-          len = inputs.length
-      ;
+    $(function () {
+        var inputs = $('.ipt'),
+            /**checkbox*/
+            nobadrecords = $('#nobadrecords'),
+            ihavebadrecord = $('#ihavebadrecord'),
+            other_bad_record = $('#other_bad_record'),
+            iswear = $('#iswear'),
+            /**input[type=data]的遮罩层**/
+            cover = $('.cover'),
+            /**提交按钮*/
+            sub = $('#sub');
 
-      /**验证所有的记录信息**/
-      for (var i = 0; i < len; i++) {
-        var input = inputs.eq(i)
-        if (input.val() === '') {
-          return input.css({'borderColor': 'red'}).focus()
+
+        /**检查-所有用户信息**/
+        function allInfoCheck() {
+            var flag = Array.prototype.every.call(inputs, function (input, index) {
+                return input.value !== ''
+            })
+            return flag
         }
-      }
 
-      if(!swearCheck()){
-        return toast('请确认您填的信息真实可靠\n并勾选最后的选择框');
-      }
+        /**检查-无不良信用记录**/
+        function hasNoBadRecord() {
+            return nobadrecords[0].checked
+        }
 
-      /**获取所有的不良记录**/
-      $('input:checked').map(function (index, input) {
-        badrecords.push(input.value)
-      })
+        /**检查-本人同意选择框**/
+        function swearCheck() {
+            return iswear[0].checked
+        }
 
-      /**do something**/
+        /**检查所有-确定是否可以点击**/
+        function activeCheck(e) {
+            var sub = $('#sub');
+            if (typeof e !== 'undefined') {
+                console.log(e.target)
+                if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'SELECT' || e.target.nodeName === 'TEXTAREA') {
+                    if (e.target.value !== '') {
+                        this.style = '';
+                    }
+                }
+            }
 
-    });
-  })
+            var swear_check = swearCheck();
+            var info_check = allInfoCheck();
+            var bad_check = hasNoBadRecord();
+
+            if (info_check && swear_check && bad_check) {
+                sub.addClass('active')
+            } else {
+                sub.removeClass('active')
+            }
+        }
+
+        activeCheck()
+
+        /**select值改变的时候改变颜色**/
+        /*$('select').change(function () {
+          var $this = $(this)
+          if ($this.val() !== '') {
+            $this.removeClass('placeholder')
+          }
+          else {
+            $this.addClass('placeholder')
+          }
+        })*/
+        /**cover**/
+        /*cover.click(function () {
+          cover.remove()
+        })*/
+
+        /**点击触发检查-所有用户信息**/
+        inputs.keyup(activeCheck)
+        /**点击触发检查-无不良信用记录**/
+        nobadrecords.click(activeCheck)
+        /**点击触发检查-本人同意选择框**/
+        iswear.click(activeCheck)
+
+        /**有其他不良信用记录**/
+        ihavebadrecord.change(function () {
+            if (this.checked) {
+                other_bad_record.removeAttr('disabled')
+            }
+            else {
+                other_bad_record.attr('disabled', 'disabled')
+            }
+        })
+        other_bad_record.change(function () {
+            ihavebadrecord.val(this.value)
+        });
+
+        /**无不良信用记录**/
+        nobadrecords.change(function () {
+            var otherCheckBoxes = $('.bad-record').find('input[id!="nobadrecords"][id!="iswear"]');
+            if (this.checked) {
+
+                otherCheckBoxes.map(function (index, input) {
+                    input.checked = false;
+                    input.setAttribute('disabled', 'disabled')
+                });
+                other_bad_record.attr('disabled', 'disabled')
+            }
+            else {
+                otherCheckBoxes.removeAttr('disabled')
+            }
+        });
+
+        /**提交按钮**/
+        sub.click(function () {
+            var badrecords = [],
+                info = {},
+                len = inputs.length
+            ;
+
+            /**验证所有的记录信息**/
+            for (var i = 0; i < len; i++) {
+                var input = inputs.eq(i)
+                if (input.val() === '') {
+                    return input.css({'borderColor': 'red'}).focus()
+                }
+            }
+
+            if (!swearCheck()) {
+                return toast('请确认您填的信息真实可靠\n并勾选最后的选择框');
+            }
+
+            /**获取所有的不良记录**/
+            $('input:checked').map(function (index, input) {
+                badrecords.push(input.value)
+            })
+
+            /**do something**/
+
+        });
+    })
 
 </script>
 </html>
