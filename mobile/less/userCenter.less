@@ -2,11 +2,169 @@
 
 @darkRed: #a64343;
 
-html, body, form, .container {
-  min-height: 100%;
-  background: #fff;
+/*通用样式改变*/
+ul{
+  list-style: none;
+  margin:0;
+  padding:0;
 }
 
-.userCenter{
 
+html, body, form {
+  height: 100%;
+  background: #f4f3f3;
+}
+.container{
+  min-height:100%;
+  .fontNormal;
+}
+
+/*用户中心-主页面*/
+.userCenter{
+  background:url(/mobile/img/userCenter/icon_me_bg.png) center top no-repeat;
+  background-size:contain;
+  overflow: hidden;
+}
+.userCard{
+  display:flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+
+
+  box-sizing: border-box;
+  margin: 64*@one auto 0;
+  padding:30*@one;
+  width:690*@one;
+  height:340*@one;
+  background:#fff;
+  border-radius: 5px;
+
+  box-shadow:0 2px 36px rgba(166,67,67,0.1);
+  /*用户信息*/
+  .userInfo{
+    display:flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    img{
+      width:120*@one;
+      height:120*@one;
+    }
+    .info{
+      display:flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-around;
+      padding-left:20*@one;
+      p{
+        &:nth-child(1){
+          font-weight:bold;
+          .fontBig;
+        }
+        &:nth-child(2){
+        }
+      }
+    }
+  }
+  /*产品信息*/
+  .productInfo{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .points,.products{
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width:280*@one;
+      height:80*@one;
+    }
+    .shortLine{
+      width:1px;
+      height:36*@one;
+      background:@lineGray;
+    }
+    .info{
+      display:flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      height:100%;
+      p{
+        &:nth-child(1){
+          font-weight:bold;
+          color:@darkRed;
+        }
+        &:nth-child(2){
+          color:@fontGray;
+          .fontSmall;
+        }
+      }
+    }
+  }
+  .link{
+    width:20*@one;
+    height:20*@one;
+  }
+}
+.menus{
+  margin:0 auto;
+  width:690*@one;
+  background:#fff;
+  li{
+    box-sizing: border-box;
+    border-bottom:1px solid @lineGray;
+
+    >a{
+      box-sizing: border-box;
+      padding:0 30*@one;
+      width:100%;
+      height:100*@one;
+
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+
+      img{
+        width:20*@one;
+        height:20*@one;
+      }
+    }
+  }
+}
+footer{
+  position:fixed;
+  width:100%;
+  height:100*@one;
+  left:0;
+  bottom:0;
+
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  .fontSmall;
+
+  background:#fff;
+}
+
+
+
+
+/*用户中心-积分页面*/
+.userCenterPoints{
+  background:url(/mobile/img/userCenter/icon_myintegral_bg.jpg) center center no-repeat;
+  background-size:100% auto;
+  overflow: hidden;
+}
+.points_record_link{
+  display:flex;
+  align-items: center;
+  justify-content: flex-end;
+  img{
+    margin-left:.5em;
+    width:20*@one;
+    height:20*@one;
+  }
 }
