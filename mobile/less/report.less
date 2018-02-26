@@ -47,13 +47,13 @@ html, body, form, .container {
 
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
 
       position: absolute;
       left: 0;
       top: 0;
 
-      padding: 0 50*@one; //为了统一布局所以这边取消
+      padding: 0 145*@one; // <=8个字
       width: 690*@one - @tap*2;
       height: 90*@one - @tap*2;
       box-sizing: border-box;
@@ -63,6 +63,12 @@ html, body, form, .container {
 
       background: #fff;
       z-index: 3;
+      &.middle{
+        padding: 0 145*@one; // >8个字
+      }
+      &.long{
+        padding: 0 30*@one; // 字太多了
+      }
       span.slash {
         width: 48*@one;
         height: 48*@one;
@@ -313,11 +319,6 @@ html, body, form, .container {
 /*强势操盘-早评*/
 .qscp-jycp-zp {
   .article {
-    .title {
-      .wrap {
-        padding: 0;
-      }
-    }
   }
   .lineOne {
     margin: 40*@one 0;
@@ -358,6 +359,12 @@ html, body, form, .container {
   .contentTimeFocus {
     line-height: 1.8;
   }
+  .foucs{
+    margin-top:40*@one;
+    &:nth-child(1){
+      margin-top:0;
+    }
+  }
 }
 
 /*估值聚焦-早评*/
@@ -373,17 +380,17 @@ html, body, form, .container {
 .article-page {
   .contentWithTitle {
     line-height: 1.8;
-    p {
-      margin-top: 80*@one;
-      &:nth-child(1) {
-        margin-top: 0;
-      }
-    }
     > h4 {
-      margin-bottom: .5em;
-      padding-bottom: .5em;
+      margin-top: 80*@one;
+      padding-bottom:40*@one;
       border-bottom: 1px solid @lineGray;
       color: @darkRed;
+    }
+    .wrap{
+      margin-top:40*@one;
+      &:nth-child(1){
+        margin-top:0;
+      }
     }
   }
 }
