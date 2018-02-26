@@ -358,6 +358,12 @@ html, body, form, .container {
   .contentTimeFocus {
     line-height: 1.8;
   }
+  .foucs{
+    margin-top:40*@one;
+    &:nth-child(1){
+      margin-top:0;
+    }
+  }
 }
 
 /*估值聚焦-早评*/
@@ -373,17 +379,18 @@ html, body, form, .container {
 .article-page {
   .contentWithTitle {
     line-height: 1.8;
-    p {
-      margin-top: 80*@one;
-      &:nth-child(1) {
-        margin-top: 0;
-      }
-    }
     > h4 {
+      margin-top: 80*@one;
       margin-bottom: .5em;
       padding-bottom: .5em;
       border-bottom: 1px solid @lineGray;
       color: @darkRed;
+    }
+    .wrap{
+      margin-top:60*@one;
+      &:nth-child(1){
+        margin-top:0;
+      }
     }
   }
 }
