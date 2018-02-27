@@ -487,7 +487,7 @@ footer{
 
 
 /*用户中心-协议详情页面*/
-.userCenterAgreementSignature{
+/*.userCenterAgreementSignature{
 
 }
 .agreement{
@@ -544,10 +544,164 @@ footer{
       vertical-align: middle;
     }
   }
-}
+}*/
 
 
 
 
 
 /*用户中心-适当性调查*/
+.userCenterAppropriatenessSurvey{
+
+}
+.result{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin:0 auto;
+
+  width:720* @one;
+  height:880* @one;
+
+  background:url(/mobile/img/userCenter/icon_investigation_bg.png) center center no-repeat;
+  background-size:100% 880 * @one;
+  .card{
+    width:550 * @one;
+    height:770 * @one;
+    .one{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height:520 * @one;
+      .user-img{
+        display:block;
+        margin:0 auto;
+        padding:10 * @one 0 30 * @one;
+        width:120 * @one;
+        height:120 * @one;
+        img{
+          display:block;
+
+          width:100%;
+          height:100%;
+        }
+      }
+      .user-name{
+        .fontBigShow;
+        text-align: center;
+      }
+      .line{
+        margin:20*@one auto;
+        width:24px;
+        height:1px;
+        background:@lineGray;
+      }
+      .certificate{
+        .fontSmall;
+        color:@fontGray;
+        text-align: center;
+      }
+    }
+    .two{
+      height:50*@one;
+      h4{
+        position:relative;
+
+        margin:0 auto;
+        width:210*@one;
+        height:50*@one;
+
+        line-height:50*@one;
+        text-align: center;
+        .fontBigShow;
+        color:@red;
+        .line{
+          position:absolute;
+          top:24*@one;
+
+          display:block;
+          width:18px;
+          height:1px;
+
+          background:@red;
+          &.before{
+            left:-30px;
+          }
+          &.after{
+            right:-30px;
+          }
+        }
+        .circle{
+          position:absolute;
+          top:20*@one;
+
+          display:block;
+          width:5px;
+          height:5px;
+          border-radius: 50%;
+
+          background:@red;
+          &.before{
+            left:-12px;
+          }
+          &.after{
+            right:-12px;
+          }
+        }
+      }
+    }
+    .three{
+      box-sizing: border-box;
+      padding-top:40*@one;
+      height:200*@one;
+      p{
+        line-height:1.5rem;
+        .fontSmall;
+        text-align: center;
+        white-space:nowrap;
+      }
+    }
+  }
+}
+.prompt{
+  display:flex;
+  align-items: center;
+
+  position:fixed;
+  bottom:0;
+  padding:0 40*@one;
+  height:280*@one;
+  background:#fff;
+  &:before {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    display: block;
+    margin-left:-12px;
+    content: "";
+    border: 12px solid transparent;
+    border-bottom-color: #fff;
+  }
+  p{
+    .fontSmall;
+    text-align: justify;
+    line-height:1.8;
+    word-spacing:2px;
+  }
+  .sign{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top:10px;
+
+    height:50px;
+    line-height:50px;
+    img{
+      width:50px;
+      height:50px;
+      vertical-align: middle;
+    }
+  }
+}
