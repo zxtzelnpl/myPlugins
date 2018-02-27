@@ -385,7 +385,7 @@ footer{
 
 
 
-/*用户中心-我的产品-往下*/
+/*用户中心-我的产品-单个产品详情页面*/
 .userCenterProductsNext{
 
 }
@@ -398,7 +398,7 @@ footer{
     &:nth-child(1){
       border-top:none;
     }
-    >div{
+    >a{
       box-sizing: border-box;
       padding:30*@one 30*@one 30*@one 24*@one;
 
@@ -431,3 +431,123 @@ footer{
     height:20*@one;
   }
 }
+
+
+
+
+
+/*用户中心-我的协议*/
+.userCenterAgreement{
+
+}
+.agreementsList{
+  background:#fff;
+
+  li{
+    border-top:1px solid @lineGray;
+    &:nth-child(1){
+      border-top:none;
+    }
+    >a{
+      box-sizing: border-box;
+      padding:30*@one 30*@one 30*@one 24*@one;
+
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+
+      height:140*@one;
+    }
+  }
+  .agreement{
+    align-self: stretch;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+      &:nth-child(1){
+        //font-weight:bold;
+      }
+      &:nth-child(2){
+        .fontSmall;
+        color:@fontGray;
+      }
+    }
+  }
+  img{
+    width:20*@one;
+    height:20*@one;
+  }
+}
+
+
+
+
+
+/*用户中心-协议详情页面*/
+.userCenterAgreementSignature{
+
+}
+.agreement{
+  padding:0 12px;
+  background:#fff;
+  .fontSmall;
+  .head{
+    padding:10px 0;
+    line-height:2;
+    text-align: center;
+    color:@red;
+    p{
+      .fontNormal;
+      font-weight:bold;
+    }
+    span{
+      font-weight:normal
+    }
+  }
+  .partyA,.partyB-personal,.partyB-orgnize{
+    line-height:2;
+  }
+  .top-warning,.warning{
+    text-align: justify;
+    line-height:1.5;
+  }
+  .warning{
+    font-weight:bold;
+  }
+  h5{
+    margin:20px 0;
+    line-height:1.5;
+    .fontSmall;
+  }
+  .text>p {
+    margin: 20px 0;
+    text-align: justify;
+    word-break: break-all;
+    line-height: 1.5;
+  }
+  .red.text>p{
+    margin:10px 0;
+    color:@red;
+  }
+  .sign{
+    line-height: 2;
+    .bold{
+      font-weight:bold;
+    }
+    img{
+      padding:5px 0;
+      width:50px;
+      height:50px;
+      vertical-align: middle;
+    }
+  }
+}
+
+
+
+
+
+/*用户中心-适当性调查*/
