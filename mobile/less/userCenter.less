@@ -19,6 +19,10 @@ html, body, form {
   .fontNormal;
 }
 
+
+
+
+
 /*用户中心-主页面*/
 .userCenter{
   background:url(/mobile/img/userCenter/icon_me_bg.png) center top no-repeat;
@@ -109,7 +113,7 @@ html, body, form {
     height:20*@one;
   }
 }
-.menus{
+.centerMenus{
   margin:0 auto;
   width:690*@one;
   background:#fff;
@@ -152,6 +156,7 @@ footer{
 
 
 
+
 /*用户中心-积分页面*/
 .userCenterPoints{
   background:url(/mobile/img/userCenter/icon_myintegral_bg.jpg) center center no-repeat;
@@ -162,8 +167,266 @@ footer{
   display:flex;
   align-items: center;
   justify-content: flex-end;
+
+  padding-right:25*@one;
+  color:#fff;
+  .fontSmall;
   img{
-    margin-left:.5em;
+    margin-left:12 *@one;
+    width:20*@one;
+    height:20*@one;
+  }
+}
+.points_show{
+  height:160*@one;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  p{
+    text-align: center;
+  }
+  p:nth-child(1){
+    font-size:105*@one;
+    color:#fff;
+  }
+  P:nth-child(2){
+    .fontSmall;
+    color:#d8b0c0;
+  }
+}
+.points_exchange{
+  position:fixed;
+  left:25*@one;
+  bottom:0;
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  width:700*@one;
+  height:840*@one;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  background:#fff;
+
+  .info{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+    width:640*@one;
+    height:680*@one;
+
+    background:url("/mobile/img/userCenter/icon_myintegral_dh_bg.png") center bottom no-repeat;
+    background-size:640*@one 680*@one;
+    p{
+      &:nth-child(1){
+        padding-top:455*@one;
+        width:480*@one;
+        height:48*@one;
+        .fontBig;
+        font-weight:bold;
+        color:@darkRed;
+        text-align: center;
+      }
+      &:nth-child(2){
+        width:480*@one;
+        height:100*@one;
+        line-height:100*@one;
+        color:@darkRed;
+        text-align: center;
+        .fontSmall;
+      }
+    }
+  }
+  .button{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    width:360*@one;
+    height:90*@one;
+    background:@darkRed;
+    border-radius:5px;
+    font-weight:bold;
+    color:#fff;
+  }
+}
+
+
+
+
+
+/*用户中心-积分记录*/
+.userCenterPointsRecord{
+
+}
+.pointsOneLine{
+  height:120*@one;
+
+  display:flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  background:#fff;
+  span:nth-child(1){
+    padding-left:25*@one;
+    padding-bottom:40*@one;
+
+    .fontBig;
+    color:@darkRed;
+    font-weight:bold;
+  }
+  span:nth-child(2){
+    padding-left:20*@one;
+    padding-bottom:40*@one;
+
+    .fontSmall;
+  }
+}
+.pointsExchangeRecord{
+  background:#fff;
+  li{
+    border-top:1px solid @lineGray;
+    &:first-of-type{
+      border-top:none;
+    }
+  }
+  div{
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    padding:30*@one 30*@one 30*@one 25*@one;
+    height:140*@one;
+  }
+  p{
+    &:nth-child(1){
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &:nth-child(2){
+      .fontSmall;
+      color:@fontGray;
+    }
+  }
+  span.darkRed{
+    color:@darkRed;
+  }
+}
+
+
+
+
+
+/*用户中心-我的产品*/
+.userCenterProducts{
+
+}
+.productList{
+
+  background:#fff;
+
+  li{
+    border-top:1px solid @lineGray;
+    &:nth-child(1){
+      border-top:none;
+    }
+    >a{
+      box-sizing: border-box;
+      padding:30*@one 30*@one 30*@one 24*@one;
+
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+
+      height:140*@one;
+    }
+  }
+  .product{
+    align-self: stretch;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+      &:nth-child(1){
+        font-weight:bold;
+      }
+      &:nth-child(2){
+        display:flex;
+        align-items: center;
+        .fontSmall;
+        color:@fontGray;
+      }
+    }
+
+    .shortLine{
+      margin:0 40*@one;
+      height:20*@one;
+      width:1px;
+      background:@lineGray;
+    }
+  }
+  img{
+    width:20*@one;
+    height:20*@one;
+  }
+}
+
+
+
+
+
+/*用户中心-我的产品-往下*/
+.userCenterProductsNext{
+
+}
+.productListNext{
+
+  background:#fff;
+
+  li{
+    border-top:1px solid @lineGray;
+    &:nth-child(1){
+      border-top:none;
+    }
+    >div{
+      box-sizing: border-box;
+      padding:30*@one 30*@one 30*@one 24*@one;
+
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+
+      height:140*@one;
+    }
+  }
+  .product{
+    align-self: stretch;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+      &:nth-child(1){
+        //font-weight:bold;
+      }
+      &:nth-child(2){
+        .fontSmall;
+        color:@fontGray;
+      }
+    }
+  }
+  img{
     width:20*@one;
     height:20*@one;
   }
