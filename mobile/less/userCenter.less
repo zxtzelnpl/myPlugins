@@ -705,3 +705,87 @@ footer{
     }
   }
 }
+
+
+
+
+
+/*用户中心-风险提示*/
+.userCenterRiskDisclosure{
+
+}
+.risk-disclosure{
+  padding:0 20px;
+  background:#fff;
+  line-height:1.5;
+  h4{
+    padding:10px 0;
+    line-height:2;
+    text-align: center;
+    .fontNormal;
+    color:@red;
+  }
+  p{
+    .fontSmall;
+  }
+  h4+p{
+    padding:10px 0;
+
+  }
+  h4+p+h5{
+    padding-top:20px;
+    font-size:@fontSmall;
+  }
+  h5~p{
+    margin:20px 0;
+    text-align: justify;
+  }
+  h5.i-read{
+    padding-bottom:20px;
+  }
+  .sign{
+    padding-bottom:20px;
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height:32px;
+    line-height:32px;
+  }
+  .i-check{
+    .fontSmall;
+    padding-bottom:20px;
+    font-weight:normal;
+    color:@red;
+  }
+  label {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    line-height:36*@one;
+
+    input {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+    .box {
+      display: block;
+      margin-right: 10px;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      width: 36*@one;
+      height: 36*@one;
+      color: #fff;
+      border-radius: @radius;
+    }
+  }
+  input + .box {
+    border: 1px solid @lineGray;
+    background: #fff;
+  }
+  input:checked + .box {
+    border: 1px solid @red;
+    background: @red url(/mobile/img/icon_right_s.png) center center no-repeat;
+    background-size: 100% 100%;
+  }
+}
