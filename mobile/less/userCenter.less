@@ -830,3 +830,143 @@ footer{
     color:@darkRed;
   }
 }
+
+
+
+
+
+/*用户中心-意见反馈*/
+.userCenterFeedback{
+  box-sizing: border-box;
+  padding-top:110*@one;
+  .tabs{
+    position:fixed;
+    top:0;
+    width:100%;
+
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+
+    height:90 * @one;
+
+    .fontSmall;
+
+    background:#fff;
+
+    .tab{
+
+      box-sizing: border-box;
+
+      width:140 * @one;
+      min-width:60px;
+      height:90 * @one;
+
+      line-height:86 * @one;
+      text-align: center;
+      &.on:after{
+        content:'';
+        display:block;
+        width:140 * @one;
+        height:4 * @one;
+        background:@darkRed;
+        box-shadow: 0 1px 4px 0 @darkRed;
+      }
+    }
+  }
+  .contents{
+    .content{
+      display:none;
+      &.on{
+        display:block;
+      }
+    }
+  }
+}
+.userCenterFeedbackBox{
+  .box{
+    padding:30*@one 25*@one 40*@one;
+    background:#fff;
+  }
+  input{
+    padding:30*@one 25*@one;
+
+    box-sizing: border-box;
+
+    width:700*@one;
+    height:96*@one;
+    border:1px solid @lineGray;
+    border-radius:5px;
+  }
+  input::-webkit-input-placeholder{
+    color:#757575;
+  }
+
+  .textBox{
+    padding:30*@one 25*@one;
+
+    box-sizing: border-box;
+
+    width:700*@one;
+    height:640*@one;
+    border:1px solid @lineGray;
+    border-radius:5px;
+
+    outline:none;
+
+    &.placeholder{
+      color:#757575;
+    }
+  }
+  .button{
+    margin:0 auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    width:480*@one;
+    height:90*@one;
+    background:@darkRed;
+    border-radius:5px;
+    font-weight:bold;
+    color:#fff;
+  }
+}
+.myFeedbackRecord{
+  .record{
+    margin-bottom:20*@one;
+    background:#fff;
+  }
+  .question,.answer{
+    display:flex;
+    justify-content: space-between;
+
+    padding-left:40*@one;
+    padding-bottom:24*@one;
+    p:nth-child(2){
+      .fontSmall;
+      color:@fontGray;
+    }
+  }
+  img{
+    padding-top:30*@one;
+    width:36*@one;
+    height:36*@one;
+  }
+  .substance{
+    width:600*@one;
+    padding-top:15*@one;
+    padding-right:40*@one;
+    p{
+      line-height:2;
+    }
+  }
+  .question{
+    p:nth-child(1){
+      font-weight:bold;
+    }
+  }
+  .answer>.substance{
+    border-top:1px solid @lineGray;
+  }
+}
