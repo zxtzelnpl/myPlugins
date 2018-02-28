@@ -4,6 +4,16 @@
 
 # IntelliJ project files
 .idea
+node_modules/
+/public/*.*
+/public/images/*.*
+!/public/images/1.jpg
+
+
+/public/css/*.*
+
+# IntelliJ project files
+.idea
 *.iml
 out
 gen

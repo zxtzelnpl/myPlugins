@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASCII</title>
+    <link rel="stylesheet" href="../../node_modules/normalize.css/normalize.css">
+    <style>
+        ul{
+            margin:0;
+            padding:0;
+            float:left;
+            width:100px;
+            list-style: none;
+            text-align: center;
+        }
+        li{
+            box-sizing: border-box;
+            width:100px;
+            height:32px;
+            line-height:30px;
+            border:1px solid black;
+            cursor:pointer;
+        }
+        li:hover{
+            background: red;
+        }
+        li.transform{
+            background:green;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul id="num">
+        <li>num</li>
+    </ul>
+    <ul id="show1">
+        <li>show1</li>
+    </ul>
+    <ul id="escape">
+        <li>escape</li>
+    </ul>
+    <ul id="encodeURI">
+        <li>encodeURI</li>
+    </ul>
+    <ul id="encodeURIComponent">
+        <li>encodeURIComponent</li>
+    </ul>
+</div>
+
+</body>
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="ASCII.js"></script>
+</html>

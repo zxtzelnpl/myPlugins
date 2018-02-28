@@ -1,0 +1,135 @@
+@keyframes snow_falling_mid {
+  0% {
+    top: -100%;
+    opacity: 0
+  }
+  1% {
+    top: -100%;
+    opacity: 1
+  }
+  99.8% {
+    top: 100%;
+    opacity: 1
+  }
+  99.9% {
+    opacity: 0
+  }
+  100% {
+    top: -100%;
+    opacity: 0
+  }
+}
+@keyframes snow_falling_fore {
+  0% {
+    top: -100%;
+    opacity: 0
+  }
+  1% {
+    top: -100%;
+    opacity: 1
+  }
+  99.8% {
+    top: 100%;
+    opacity: 1
+  }
+  99.9% {
+    opacity: 0
+  }
+  100% {
+    top: -100%;
+    opacity: 0
+  }
+}
+.fader{
+  transition: opacity 1s ease-out;
+  opacity: 0;
+}
+#snow_ctnr{
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  overflow: hidden;
+  opacity: 1;
+  z-index: 1;
+}
+.snow_fall {
+  -webkit-transform-origin: 0% 0%;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  transform-origin: 0% 0%;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.snow_dom_slice {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 600px;
+}
+.snow_drifter {
+  background-image: url(snow_drifter.png);
+}
+.snow_drifter {
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+}
+
+
+.snow_01 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-duration: 50s;
+  animation-duration: 50s;
+  height: 100%;
+  -webkit-animation-name: snow_falling_fore;
+  animation-name: snow_falling_fore;
+  top: -100%;
+}
+.snow_02 {
+  -webkit-animation-delay: 25s;
+  animation-delay: 25s;
+  -webkit-animation-duration: 50s;
+  animation-duration: 50s;
+  -webkit-animation-name: snow_falling_fore;
+  animation-name: snow_falling_fore;
+  top: -100%;
+  height: 100%;
+}
+.snow_03 {
+  -webkit-animation-delay: 0s;
+  -webkit-animation-duration: 70s;
+  animation-delay: 0s;
+  animation-duration: 70s;
+  opacity: .5;
+  -webkit-animation-name: snow_falling_mid;
+  animation-name: snow_falling_mid;
+  top: -100%;
+  height: 100%;
+}
+.snow_04 {
+  -webkit-animation-delay: 35s;
+  -webkit-animation-duration: 70s;
+  animation-delay: 35s;
+  animation-duration: 70s;
+  opacity: .5;
+  -webkit-animation-name: snow_falling_mid;
+  animation-name: snow_falling_mid;
+  top: -100%;
+  height: 100%;
+}
+.drift_01 {
+  background-position: 10% 20%;
+}
+.drift_02 {
+  background-position: 40% 60%;
+}
+.drift_03 {
+  background-position: 90% 10%;
+}
+.drift_04 {
+  background-position: 50% 15%;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Margin折叠</title>
+    <style>
+        .div1, .div2 {
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        .div2{
+            border:1px dashed red;
+        }
+        button {
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">
+
+</div>
+<div class="div2">
+
+</div>
+<div>
+    <label for="input1">上一个DIV的margin-bottom:<input id="input1" type="number"></label>
+    <label for="input2">下一个DIV的margin-top:<input id="input2" type="number"></label>
+</div>
+
+<div>
+    <button id="btn1">按钮</button>
+</div>
+
+<div>
+    <p>两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值</p>
+    <p>两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值</p>
+    <p>两个外边距一正一负时，折叠结果是两者的相加的和</p>
+</div>
+
+</body>
+<script>
+  var div1 = document.querySelector('.div1');
+  var div2 = document.querySelector('.div2');
+  var input1 = document.querySelector('#input1');
+  var input2 = document.querySelector('#input2');
+  var btn1 = document.querySelector('#btn1');
+
+
+  btn1.addEventListener('click', function () {
+    var str1 = input1.value;
+    var str2 = input2.value;
+    div1.style.marginBottom = str1 + 'px';
+    div2.style.marginTop = str2 + 'px';
+  });
+
+</script>
+</html>
