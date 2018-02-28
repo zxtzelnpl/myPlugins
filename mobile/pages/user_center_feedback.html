@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>意见反馈</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" href="/mobile/css/userCenter.css">
+</head>
+<body>
+<form>
+    <div class="container userCenterFeedback">
+        <div class="tabs" id="tabs">
+            <div class="tab on">我的反馈</div>
+            <div class="tab">提交反馈</div>
+        </div>
+        <div class="contents">
+            <div class="content on">
+                <div class="myFeedbackRecord">
+                    <div class="record">
+                        <div class="question">
+                            <img src="/mobile/img/userCenter/icon_myfeedback_q.png" alt="">
+                            <div class="substance">
+                                <p>为什么我打字的内容是反过来的，两个星期都没给解决？</p>
+                                <p>2017-01-17 09:32:20</p>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <img src="/mobile/img/userCenter/icon_myfeedback_a.png" alt="">
+                            <div class="substance">
+                                <p>尊敬的客户您好！非常抱歉，由于我们技术上出现错误，现在已解决此类问题。</p>
+                                <p>2017-01-17 09:32:20</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="record">
+                        <div class="question">
+                            <img src="/mobile/img/userCenter/icon_myfeedback_q.png" alt="">
+                            <div class="substance">
+                                <p>为什么我打字的内容是反过来的，两个星期都没给解决？</p>
+                                <p>2017-01-17 09:32:20</p>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <img src="/mobile/img/userCenter/icon_myfeedback_a.png" alt="">
+                            <div class="substance">
+                                <p>尊敬的客户您好！非常抱歉，由于我们技术上出现错误，现在已解决此类问题。</p>
+                                <p>2017-01-17 09:32:20</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="record">
+                        <div class="question">
+                            <img src="/mobile/img/userCenter/icon_myfeedback_q.png" alt="">
+                            <div class="substance">
+                                <p>为什么我打字的内容是反过来的，两个星期都没给解决？</p>
+                                <p>2017-01-17 09:32:20</p>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <img src="/mobile/img/userCenter/icon_myfeedback_a.png" alt="">
+                            <div class="substance">
+                                <p>尊敬的客户您好！非常抱歉，由于我们技术上出现错误，现在已解决此类问题。</p>
+                                <p>2017-01-17 09:32:20</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="userCenterFeedbackBox">
+                    <div class="box">
+                        <input type="text" placeholder="请输入标题...">
+                        <div class="blank-h-10"></div>
+                        <div class="textBox placeholder" contenteditable="true" id="textBox">请输入内容...</div>
+                    </div>
+                    <div class="blank-h-40"></div>
+                    <div class="button">
+                        提交
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+<script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
+<script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<script>
+    $(function () {
+        /**
+         * Tab切换
+         */
+        $('#tabs').click(function (e) {
+            var tab = e.target;
+            if (tab.className === 'tab') {
+                var index = $(tab).index();
+                $(tab).addClass('on').siblings().removeClass('on');
+                $('.content').eq(index).addClass('on').siblings().removeClass('on')
+            }
+        });
+
+        /**
+         * 文本输入框点击模拟placeholder效果
+         */
+        $('#textBox').focus(function(e){
+            var $this = $(this);
+            var text = $.trim($this.html());
+            if(text==='请输入内容...'){
+                $this.html('').removeClass('placeholder');
+            }
+        })
+    })
+</script>
+</html>

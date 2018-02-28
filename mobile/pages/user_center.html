@@ -6,13 +6,95 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
     <link rel="stylesheet" href="/mobile/css/userCenter.css">
 </head>
 <body>
 <form>
     <div class="container userCenter">
+        <div class="userCard">
+            <div class="userInfo">
+                <img src="/mobile/img/userCenter/icon_tx_woman.png" />
+                <!--如果用户性别是男性，则图片为男性图片-->
+                <!--<img src="/mobile/img/userCenter/icon_tx_man.png" />-->
+                <div class="info">
+                    <p>田雨橙</p>
+                    <p>150215359360</p>
+                </div>
+            </div>
+            <div class="productInfo">
+                <a class="points">
+                    <div class="info">
+                        <p>425</p>
+                        <p>我的积分</p>
+                    </div>
+                    <img class="link" src="/mobile/img/userCenter/icon_into.png" />
+                </a>
+                <div class="shortLine"></div>
+                <a class="products">
+                    <div class="info">
+                        <p>8</p>
+                        <p>我的产品</p>
+                    </div>
+                    <img class="link" src="/mobile/img/userCenter/icon_into.png" />
+                </a>
+            </div>
+        </div>
 
+        <div class="blank-h-20"></div>
+
+        <ul class="centerMenus">
+            <li>
+                <a>
+                    我的协议
+                    <img src="/mobile/img/userCenter/icon_into.png" />
+                </a>
+            </li>
+            <li>
+                <a>
+                    适当性调查
+                    <img src="/mobile/img/userCenter/icon_into.png" />
+                </a>
+            </li>
+            <li>
+                <a>
+                    风险揭示
+                    <img src="/mobile/img/userCenter/icon_into.png" />
+                </a>
+            </li>
+            <li>
+                <a>
+                    我的兑换
+                    <img src="/mobile/img/userCenter/icon_into.png" />
+                </a>
+            </li>
+            <li>
+                <a>
+                    意见反馈
+                    <img src="/mobile/img/userCenter/icon_into.png" />
+                </a>
+            </li>
+            <li>
+                <a>
+                    投诉电话
+                    <img src="/mobile/img/userCenter/icon_into.png" />
+                </a>
+            </li>
+        </ul>
+
+        <footer>
+            <a class="footer_icon">
+                <img src="" alt="">
+                <p>实盘播报</p>
+            </a>
+            <a class="footer_icon choice">
+                <img src="" alt="">
+                <p>个人中心</p>
+            </a>
+        </footer>
     </div>
 </form>
 </body>
+<script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
+<script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
 </html>
