@@ -5,22 +5,11 @@
 # IntelliJ project files
 .idea
 node_modules/
-/public/*.*
-/public/images/*.*
-!/public/images/1.jpg
-
-
-/public/css/*.*
-
-# IntelliJ project files
-.idea
-*.iml
 out
 gen
 node_modules
 mobile/libs
 mobile/css
 mobile.rar
-_windows
 codestyles
 ignore.xml
