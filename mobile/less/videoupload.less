@@ -1,0 +1,75 @@
+@import "consts/index.less";
+.material-upload{
+
+}
+.prompt{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding:40*@one;
+  min-height:160px;
+  line-height:1.75;
+  h4{
+    margin-bottom: 5px;
+    color:@red;
+  }
+  p{
+    font-weight:bold;
+    text-align: justify;
+    word-break:break-all;
+    .red{
+      color:@red;
+    }
+  }
+}
+.video{
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  box-sizing: border-box;
+  padding:40*@one 55*@one;
+  height:280*@one;
+  background:#fff;
+  .show-video{
+    margin-right:20*@one;
+    display:none;
+    width:200*@one;
+    height:200*@one;
+    background:#000;
+  }
+  .upload-video{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:200*@one;
+    height:200*@one;
+    background:@bgGray;
+    overflow: hidden;
+    input{
+      display:block;
+      width:0;
+      height:0;
+      visibility: hidden;
+    }
+    img{
+      display:block;
+      width:72*@one;
+      height:72*@one;
+    }
+    span{
+      font-size:@fontSmall;
+    }
+  }
+}
+
+.btn{
+  .button();
+  background:@componentGray;
+  &.active{
+    background:@red;
+  }
+}

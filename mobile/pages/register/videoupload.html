@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资料上传</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" href="/mobile/css/videoupload.css">
+</head>
+<body>
+<form>
+    <div class="container material-upload">
+        <div class="prompt">
+            <h4>视频录音文字</h4>
+            <p>本人<span>田雨橙</span>，身份证号码：<span>311111111111111111</span>，在<span class="red">君银投顾</span>对其投资顾问已作充分说明及风险揭示后，清楚投资顾问服务大的定位，对协议上的所有条款均确认无误并资源签订协议。
+            </p>
+        </div>
+
+        <div class="video">
+            <div class="show-video" id="videoShow"></div>
+            <label class="upload-video">
+                <input id="videoFile" type="file" accept="video/*">
+                <img src="/mobile/img/icon_sc_video.png" alt="">
+                <span>视频</span>
+            </label>
+        </div>
+
+        <div class="blank-h-30"></div>
+
+        <div class="btn" id="btn">提交</div>
+    </div>
+</form>
+</body>
+<script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
+<script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<script>
+  function toast(message){
+      $.toast({
+        text: message,
+        allowToastClose: false,
+        showHideTransition: 'slide',
+        position: 'bottom-center',
+        hideAfter: 1500,
+        stack: false,
+        textAlign: 'center',
+        loader: false
+      })
+    }
+  $(function () {
+    var videoFile = $('#videoFile')
+        , btn = $('#btn')
+
+
+    videoFile.change(function (e) {
+      var file = e.target.files[0]
+      if (file.size > 0) {
+        $('#videoShow').show()
+        btn.addClass('active')
+      }
+    })
+
+    btn.click(function () {
+      console.log(btn)
+      if (btn.hasClass('active')) {
+        var sizeLimit = 1024 * 1024 * 60
+        var file = videoFile[0].files[0]
+        if (file.size > sizeLimit) {
+          toast('上传视频不能大于60M')
+        }
+        else {
+          toast('视频上传中请耐心等待')
+
+          /**
+           * 这边需要上传代码
+           * */
+        }
+      }
+      else {
+        toast('请先上传视频')
+      }
+
+    })
+
+
+  })
+</script>
+</html>

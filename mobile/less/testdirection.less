@@ -1,0 +1,53 @@
+@import "consts/index.less";
+.test-direction{
+
+
+}
+.content{
+  padding:10px 12px 24px;
+  background:#fff;
+
+  .logo{
+    width:200*@one;
+    height:48*@one;
+    img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+  }
+
+  h3{
+    font-size:@fontH3;
+    text-align: center;
+  }
+  .line{
+    margin:10px auto;
+    width:24px;
+    height:1px;
+    background:@lineGray;
+  }
+  .subtitle{
+    text-align: center;
+    color:@fontGray;
+    .fontSmall;
+  }
+  .text{
+    margin-top:20px;
+    line-height:1.5;
+    text-align: justify;
+    .fontSmall;
+  }
+  .warning{
+    margin-top:10px;
+    line-height:2;
+    text-align: justify;
+    .fontSmall;
+    font-weight:bold;
+  }
+}
+
+.btn{
+  .button();
+  background:@red;
+}

@@ -1,0 +1,133 @@
+@import "consts/index.less";
+@mainColor:#e15d4f;
+html,body,form{
+  height:100%;
+}
+.sign-progress{
+  height:100%;
+  background:@bgGray;
+}
+
+h4.title{
+  position:relative;
+
+  margin:0 auto;
+  width:220*@one;
+  height:90*@one;
+
+  line-height:90*@one;
+  text-align: center;
+  white-space:nowrap;
+  .fontNormal;
+  .line{
+    position:absolute;
+    top:44*@one;
+
+    display:block;
+    width:18px;
+    height:1px;
+
+    background:#000;
+    &.before{
+      left:-24px;
+    }
+    &.after{
+      right:-24px;
+    }
+  }
+  .circle{
+    position:absolute;
+    top:40*@one;
+
+    display:block;
+    width:5px;
+    height:5px;
+    border-radius: 50%;
+
+    background:#000;
+    &.before{
+      left:-6px;
+    }
+    &.after{
+      right:-6px;
+    }
+  }
+}
+
+.steps{
+  box-sizing: border-box;
+  padding-bottom:30*@one;
+  height:400*@one;
+  background:#fff;
+
+  p{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin:0 54*@one;
+
+    height:56*@one;
+    line-height:56*@one;
+
+    .circle{
+      margin-right:8px;
+      width:15px;
+      height:15px;
+      border-radius: 50%;
+
+      font-size:8px;
+      line-height:15px;
+      text-align: center;
+      color:#fff;
+
+      background:@red;
+    }
+  }
+}
+
+.prepares{
+  box-sizing: border-box;
+  padding-bottom: 50*@one;
+  height:500*@one;
+
+  background:#fff;
+}
+
+.box{
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  margin:20*@one auto 0;
+  box-sizing: border-box;
+  padding-left:20*@one;
+  width:640*@one;
+  height:160*@one;
+  border:1px solid @lineGray;
+  border-radius: @radius;
+  img{
+    display:block;
+    width:100*@one;
+    height:100*@one;
+  }
+  .text{
+    padding-left:20*@one;
+
+    line-height:1.5;
+    .up{
+      font-weight:bold;
+    }
+    .down{
+      font-size:@fontSmall;
+      color:@fontGray;
+    }
+  }
+}
+
+
+
+.btn{
+  .button();
+  background:@red;
+}

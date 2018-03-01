@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试页面</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" href="/mobile/css/test.css">
+</head>
+<body>
+    <div>
+        userAgent:<span id="userangent" class="red"></span>
+        <hr>
+        screenWidth:<span id="screenWidth" class="red"></span>
+        <hr>
+        document.documentElement.clientWidth:<span id="layoutW" class="red"></span>
+        <hr>
+        document.documentElement.clientHeight :<span id="layoutH" class="red"></span>
+        <hr>
+        window.innerWidth:<span id="visualW" class="red"></span>
+        <hr>
+        window.innerHeight :<span id="visualH" class="red"></span>
+    </div>
+</body>
+<script src="../libs/jquery/dist/jquery.min.js"></script>
+<script src="../libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<script>
+    $('#userangent').html(navigator.userAgent)
+    $('#screenWidth').html(window.screen.width)
+    $('#screenHeight').html(window.screen.height)
+
+    $('#layoutW').html(document.documentElement.clientWidth)
+    $('#layoutH').html(document.documentElement.clientHeight)
+
+    $('#visualW').html(window.innerWidth)
+    $('#visualH').html(window.innerHeight)
+
+
+</script>
+</html>

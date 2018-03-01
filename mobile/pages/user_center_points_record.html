@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>积分记录</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" href="/mobile/css/userCenter.css">
+</head>
+<body>
+<form>
+    <div class="container userCenterPointsRecord">
+        <div class="pointsOneLine">
+            <span>425</span>
+            <span>积分</span>
+        </div>
+        <div class="blank-h-10"></div>
+        <ul class="pointsRecord" id="pointsRecord">
+            <li>
+                <div>
+                   <p>
+                       <span>签到成功</span>
+                       <span>+5</span>
+                   </p>
+                   <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>兑换一周服务</span>
+                        <span>-300</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>
+                        <span>签到成功</span>
+                        <span>+5</span>
+                    </p>
+                    <p>2018-02-22</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</form>
+</body>
+<script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
+<script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<script>
+    $(function(){
+        /**
+         * 所有的负值的颜色边成深红色
+         */
+        $('#pointsRecord').find('p>span:last-child').each(function(index,span){
+            var text = $(span).text();
+            if(text.indexOf('-')>-1){
+                $(span).addClass('darkRed');
+            }
+        })
+    })
+</script>
+</html>

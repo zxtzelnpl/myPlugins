@@ -1,0 +1,35 @@
+@import "consts/index.less";
+.success-page{
+  .success{
+    img{
+      margin:0 auto;
+      display:block;
+      width:160*@one;
+      height:160*@one;
+    }
+  }
+  h3{
+    height:80*@one;
+    line-height:80*@one;
+    .fontBig;
+    text-align: center;
+  }
+  .line{
+    margin:7px auto;
+    width:24px;
+    height:1px;
+    background:@lineGray;
+  }
+  p{
+    font-size:@fontSmall;
+    line-height: 2;
+    text-align: center;
+  }
+  .blank-success-page{
+    height:200px;
+  }
+  .btn{
+    .button();
+    background:@red;
+  }
+}

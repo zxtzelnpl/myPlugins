@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" href="/mobile/css/personalinfo.css">
+    <script src="/mobile/javascript/compatibility.js"></script>
+</head>
+<body>
+<form>
+    <div class="container personal-info">
+
+        <div class="blank-h-10"></div>
+
+        <div class="info">
+            <div class="box">
+                <label for="certificate" class="label">
+                    身份证：
+                </label>
+                <input class="ipt" id="certificate" type="text" placeholder="请填写"/>
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="name" class="label">
+                    姓名：
+                </label>
+                <input class="ipt" id="name" type="text" placeholder="请填写"/>
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="phone" class="label">
+                    手机号：
+                </label>
+                <input class="ipt" id="phone" type="number" placeholder="请填写"/>
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="sex" class="label">
+                    性别：
+                </label>
+                <select class="ipt" name="sex" id="sex">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+            <div class="blank-h-10"></div>
+            <!--<label class="box">
+                <span class="label">
+                    证件有效期：
+                </span>
+                <input class="ipt" name="validDate" id="validDate" type="date"/>
+                <span class="cover">请填写</span>
+            </label>-->
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="naturePerson" class="label">
+                    <p>实际控制投资</p>
+                    <p>者的自然人：</p>
+                </label>
+                <input class="ipt" id="naturePerson" type="text" placeholder="请填写"/>
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="benifitPerson" class="label">
+                    交易受益人：
+                </label>
+                <input class="ipt" id="benifitPerson" type="text" placeholder="请填写"/>
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="job" class="label">
+                    职业：
+                </label>
+                <input class="ipt" id="job" type="text" placeholder="请填写"/>
+                <!--<select class="ipt placeholder" name="job" id="job">
+                    <option value="" selected>请选择</option>
+                    <option value="职员">职员</option>
+                    <option value="老师">老师</option>
+                    <option value="公务员">公务员</option>
+                    <option value="律师">律师</option>
+                    <option value="工人">工人</option>
+                    <option value="医生">医生</option>
+                    <option value="警察">警察</option>
+                    <option value="企业主">企业主</option>
+                    <option value="个体户">个体户</option>
+                    <option value="记者">记者</option>
+                    <option value="自由职业">自由职业</option>
+                    <option value="其他">其他</option>
+                </select>-->
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="salary" class="label">
+                    收入区间：
+                </label>
+                <input class="ipt" id="salary" type="text" placeholder="请填写"/>
+                <!--<select class="ipt placeholder" name="salary" id="salary">
+                    <option value="" selected>请选择</option>
+                    <option Value="4000以下">4000以下</option>
+                    <option Value="4000-6000">4000-6000</option>
+                    <option Value="6000-8000">6000-8000</option>
+                    <option value="8000-10000">8000-10000</option>
+                    <option value="10000-12000">10000-12000</option>
+                    <option value="12000-15000">12000-15000</option>
+                    <option value="15000以上">15000以上</option>
+                </select>-->
+            </div>
+            <div class="blank-h-10"></div>
+            <div class="box">
+                <label for="address" class="label">
+                    联系地址：
+                </label>
+                <textarea class="ipt" id="address" type="text" placeholder="请填写"></textarea>
+            </div>
+        </div>
+
+        <div class="blank-h-10"></div>
+
+        <div class="bad-record">
+            <p class="title">是否有来源以下机构的不良诚信记录</p>
+            <div class="blank-h-15"></div>
+            <div class="box">
+                <label class="oneline">
+                    <input type="checkbox" id="peopleBank" value="中国人民银行征信中心" disabled>
+                    <span class="checkbox"></span>
+                    <span class="text">中国人民银行征信中心</span>
+                </label>
+            </div>
+            <div class="blank-h-20"></div>
+            <div class="box">
+                <label class="oneline">
+                    <input type="checkbox" id="peopleCourt" value="最高人民法院失信被执行名单" disabled>
+                    <span class="checkbox"></span>
+                    <span class="text">最高人民法院失信被执行名单</span>
+                </label>
+            </div>
+            <div class="blank-h-20"></div>
+            <div class="box">
+                <label class="oneline">
+                    <input type="checkbox" id="commerce" value="工商行政管理机构" disabled>
+                    <span class="checkbox"></span>
+                    <span class="text">工商行政管理机构</span>
+                </label>
+            </div>
+            <div class="blank-h-20"></div>
+            <div class="box">
+                <label class="oneline">
+                    <input type="checkbox" id="taxManagement" value="税务管理机构" disabled>
+                    <span class="checkbox"></span>
+                    <span class="text">税务管理机构</span>
+                </label>
+            </div>
+            <div class="blank-h-20"></div>
+            <div class="box">
+                <label class="oneline">
+                    <input type="checkbox" id="organization" value="监管机构，自律组织" disabled>
+                    <span class="checkbox"></span>
+                    <span class="text">监管机构，自律组织</span>
+                </label>
+            </div>
+            <div class="blank-h-20"></div>
+            <div class="box">
+                <label class="oneline">
+                    <input type="checkbox" id="mechanism" value="投资者在证券经营机构的失信记录" disabled>
+                    <span class="checkbox"></span>
+                    <span class="text">投资者在证券经营机构的失信记录</span>
+                </label>
+            </div>
+            <div class="blank-h-20"></div>
+            <div class="box">
+                <label class="oneline">
+                    <input type="checkbox" id="other_org" value="其他组织" disabled>
+                    <span class="checkbox"></span>
+                    <span class="text">其他组织</span>
+                </label>
+            </div>
+            <div class="blank-h-20"></div>
+            <div class="box">
+                <label class="oneline">
+                    <input type="checkbox" id="nobadrecords" checked="checked">
+                    <span class="checkbox"></span>
+                    <span class="text">无</span>
+                </label>
+            </div>
+            <div class="blank-h-20"></div>
+            <div class="box others">
+                <label>
+                    <input type="checkbox" id="ihavebadrecord" disabled>
+                    <span class="checkbox"></span>
+                    <span class="text">有</span>
+                </label>
+                <textarea name="other_bad_record" id="other_bad_record" disabled></textarea>
+            </div>
+            <div class="blank-h-20"></div>
+            <div class="box">
+                <label class="">
+                    <input type="checkbox" id="iswear" checked="checked">
+                    <span class="checkbox"></span>
+                    <span class="text">本人在此郑重承诺以上填写的内容真实、准确、完整，贵公司有权查并要求本人提供相关证明材料或通过合法途径获取本人相关信息综合评定本人最终的风险承受能力测评等级。若本人提供的信息发生任何重大变化，本人将及时书面通知贵公司，以上信息确认无误。</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="blank-h-30"></div>
+
+        <div class="btn" id="sub">
+            下一步
+        </div>
+
+        <div class="blank-h-40"></div>
+    </div>
+</form>
+</body>
+<script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
+<script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<script>
+    /**自定义的提示框**/
+    function toast(message) {
+        $.toast({
+            text: message,
+            allowToastClose: false,
+            showHideTransition: 'slide',
+            position: 'bottom-center',
+            hideAfter: 1500,
+            stack: false,
+            textAlign: 'center',
+            loader: false
+        })
+    }
+
+    $(function () {
+        var inputs = $('.ipt'),
+            /**checkbox*/
+            nobadrecords = $('#nobadrecords'),
+            ihavebadrecord = $('#ihavebadrecord'),
+            other_bad_record = $('#other_bad_record'),
+            iswear = $('#iswear'),
+            /**input[type=data]的遮罩层**/
+            cover = $('.cover'),
+            /**提交按钮*/
+            sub = $('#sub');
+
+
+        /**检查-所有用户信息**/
+        function allInfoCheck() {
+            var flag = Array.prototype.every.call(inputs, function (input, index) {
+                return input.value !== ''
+            })
+            return flag
+        }
+
+        /**检查-无不良信用记录**/
+        function hasNoBadRecord() {
+            return nobadrecords[0].checked
+        }
+
+        /**检查-本人同意选择框**/
+        function swearCheck() {
+            return iswear[0].checked
+        }
+
+        /**检查所有-确定是否可以点击**/
+        function activeCheck(e) {
+            var sub = $('#sub');
+            if (typeof e !== 'undefined') {
+                console.log(e.target)
+                if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'SELECT' || e.target.nodeName === 'TEXTAREA') {
+                    if (e.target.value !== '') {
+                        this.style = '';
+                    }
+                }
+            }
+
+            var swear_check = swearCheck();
+            var info_check = allInfoCheck();
+            var bad_check = hasNoBadRecord();
+
+            if (info_check && swear_check && bad_check) {
+                sub.addClass('active')
+            } else {
+                sub.removeClass('active')
+            }
+        }
+
+        activeCheck()
+
+        /**select值改变的时候改变颜色**/
+        /*$('select').change(function () {
+          var $this = $(this)
+          if ($this.val() !== '') {
+            $this.removeClass('placeholder')
+          }
+          else {
+            $this.addClass('placeholder')
+          }
+        })*/
+        /**cover**/
+        /*cover.click(function () {
+          cover.remove()
+        })*/
+
+        /**点击触发检查-所有用户信息**/
+        inputs.keyup(activeCheck)
+        /**点击触发检查-无不良信用记录**/
+        nobadrecords.click(activeCheck)
+        /**点击触发检查-本人同意选择框**/
+        iswear.click(activeCheck)
+
+        /**有其他不良信用记录**/
+        ihavebadrecord.change(function () {
+            if (this.checked) {
+                other_bad_record.removeAttr('disabled')
+            }
+            else {
+                other_bad_record.attr('disabled', 'disabled')
+            }
+        })
+        other_bad_record.change(function () {
+            ihavebadrecord.val(this.value)
+        });
+
+        /**无不良信用记录**/
+        nobadrecords.change(function () {
+            var otherCheckBoxes = $('.bad-record').find('input[id!="nobadrecords"][id!="iswear"]');
+            if (this.checked) {
+
+                otherCheckBoxes.map(function (index, input) {
+                    input.checked = false;
+                    input.setAttribute('disabled', 'disabled')
+                });
+                other_bad_record.attr('disabled', 'disabled')
+            }
+            else {
+                otherCheckBoxes.removeAttr('disabled')
+            }
+        });
+
+        /**提交按钮**/
+        sub.click(function () {
+            var badrecords = [],
+                info = {},
+                len = inputs.length
+            ;
+
+            /**验证所有的记录信息**/
+            for (var i = 0; i < len; i++) {
+                var input = inputs.eq(i)
+                if (input.val() === '') {
+                    return input.css({'borderColor': 'red'}).focus()
+                }
+            }
+
+            if (!swearCheck()) {
+                return toast('请确认您填的信息真实可靠\n并勾选最后的选择框');
+            }
+
+            /**获取所有的不良记录**/
+            $('input:checked').map(function (index, input) {
+                badrecords.push(input.value)
+            })
+
+            /**do something**/
+
+        });
+    })
+
+</script>
+</html>

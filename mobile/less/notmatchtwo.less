@@ -1,0 +1,54 @@
+@import "consts/index.less";
+.not-match-two{
+  h4{
+    height:100*@one;
+    line-height:100*@one;
+    color:@red;
+    text-align: center;
+    .fontNormal;
+  }
+  .card{
+    height:280*@one;
+    background:#fff;
+    .user-img{
+      display:block;
+      margin:0 auto;
+      padding:30*@one 0;
+      width:100*@one;
+      height:100*@one;
+      img{
+        display:block;
+
+        width:100%;
+        height:100%;
+      }
+    }
+    .user-name{
+      .fontBig;
+      text-align: center;
+    }
+    .line{
+      margin:6px auto;
+      width:24px;
+      height:1px;
+      background:@lineGray;
+    }
+    .certificate{
+      .fontSmall;
+      text-align: center;
+    }
+  }
+  .prompt{
+    padding:20px 20px 10px;
+    .fontSmall;
+    line-height:1.5;
+    background:#fff;
+    h5,p{
+      margin-bottom:10px;
+    }
+  }
+  .btn{
+    .button();
+    background:@red;
+  }
+}

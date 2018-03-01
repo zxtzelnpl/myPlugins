@@ -1,0 +1,349 @@
+/*按钮做了调整*/
+@import "consts/index.less";
+.agreement-signature{
+  padding-top:100 * @one;
+}
+
+.tabs{
+  position:fixed;
+  top:0;
+  width:100%;
+
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+
+  height:100 * @one;
+
+  .fontSmall;
+
+  background:#fff;
+
+  .tab{
+
+    box-sizing: border-box;
+
+    width:140 * @one;
+    min-width:60px;
+    height:100 * @one;
+
+    line-height:96 * @one;
+    text-align: center;
+    &.on:after{
+      content:'';
+      display:block;
+      width:140 * @one;
+      height:4 * @one;
+      background:@red;
+      box-shadow: 0 1px 1px 0 @red;
+    }
+  }
+}
+
+.contents{
+  .content{
+    display:none;
+    &.on{
+      display:block;
+    }
+  }
+}
+
+.result{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin:0 auto;
+
+  width:640* @one;
+  height:626* @one;
+
+  background:url(/mobile/img/icon_jg_bg.png) center center no-repeat;
+  background-size:100% 720 * @one;
+  .card{
+    width:480 * @one;
+    height:560 * @one;
+    .one{
+      height:330 * @one;
+      .user-img{
+        display:block;
+        margin:0 auto;
+        padding:40 * @one 0 30 * @one;
+        width:100 * @one;
+        height:100 * @one;
+        img{
+          display:block;
+
+          width:100%;
+          height:100%;
+        }
+      }
+      .user-name{
+        .fontBig;
+        text-align: center;
+      }
+      .line{
+        margin:6px auto;
+        width:24px;
+        height:1px;
+        background:@lineGray;
+      }
+      .certificate{
+        .fontSmall;
+        text-align: center;
+      }
+    }
+    .two{
+      height:50*@one;
+      h4{
+        position:relative;
+
+        margin:0 auto;
+        width:210*@one;
+        height:50*@one;
+
+        line-height:50*@one;
+        text-align: center;
+        .fontBig;
+        color:@red;
+        .line{
+          position:absolute;
+          top:24*@one;
+
+          display:block;
+          width:18px;
+          height:1px;
+
+          background:@red;
+          &.before{
+            left:-24px;
+          }
+          &.after{
+            right:-24px;
+          }
+        }
+        .circle{
+          position:absolute;
+          top:20*@one;
+
+          display:block;
+          width:5px;
+          height:5px;
+          border-radius: 50%;
+
+          background:@red;
+          &.before{
+            left:-6px;
+          }
+          &.after{
+            right:-6px;
+          }
+        }
+      }
+    }
+    .three{
+      box-sizing: border-box;
+      padding-top:40*@one;
+      height:180*@one;
+      p{
+        line-height:1.5rem;
+        .fontSmall;
+        text-align: center;
+        white-space:nowrap;
+      }
+    }
+  }
+}
+.prompt{
+  position:relative;
+  padding:14px;
+  height:360*@one;
+  background:#fff;
+  &:before {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    display: block;
+    margin-left:-12px;
+    content: "";
+    border: 12px solid transparent;
+    border-bottom-color: #fff;
+  }
+  p{
+    .fontSmall;
+    text-align: justify;
+    line-height:1.2;
+  }
+  .sign{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top:10px;
+
+    height:50px;
+    line-height:50px;
+    img{
+      width:50px;
+      height:50px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.risk-disclosure{
+  padding:0 20px;
+  background:#fff;
+  line-height:1.5;
+  h4{
+    padding:10px 0;
+    line-height:2;
+    text-align: center;
+    .fontNormal;
+    color:@red;
+  }
+  p{
+    .fontSmall;
+  }
+  h4+p{
+    padding:10px 0;
+
+  }
+  h4+p+h5{
+    padding-top:20px;
+    font-size:@fontSmall;
+  }
+  h5~p{
+    margin:20px 0;
+    text-align: justify;
+  }
+  h5.i-read{
+    padding-bottom:20px;
+  }
+  .sign{
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height:64px;
+    line-height:32px;
+  }
+}
+
+.agreement{
+  padding:0 12px;
+  background:#fff;
+  .fontSmall;
+  .head{
+    padding:10px 0;
+    line-height:2;
+    text-align: center;
+    color:@red;
+    p{
+      .fontNormal;
+      font-weight:bold;
+    }
+    span{
+      font-weight:normal
+    }
+  }
+  .partyA,.partyB-personal,.partyB-orgnize{
+    line-height:2;
+  }
+  .top-warning,.warning{
+    text-align: justify;
+    line-height:1.5;
+  }
+  .warning{
+    font-weight:bold;
+  }
+  h5{
+    margin:20px 0;
+    line-height:1.5;
+    .fontSmall;
+  }
+  .text>p {
+    margin: 20px 0;
+    text-align: justify;
+    word-break: break-all;
+    line-height: 1.5;
+  }
+  .red.text>p{
+    margin:10px 0;
+    color:@red;
+  }
+  .sign{
+    line-height: 2;
+    .bold{
+      font-weight:bold;
+    }
+    img{
+      padding:5px 0;
+      width:50px;
+      height:50px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.btnbox{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  height:120 * @one;
+  border-top:1px solid @lineGray;
+
+  background:#fff;
+  .btn{
+    margin: 0 auto;
+    border-radius: @radius;
+    width:480 * @one;
+    height:72 * @one;
+    line-height:72 * @one;
+    .fontNormal;
+    text-align: center;
+    color: #fff;
+    background:@red;
+  }
+}
+
+
+/**此处代码兼容小屏幕手机**/
+@media screen and (max-width: 320px){
+  .result{
+    width:320px;
+    height:313px;
+    background-size:100% 360px;
+    .card{
+      width:240px;
+      height:280px;
+      .one{
+        height:165px;
+        .user-img{
+          padding:20px 0 15px;
+          width:50px;
+          height:50px;
+        }
+      }
+      .two{
+        height:25px;
+        h4{
+          width:105px;
+          height:25px;
+          line-height:25px;
+          .line{
+            top:12px;
+          }
+          .circle{
+            top:10px;
+          }
+        }
+      }
+      .three{
+        padding-top:20px;
+        height:90px;
+      }
+    }
+  }
+}
+

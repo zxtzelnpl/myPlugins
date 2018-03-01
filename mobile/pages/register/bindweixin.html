@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定微信</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/mobile/libs/normalize-css/normalize.css">
+    <link rel="stylesheet" href="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <link rel="stylesheet" href="/mobile/css/bindweixin.css">
+</head>
+<body>
+<form>
+
+    <div class="container bind-weixin">
+        <div class="input-box">
+            <div class="phone">
+                <input type="text" id="phone" placeholder="请输入手机号" maxlength="11"/>
+            </div>
+            <div class="code">
+                <input type="text" id="code" placeholder="请输入验证码" maxlength="4"/>
+                <p class="get-code active" id="getCode">
+                    获取验证码
+                </p>
+            </div>
+        </div>
+
+        <div class="blank-h-20"></div>
+
+        <div class="service-agreement">
+            <label>
+                <input id="agree" name="agree" type="checkbox" checked="checked"/>
+                <span class="box"></span>
+                <span class="i-agree">我同意</span>
+                <span class="agreement">《深圳君银证券投资咨询顾问有限公司服务协议》</span>
+            </label>
+        </div>
+
+        <div class="blank-h-40"></div>
+
+        <div class="bind" id="bind">
+            确认绑定
+        </div>
+    </div>
+    <div id="show">
+
+    </div>
+</form>
+</body>
+<script src="/mobile/libs/jquery/dist/jquery.min.js"></script>
+<script src="/mobile/libs/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<script>
+  $(function () {
+    var bindBtn = $('#bind')            //提交绑定按钮
+        , agree = $('#agree')      //复选框按钮
+        , phoneInput = $('#phone')      //手机号输入
+        , codeInput = $('#code')        //验证码输入
+        , getCodeBtn = $('#getCode')    //获取验证码按钮
+        , getCodeControl = null
+        , count = 60
+
+    /**自定义的提示框**/
+    function toast (message) {
+      $.toast({
+        text: message,
+        allowToastClose: false,
+        showHideTransition: 'slide',
+        position: 'bottom-center',
+        hideAfter: 1500,
+        stack: false,
+        textAlign: 'center',
+        loader: false
+      })
+    }
+
+    /**手机验证函数**/
+    function phoneCheck () {
+      var phone = $.trim(phoneInput.val())
+      var mobile = /^[1][3,4,5,7,8][0-9]{9}$/
+      return mobile.test(phone)
+    }
+
+    /**验证码验证**/
+    function codeCheck () {
+      var code = codeInput.val()
+      return $.trim(code).length === 4
+    }
+
+    /**协议是否改变**/
+    function agreeCheck () {
+      return agree[0].checked
+    }
+
+    /**用户输入手机号**/
+    codeInput.keyup(activeChange)
+    /**用户输入验证码**/
+    codeInput.keyup(activeChange)
+    /**用户点击协议**/
+    agree.change(activeChange)
+
+    /**按钮颜色改变**/
+    function activeChange () {
+      if (!phoneCheck()) {
+        return bindBtn.removeClass('active')
+      }
+      if (!codeCheck()) {
+        return bindBtn.removeClass('active')
+      }
+      if (!agreeCheck()) {
+        return bindBtn.removeClass('active')
+      }
+      bindBtn.addClass('active')
+    }
+
+
+    /**获取验证码**/
+    getCodeBtn.click(function () {
+      if (!phoneCheck()) {
+        return toast('手机号码有误，请重新填写');
+      }
+      if (!getCodeControl) {
+        $.ajax({
+          url: 'http://public.jyzqsh.com/success.json',
+          dataType: 'json',
+          data: {
+            name: 'zxt'
+          },
+          success: function (data) {
+            if (data.state === 'success') {
+              getCodeBtn.removeClass('active')
+              getCodeControl = setInterval(function () {
+                if (count < 0) {
+                  clearInterval(getCodeControl)
+                  getCodeControl = null
+                  count = 60
+                  getCodeBtn.html('获取验证码')
+                  getCodeBtn.addClass('active')
+                }
+                else {
+                  getCodeBtn.html('重新获取（' + count + '）')
+                  count--
+                }
+              }, 1000)
+            }
+            else {
+              var message = data.message || '服务器连接错误，请稍后再试'
+              toast(message)
+            }
+
+          },
+          error: function () {
+            toast('网络连接错误，请稍后重试')
+          }
+        })
+      }
+    })
+
+
+    /**开始提交**/
+    bindBtn.click(function () {
+
+
+      /**如果没有勾选协议**/
+      if (!agreeCheck[0].checked) {
+        return toast('请先认真阅读协议并确认');
+      }
+
+      /**如果手机号码验证没通过**/
+      if (!phoneCheck()) {
+        return toast('手机号码有误请重新填写');
+      }
+
+      /**如果验证码为空**/
+      if (!codeCheck()) {
+        return toast('请填写验证码');
+      }
+
+      /**通过所有验证则开始ajax**/
+      $.ajax({
+        url: 'http://public.jyzqsh.com/succ111ess.json',
+        dataType: 'json',
+        data: {
+          phone: phone,
+          code: code
+        },
+        success: function (data) {
+          if (data.state === 'success') {
+            $.toast({
+              text: '登录成功',
+              allowToastClose: false,
+              showHideTransition: 'slide',
+              position: 'bottom-center',
+              hideAfter: 1500,
+              stack: false,
+              textAlign: 'center',
+              loader: false,
+              bgColor: '#ff515d'
+            })
+          }
+          else {
+            var message = data.message || '服务器连接错误，请稍后再试'
+
+            toast(message)
+          }
+        },
+        error: function () {
+          toast('服务器连接错误，请稍后再试')
+        }
+      })
+    })
+
+
+  })
+</script>
+</html>
