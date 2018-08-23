@@ -1,15 +1,13 @@
-var arr=[]
-for(var i=0;i<5;i++){
-  setTimeout(function(){
-    var j = i ;
-    return function(){
-      console.log(j)
-    }
-  }())
+const s = new Date().getSeconds();
+
+setTimeout(function() {
+  // prints out "2", meaning that the callback is not called immediately after 500 milliseconds.
+  console.log("Ran after " + (new Date().getSeconds() - s) + " seconds");
+}, 500);
+
+while(true) {
+  if(new Date().getSeconds() - s >= 2) {
+    console.log("Good, looped for 2 seconds");
+    break;
+  }
 }
-
-console.log('first',i);
-
-setTimeout(function(){
-  console.log('last',i)
-})

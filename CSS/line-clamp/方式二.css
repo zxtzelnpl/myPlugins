@@ -1,0 +1,6 @@
+.line-clamp{
+    display:block;
+    line-height:1.5;
+    max-height:24px; /*两倍行高*/
+    overflow: hidden;
+}
