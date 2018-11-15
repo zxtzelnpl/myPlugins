@@ -3,26 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!--<style>-->
+    <!--.out{-->
+    <!--background: blue;-->
+    <!--width: 600px;-->
+    <!--height: 300px;-->
+
+    <!--}-->
+    <!--.out:before{-->
+    <!--content:"";-->
+    <!--display:inline-block;-->
+    <!--vertical-align: middle;-->
+    <!--height:100%;-->
+    <!--}-->
+    <!--.in{-->
+    <!--background: yellow;-->
+    <!--width: 200px;-->
+    <!--height: 200px;-->
+    <!--display: inline-block;-->
+    <!--vertical-align: middle;-->
+    <!--}-->
+    <!--</style>-->
+
     <style>
-        #input1{
+        .out {
 
+            position:relative;
+
+            width: 600px;
+            height: 300px;
+            background: blue;
         }
-        #input2{
 
+
+        .in {
+            position:absolute;
+            top:50%;
+            left:50%;
+
+            width: 100px;
+            height: 100px;
+
+            background: yellow;
+
+            transform: translate(-50%,-50%);
         }
     </style>
 </head>
 <body>
-    <input id="input1" type="text">
-    <input id="input2" type="text">
+
+<div class="out">
+    <div class="in">
+
+    </div>
+</div>
+
 </body>
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script>
-    $('#input1').focusout(function(e){
-      alert(e.target.id)
-    });
-    $('#input2').focusout(function(e){
-      alert(e.target.id)
-    })
-</script>
 </html>
